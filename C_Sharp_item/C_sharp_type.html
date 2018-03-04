@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>C# type</title>
+<style type="text/css">
+.ysh1 {
+	text-align: center;
+}
+.ysh3 {font-family: "黑体";
+	font-size: 24px;
+}
+.ysh2 {
+	font-family: "黑体";
+	font-size: 18px;
+}
+.ysh21 {font-family: "黑体";
+}
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+a:active {
+	text-decoration: none;
+}
+</style>
+</head>
+
+<body class="ysh1">
+<p><img src="../images/C_sharp_item_top3.jpg" width="1000" height="53" alt="C_Sharp_item_top3" /></p>
+<table width="1000" border="0" align="center">
+  <tr>
+    <td width="150" height="30" align="center" bgcolor="#CCCCFF"><span class="ysh3">知识模块</span></td>
+    <td width="850" height="30" align="center" bgcolor="#FFFFCC"><span class="ysh3">C # type</span></td>
+  </tr>
+  <tr>
+    <td width="150" rowspan="5"><table width="140" border="0" align="center">
+      <tr>
+        <td align="center"><a href="basic_knowledge.html">常用知识</a></td>
+      </tr>
+      <tr>
+        <td align="center"><a href="C_sharp_language.html">常用函数</a></td>
+      </tr>
+      <tr>
+        <td align="center"><a href="C_sharp_type.html">类型</a></td>
+      </tr>
+      <tr>
+        <td align="center"><a href="keyword.html">关键字</a></td>
+      </tr>
+      <tr>
+        <td align="center"><a href="ArraysAndCollections.html">数组与集合</a></td>
+      </tr>
+      <tr>
+        <td align="center"><a href="C_sharp_string.html">String类型</a></td>
+      </tr>
+    </table></td>
+    <td align="left"><span class="ysh2">1.用string类型定义的变量可以直接赋值字符串，string a = &quot;12345&quot;,也可以直接比较</span></td>
+  </tr>
+  <tr>
+    <td width="850" align="left"><span class="ysh2">2.值类型包括：数值类型、布尔类型、字符类型 </span></td>
+  </tr>
+  <tr>
+    <td width="850" align="left"><span class="ysh2">3.布尔类型：只有true和false两个值，关键字为bool，计算机中占4个字节（4B），即32位存储控件，但是不能用&quot;0&quot;和&quot;1&quot;代替。</span></td>
+  </tr>
+  <tr>
+    <td width="850" align="left"><span class="ysh2">4.字符类型:保存单个字符，关键字为char,每个字符对象与Unicode字符集中的字符对应，赋值时用单引号</span></td>
+  </tr>
+  <tr>
+    <td width="850" align="left"><span class="ysh2">5.引用类型：在C#预定义的类型中，属于引用类型的有对象(object)类型和字符串(string)类型</span></td>
+  </tr>
+  <tr>
+    <td width="150">&nbsp;</td>
+    <td width="850" align="left"><span class="ysh2">6.object类型：所有其它类型的基类型，所以可以把任何类型的值赋值给它</span></td>
+  </tr>
+  <tr>
+    <td width="150">&nbsp;</td>
+    <td width="850" align="left"><span class="ysh2">7.string类型：是一种特别的引用字符，通过复制实现对其的赋值。</span></td>
+  </tr>
+  <tr>
+    <td width="150">&nbsp;</td>
+    <td width="850" align="left"><span class="ysh2">8.字符串类型的特性：<br />
+a.不可变性---当你给字符串变量重新赋值的时候，老值并没有销毁，而是重新开辟一块空间存储。<br />
+b.字符串可以看作是char类型的一个只读数组</span></td>
+  </tr>
+  <tr>
+    <td width="150">&nbsp;</td>
+    <td width="850" align="left" class="ysh2">9.类型的转换有两种：隐式转换、显示转换<br />
+      隐式转换：需要转换的类型位数小于等于目标类型位数，系统自动进行转换。<br />
+      显示转换：需要转换的类型大于目标类型的位数，此时需要人为的操作才能转换正确。</td>
+  </tr>
+  <tr>
+    <td width="150">&nbsp;</td>
+    <td width="850" align="left" class="ysh2">10.类型转换也可以用Convert方法，格式：Convert.方法()；进行转化。也可以格式：标识符.方法()；<br />
+      也可以用int.parse();</td>
+  </tr>
+  <tr>
+    <td width="150">&nbsp;</td>
+    <td width="850" align="left" class="ysh2">11.StringBuilder类型的使用<br />
+      a.引入命名空间System.Text：  using System.Text;<br />
+      b.通过new关键字初始化：  StringBuilder mystr = new StringBuilder(字符串);<br />
+      c.使用时和string类型一样</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="1000" border="0" align="center">
+  <tr>
+    <td height="30" colspan="4" align="center" bgcolor="#FF99FF" class="ysh2">整数类型</td>
+  </tr>
+  <tr>
+    <td width="150" height="30" align="center" bgcolor="#0099FF" class="ysh2">数据类型</td>
+    <td width="300" height="30" align="center" bgcolor="#0099FF" class="ysh2">类型说明</td>
+    <td width="300" height="30" align="center" bgcolor="#0099FF" class="ysh2">取值范围</td>
+    <td width="250" height="30" align="center" bgcolor="#0099FF" class="ysh2">对应在System程序集中的结构</td>
+  </tr>
+  <tr>
+    <td width="150" align="center" bgcolor="#CCCCCC" class="ysh2">sbyte</td>
+    <td width="300" align="center" bgcolor="#FFCCCC" class="ysh2">有符号8位整数</td>
+    <td width="300" align="center" bgcolor="#FFCC99" class="ysh2">-128 ----- 127</td>
+    <td width="250" align="center" bgcolor="#FFFF99" class="ysh2">SByte</td>
+  </tr>
+  <tr>
+    <td width="150" align="center" bgcolor="#CCCCCC" class="ysh2">byte</td>
+    <td width="300" align="center" bgcolor="#FFCCCC" class="ysh2">无符号8位整数</td>
+    <td width="300" align="center" bgcolor="#FFCC99" class="ysh2">0 ----- 255</td>
+    <td width="250" align="center" bgcolor="#FFFF99" class="ysh2">Byte</td>
+  </tr>
+  <tr>
+    <td width="150" align="center" bgcolor="#CCCCCC" class="ysh2">short</td>
+    <td width="300" align="center" bgcolor="#FFCCCC" class="ysh2">有符号16位整数</td>
+    <td width="300" align="center" bgcolor="#FFCC99" class="ysh2">-32768 ----- 32767</td>
+    <td width="250" align="center" bgcolor="#FFFF99" class="ysh2">Int16</td>
+  </tr>
+  <tr>
+    <td width="150" align="center" bgcolor="#CCCCCC" class="ysh2">ushort</td>
+    <td width="300" align="center" bgcolor="#FFCCCC" class="ysh2">无符号16位整数</td>
+    <td width="300" align="center" bgcolor="#FFCC99" class="ysh2">0 ----- 65535</td>
+    <td width="250" align="center" bgcolor="#FFFF99" class="ysh2">UInt16</td>
+  </tr>
+  <tr>
+    <td width="150" align="center" bgcolor="#CCCCCC" class="ysh2">int</td>
+    <td width="300" align="center" bgcolor="#FFCCCC" class="ysh2">有符号32位整数</td>
+    <td width="300" align="center" bgcolor="#FFCC99" class="ysh2">-2147489648 ----- 2147483647</td>
+    <td width="250" align="center" bgcolor="#FFFF99" class="ysh2">Int32</td>
+  </tr>
+  <tr>
+    <td width="150" align="center" bgcolor="#CCCCCC" class="ysh2">uint</td>
+    <td width="300" align="center" bgcolor="#FFCCCC" class="ysh2">无符号32位整数</td>
+    <td width="300" align="center" bgcolor="#FFCC99" class="ysh2">0 ----- 42994967295</td>
+    <td width="250" align="center" bgcolor="#FFFF99" class="ysh2">UInt32</td>
+  </tr>
+  <tr>
+    <td width="150" align="center" bgcolor="#CCCCCC" class="ysh2">long</td>
+    <td width="300" align="center" bgcolor="#FFCCCC" class="ysh2">有符号64位整数</td>
+    <td width="300" align="center" bgcolor="#FFCC99" class="ysh2">-2^63 ----- 2^63</td>
+    <td width="250" align="center" bgcolor="#FFFF99" class="ysh2">Int64</td>
+  </tr>
+  <tr>
+    <td width="150" align="center" bgcolor="#CCCCCC" class="ysh2">ulong</td>
+    <td width="300" align="center" bgcolor="#FFCCCC" class="ysh2">无符号64位整数</td>
+    <td width="300" align="center" bgcolor="#FFCC99" class="ysh2">0 ----- 2^64</td>
+    <td width="250" align="center" bgcolor="#FFFF99" class="ysh2">UInt64</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="1000" border="0" align="center">
+  <tr>
+    <td height="30" colspan="3" align="center" bgcolor="#FF99FF" class="ysh2">浮点类型</td>
+  </tr>
+  <tr bgcolor="#0099FF">
+    <td width="150" height="30" align="center" class="ysh2">数据类型</td>
+    <td width="300" height="30" align="center" class="ysh2">类型说明</td>
+    <td height="30" align="center" class="ysh2">取值范围</td>
+  </tr>
+  <tr>
+    <td width="150" align="center" bgcolor="#CCCCCC" class="ysh2">float</td>
+    <td width="300" align="center" bgcolor="#FFCCCC" class="ysh2">32位单精度实数</td>
+    <td align="center" bgcolor="#FFCC99" class="ysh2">1.5x10^(-45) ----- 3.4x10^38</td>
+  </tr>
+  <tr>
+    <td width="150" align="center" bgcolor="#CCCCCC" class="ysh2">double</td>
+    <td width="300" align="center" bgcolor="#FFCCCC" class="ysh2">64位双精度实数</td>
+    <td align="center" bgcolor="#FFCC99" class="ysh2">5.0x10^(-324) ----- 1.7x10^308</td>
+  </tr>
+  <tr>
+    <td width="150" align="center" bgcolor="#CCCCCC" class="ysh2">demcimal</td>
+    <td width="300" align="center" bgcolor="#FFCCCC" class="ysh2">128位10进制实数</td>
+    <td align="center" bgcolor="#FFCC99" class="ysh2">1.0x10^(-28) ----- 7.9x10^28</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="1000" border="0" align="center">
+  <tr>
+    <td align="right"><span class="ysh21"><a href="../Csharp.html">返回上一页</a>&nbsp;<a href="../index.html">返回首页</a></span></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

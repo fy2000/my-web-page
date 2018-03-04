@@ -1,0 +1,360 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>C# String</title>
+<style type="text/css">
+.ys01 {
+	font-family: "黑体";
+	font-size: 18px;
+}
+.ysh3 {font-family: "黑体";
+	font-size: 24px;
+}
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+a:active {
+	text-decoration: none;
+}
+.ys02 {
+	color: #F00;
+}
+.ysh2 {	font-family: "黑体";
+	font-size: 18px;
+}
+.ysh21 {	font-family: "黑体";
+}
+</style>
+</head>
+
+<body class="ys01">
+<p><img src="../images/c_sharp_item_top5.jpg" width="1000" height="53" alt="c_sharp_item_top5" /></p>
+<table width="1000" border="0" align="center">
+  <tr>
+    <td width="150" height="30" align="center" bgcolor="#CCCCFF"><span class="ysh3">知识模块</span></td>
+    <td width="850" height="30" align="center" bgcolor="#FFFFCC"><span class="ysh3">C # 字符与字符串</span></td>
+  </tr>
+  <tr>
+    <td width="150" rowspan="6"><table width="140" border="0" align="center">
+      <tr>
+        <td align="center"><a href="basic_knowledge.html">常用知识</a></td>
+      </tr>
+      <tr>
+        <td align="center"><a href="C_sharp_language.html">常用函数</a></td>
+      </tr>
+      <tr>
+        <td align="center"><a href="C_sharp_type.html">类型</a></td>
+      </tr>
+      <tr>
+        <td align="center"><a href="keyword.html">关键字</a></td>
+      </tr>
+      <tr>
+        <td align="center"><a href="ArraysAndCollections.html">数组与集合</a></td>
+      </tr>
+      <tr>
+        <td align="center"><a href="C_sharp_string.html">String类型</a></td>
+      </tr>
+      <tr>
+        <td height="26" align="center">&nbsp;</td>
+      </tr>
+    </table></td>
+    <td width="850" align="left">1.char类结构表示Unicode字符，定义格式：char 变量='初值'</td>
+  </tr>
+  <tr>
+    <td width="850" align="left">2.字符串：是有零个或多个字符组成的有限序列，是几乎所有编程语言中实现的非常重要和有用的数据类型，声明方式：string 变量名=&quot;初始值&quot;。</td>
+  </tr>
+  <tr>
+    <td width="850" align="left">3.字符集：是一个系统支持的所有抽象字符的集合。常见的字符集有 ASCII字符集、GB2312字符集、BIG5字符集、GB18030字符集、unicode字符集、UTF-8字符集。</td>
+  </tr>
+  <tr>
+    <td width="850" align="left">4.<a href="#cyff">char类型的常用方法</a></td>
+  </tr>
+  <tr>
+    <td align="left">5.<a href="#zyzf">C#中常用的转义字符</a></td>
+  </tr>
+  <tr>
+    <td align="left">6.<a href="#zfj">ASCII字符集</a></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td align="left">7.ToUpper\ToLower在字符串和字符中引用的格式区别<br />
+      字符串中：字符串变量名.ToUpper()&nbsp; &nbsp;字符串变量名.ToLower()<br />
+      字符中：char.ToUpper(字符变量)&nbsp;  char.ToLower(字符变量)</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td align="left">8.C#中字符串的比较方法：<br />
+    a.==和!=<br />
+    b.Equals方法:string.Equals(字符串1，字符串2);返回一个布尔值。<br />
+    c.Compare方法(有多种重载方法)：string.Compare(字符串1，字符串2)；返回整数，<br />
+    string.Compare(字符串1，字符串2，布尔值)；布尔值为True表示忽略大小写，false表示不忽略大小写<br />
+    小于0：字符串1小于字符串2<br />
+等于0：字符串1等于字符串2<br />
+大于0：字符串1大于字符串2或者字符串2是null引用<br />
+    d.CompareTo方法：字符串1.CompareTo(字符串2)；返回整数。<br />
+    小于0：字符串1小于字符串2<br />
+    等于0：字符串1等于字符串2<br />
+    大于0：字符串1大于字符串2或者字符串2是null引用；    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td align="left">9.<a href="#szgsf">数值格式符</a></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td align="left">10.字符串的格式化使用Format,格式如下：<br />
+      a.string.Format(要转化的格式，格式化的对象);<br />
+      b.string.Format(要转化的格式,格式化的对象1,格式化的对象2);<br />
+      例句：  string s = string.Format(&quot;{0}\n&quot;+&quot;{1:C}\n&quot;，21,21.2);</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td align="left">11.字符串的截取：Substring方法，格式如下：<br />
+      a.字符串.Substring(整数n):将字符串前n个字符的长度截取掉，保留后面的字符；<br />
+      b.字符串.Substring(整数n,整数m)：保留从n长度开始数m长度的字符串。<br />
+      以上两种都返回一个新的字符串。</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td align="left">12.字符串的分割使用Split方法，有多种重载，返回一个字符串数组，格式如下：<br />
+      a.字符串.Split(字符或字符数组);<br />
+      b.......<br />
+      c.......<br />
+      d.......</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td align="left"><span class="ys02">13.字符串数组如何定义？</span><br />
+      string[] 变量名；</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td align="left">14.字符串的合并，方法如下：<br />
+      a.+(字符串相加运算符)<br />
+      b.Concat方法：格式 stirng.Concat(字符串1，字符串2，...，字符串n);返回一个字符串；<br />
+      c.Join方法：格式 string.Join(合并后的分隔符，字符串数组);返回一个字符串；好处：可以指定分隔符</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td align="left">15.字符串的插入使用Insert方法<br />
+      格式：字符串.Insert(插入位置，插入字符串);</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td align="left">15.字符串的填充<br />
+a.PadLeft方法：在字符串的开头，通过添加重复的字符填充字符。<br />
+a1.字符串.PadLeft(总长度)；字符串少于总长度的部分自动用空格填充<br />
+a2.字符串.PadLeft(总长度，要填充的字符);少于总长度的部分用指定字符填充<br />
+b.PadRight方法:在字符串的结尾，通过添加重复的字符填充字符。<br />
+b1.字符串.PadRight(总长度)；字符串少于总长度的部分自动用空格填充<br />
+b2.字符串.PadRight(总长度，要填充的字符);少于总长度的部分用指定字符填充</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td align="left">16.字符串的删除使用Remove方法<br />
+      a.字符串.Remove(起始位)；删除从起始位开始往后的字符；<br />
+      b.字符串.Remove(起始位，移除位)；删除从起始位开始数移除位长度的字符；</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td align="left">17.字符串的修剪<br />
+      a.字符串.Trim()；删除字符串首部和尾部的空格；删除过程从外到内，知道碰见不是空格为止。<br />
+      b.字符串.Trim(字符串.ToCharArray())；删除对象是字符传中出现的任意字符，而不是字符串。<br />
+      b.字符串.TrimStart()；删除字符串首部的空格；其它用法和a,b一样。<br />
+      c.字符串.TrimEnd()；删除字符串尾部的空格；其它用法和a,b一样。</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td align="left">18.字符串的复制<br />
+      a.string.Copy(要复制的字符串)；<br />
+      b.字符串1.CopyTo(字符串1的起始位置，目标字符数组，目标字符数组起始存储位置，复制的字符长度);</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td align="left">19.字符串的替换<br />
+      使用Replace方法，格式：字符串.Replace(需要替换的字符，替换后的字符);</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td align="left">20.字符串的查找<br />
+      a.字符串.IndexOf(要查找的字符或字符串)；返回查找的字符和字符串第一次出现的位置<br />
+      b.字符串.LastIndexOf(要查找的字符或字符串)；返回查找的字符和字符串最后一次出现的位置<br />
+      如果查到了，返回整数，如果查找的字符或字符串不存在，返回一个负数；</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td align="left">21.<span class="ysh2">StringBuilder</span>字符串的追加使用Append方法和AppendFormat方法<br />
+    Append格式：源字符串.Append(&quot;追加字符串&quot;)；返回一个字符串类型<br />
+    AppendFormat格式：源字符串.Append(&quot;追加字符串{0:格式化类型}&quot;，数值)；用制定格式追加</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td align="left">22.<span class="ysh2">StringBuilder</span>类的AppendLine(),用法和Console.WriteLine()一样，但效果会多换一行。</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="1000" border="0" align="center">
+  <tr>
+    <td height="30" colspan="4" align="center" bgcolor="#3399FF" class="ysh3"><a name="cyff" id="cyff"></a>char类常用方法</td>
+  </tr>
+  <tr>
+    <td width="150" height="30" align="center" bgcolor="#FF99FF">方法</td>
+    <td width="350" height="30" align="center" bgcolor="#CCCC99">作用</td>
+    <td width="150" height="30" align="center" bgcolor="#FF99FF">方法</td>
+    <td width="350" height="30" align="center" bgcolor="#CCCC99">作用</td>
+  </tr>
+  <tr>
+    <td width="150" align="center" bgcolor="#CCFFCC">IsLetter</td>
+    <td width="350" align="left" bgcolor="#CCCCFF">是否是字母</td>
+    <td width="150" align="center" bgcolor="#CCFFCC">IsLower</td>
+    <td width="350" align="left" bgcolor="#CCCCFF">是否是小写</td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#CCFFCC">IsDigit</td>
+    <td align="left" bgcolor="#CCCCFF">是否是数字</td>
+    <td align="center" bgcolor="#CCFFCC">IsUpper</td>
+    <td align="left" bgcolor="#CCCCFF">是否是大写</td>
+  </tr>
+  <tr>
+    <td width="150" align="center" bgcolor="#CCFFCC">IsLetterOrDigit</td>
+    <td width="350" align="left" bgcolor="#CCCCFF">是否是字母或数字</td>
+    <td width="150" align="center" bgcolor="#CCFFCC">IsPunctuation</td>
+    <td width="350" align="left" bgcolor="#CCCCFF">是否是标点</td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#CCFFCC">IsSeparator</td>
+    <td align="left" bgcolor="#CCCCFF">是否为分隔符</td>
+    <td align="center" bgcolor="#CCFFCC">IsWhiteSpace</td>
+    <td align="left" bgcolor="#CCCCFF">是否为空格</td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#CCFFCC">ToLower</td>
+    <td align="left" bgcolor="#CCCCFF">转换为小写</td>
+    <td align="center" bgcolor="#CCFFCC">ToUpper</td>
+    <td align="left" bgcolor="#CCCCFF">转换为大写</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="1000" border="0" align="center">
+  <tr>
+    <td height="30" colspan="4" align="center" bgcolor="#3399FF" class="ysh3"><a name="zyzf" id="zyzf"></a>C#中常用的转义字符</td>
+  </tr>
+  <tr>
+    <td width="150" height="30" align="center" bgcolor="#FF99FF">转义字符</td>
+    <td width="350" height="30" align="center" bgcolor="#CCCC99">意义</td>
+    <td width="150" height="30" align="center" bgcolor="#FF99FF">转义字符</td>
+    <td width="350" height="30" align="center" bgcolor="#CCCC99">意义</td>
+  </tr>
+  <tr>
+    <td width="150" align="center" bgcolor="#CCFFCC">\'</td>
+    <td width="350" align="left" bgcolor="#CCCCFF">单引号</td>
+    <td width="150" align="center" bgcolor="#CCFFCC">\&quot;</td>
+    <td width="350" align="left" bgcolor="#CCCCFF">双引号</td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#CCFFCC">\\</td>
+    <td align="left" bgcolor="#CCCCFF">反斜杠</td>
+    <td align="center" bgcolor="#CCFFCC">\0</td>
+    <td align="left" bgcolor="#CCCCFF">空字符</td>
+  </tr>
+  <tr>
+    <td width="150" align="center" bgcolor="#CCFFCC">\a</td>
+    <td width="350" align="left" bgcolor="#CCCCFF">感叹号</td>
+    <td width="150" align="center" bgcolor="#CCFFCC">\b</td>
+    <td width="350" align="left" bgcolor="#CCCCFF">tuige</td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#CCFFCC">\f</td>
+    <td align="left" bgcolor="#CCCCFF">换页</td>
+    <td align="center" bgcolor="#CCFFCC">\t</td>
+    <td align="left" bgcolor="#CCCCFF">水平的Tab</td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#CCFFCC">\n</td>
+    <td align="left" bgcolor="#CCCCFF">换行</td>
+    <td align="center" bgcolor="#CCFFCC">\v</td>
+    <td align="left" bgcolor="#CCCCFF">竖直的Tab</td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#CCFFCC">\r</td>
+    <td align="left" bgcolor="#CCCCFF">回车</td>
+    <td align="center" bgcolor="#CCFFCC">&nbsp;</td>
+    <td align="left" bgcolor="#CCCCFF">&nbsp;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="1000" border="0" align="center">
+  <tr align="center">
+    <td height="30" bgcolor="#3399FF" class="ysh3"><a name="zfj" id="zfj"></a>ASCII字符集</td>
+  </tr>
+  <tr>
+    <td height="630" align="center"><img src="../images/ASCII字符表.jpg" width="910" height="615" alt="ASCII字符表" /></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="1000" border="0" align="center">
+  <tr>
+    <td height="30" colspan="3" align="center" bgcolor="#009966" class="ysh3"><a name="szgsf" id="szgsf"></a>数值格式符</td>
+  </tr>
+  <tr>
+    <td width="150" height="30" align="center" bgcolor="#0099FF" class="ysh3">方法</td>
+    <td width="350" height="30" align="center" bgcolor="#00CC99" class="ysh3">适用类型</td>
+    <td width="500" height="30" align="center" bgcolor="#00FF99" class="ysh3">含义</td>
+  </tr>
+  <tr>
+    <td width="150" align="center" bgcolor="#CCFFCC">C</td>
+    <td width="350" align="center" bgcolor="#CCCCFF">数字类型</td>
+    <td width="500" align="center" bgcolor="#FFCC99">专用场合的货币值</td>
+  </tr>
+  <tr>
+    <td width="150" align="center" bgcolor="#CCFFCC">D</td>
+    <td width="350" align="center" bgcolor="#CCCCFF">只适用于整数类型</td>
+    <td width="500" align="center" bgcolor="#FFCC99">一般整数</td>
+  </tr>
+  <tr>
+    <td width="150" align="center" bgcolor="#CCFFCC">E</td>
+    <td width="350" align="center" bgcolor="#CCCCFF">数字类型</td>
+    <td width="500" align="center" bgcolor="#FFCC99">科学技术法</td>
+  </tr>
+  <tr>
+    <td width="150" align="center" bgcolor="#CCFFCC">F</td>
+    <td width="350" align="center" bgcolor="#CCCCFF">数字类型</td>
+    <td width="500" align="center" bgcolor="#FFCC99">小数点后的位数固定</td>
+  </tr>
+  <tr>
+    <td width="150" align="center" bgcolor="#CCFFCC">G</td>
+    <td width="350" align="center" bgcolor="#CCCCFF">数字类型</td>
+    <td width="500" align="center" bgcolor="#FFCC99">一般整数</td>
+  </tr>
+  <tr>
+    <td width="150" align="center" bgcolor="#CCFFCC">N</td>
+    <td width="350" align="center" bgcolor="#CCCCFF">数字类型</td>
+    <td width="500" align="center" bgcolor="#FFCC99">通用场合数字格式</td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#CCFFCC">P</td>
+    <td align="center" bgcolor="#CCCCFF">数字类型</td>
+    <td align="center" bgcolor="#FFCC99">百分数</td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#CCFFCC">X</td>
+    <td align="center" bgcolor="#CCCCFF">只适用于整数类型</td>
+    <td align="center" bgcolor="#FFCC99">十六进制格式</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="1000" border="0" align="center">
+  <tr>
+    <td align="right" class="ys01"><span class="ysh21"><a href="../Csharp.html">返回上一页</a>&nbsp;<a href="../index.html">返回首页</a></span></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+</html>
