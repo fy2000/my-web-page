@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="icon" href="../../../img/fy2000_tb.png">
+<title>TV 小知识</title>
+<style type="text/css">
+#ys01 {
+	text-align: center;
+	font-weight: bold;
+}
+.ys02 {
+	text-align: center;
+}
+.ys01 {
+	font-family: "微软雅黑";
+	text-align: center;
+	font-size: 18px;
+}
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+a:active {
+	text-decoration: none;
+	color: #E4E4E4;
+}
+.ysh03 {
+	font-family: "幼圆";
+	font-size: 18px;
+	color: #F60;
+}
+.ysh03 {
+	font-weight: bold;
+	color: #030;
+	font-size: 24px;
+}
+.ysh04 {
+	font-family: "楷体";
+	font-size: 20px;
+}
+.ysh05 {
+	font-family: "隶书";
+	font-size: 36px;
+	color: #E8DBE6;
+}
+.ysh06 {
+	color: #FF0;
+	font-family: "微软雅黑";
+	font-weight: bold;
+}
+.ysh07 {
+	color: #FFF;
+}
+.ysh08 {
+	font-family: "黑体";
+	font-size: 18px;
+}
+.ysh09 {
+	color: #036;
+}
+.ysh10 {
+	font-family: "隶书";
+	font-size: 18px;
+	color: #999;
+}
+.ys021 {
+	font-size: 18px;
+	color: #06C;
+}
+.ys011 {
+	font-size: 18px;
+	color: #06C;
+}
+.ysh1 {
+	font-family: "黑体";
+	font-size: 36px;
+	color: #F00;
+}
+.ysh2 {	font-family: "楷体";
+	font-size: 24px;
+	color: #000;
+}
+.ysh3 {	font-family: "楷体";
+}
+.ysh3 {	font-size: 24px;
+}
+.ys0211 {font-size: 14px;
+}
+.ys022 {	font-size: 14px;
+	color: #000;
+}
+</style>
+<script type="text/javascript">
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+</script>
+</head>
+
+<body>
+<p class="ys02"><img src="../../img/item_top.gif" width="1000" height="53" alt="item_top" /></p>
+<hr width="1000" />
+<table width="1000" border="0" align="center" cellpadding="10">
+  <tr>
+    <td colspan="2" align="right" bgcolor="#C1C1FF"><span class="ys022">[<a href="#bottom">跳到末尾</a>][<a href="../../TV_index.html">返回主页</a>][<a href="../other.html">返回上一页</a>]</span></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" bgcolor="#C1C1FF"><span class="ysh1">Non OS 系统单步执行Dsebug 接口</span></td>
+  </tr>
+  <tr>
+    <td width="132" align="center" bgcolor="#99FFFF"><a href="tv_item/TV_sys.html" class="ys01">知识模块</a></td>
+    <td width="822" rowspan="3" valign="top" bgcolor="#E8E8D7"><p><span class="ysh2"><span class="ysh1"><a name="title" id="title"></a></span>根据前辈们的讲解自己写了一个接口，已测试运行OK！（仅供参考）</span></p>
+    <p><span class="ysh3">1.首先在drvUartDebug.c文件中定义函数体如下：</span></p>
+    <p class="ysh3">#if fy_said_ok<br />
+  &nbsp;&nbsp;U8 out = 0;<br />
+  &nbsp;&nbsp;void fy200test(void)<br />
+  &nbsp;&nbsp;{<br />
+  &nbsp;&nbsp;&nbsp;BYTE ucPara0,ucPara1,ucPara2,ucPara3;<br />
+  &nbsp;&nbsp;&nbsp;ucPara0 = g_UartCommand.Buffer[_UART_CMD_INDEX1_];<br />
+  &nbsp;&nbsp;&nbsp;ucPara1 = g_UartCommand.Buffer[_UART_CMD_INDEX2_]; \\预留条件<br />
+  &nbsp;&nbsp;&nbsp;ucPara2 = g_UartCommand.Buffer[_UART_CMD_INDEX3_]; \\预留条件<br />
+  &nbsp;&nbsp;&nbsp;ucPara3 = g_UartCommand.Buffer[_UART_CMD_INDEX4_]; \\预留条件<br />
+  <br />
+  &nbsp;&nbsp;&nbsp;switch(ucPara0)<br />
+  &nbsp;&nbsp;&nbsp;{<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 0x30:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;</p>
+    <p class="ysh3"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 0x31:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;out = 1;<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;g_UartCommand.Buffer[_UART_CMD_INDEX1_] = 0x30;<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br />
+  &nbsp;&nbsp;&nbsp;}<br />
+  &nbsp;&nbsp;}</p>
+    <p class="ysh3">&nbsp;&nbsp;void fy2000debug1(void)<br />
+  &nbsp;&nbsp;{<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;while(1)<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;{<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fy200test();<br />
+  <br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(out == 1)<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;out = 0;<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;}<br />
+  &nbsp;&nbsp;}</p>
+    <p class="ysh3">#endif</p>
+    <p class="ysh5"><span class="ysh3">2.然后在drvUartDebug.h文件中定义如下：</span></p>
+    <p class="ysh5"><span class="ysh3">#if fy_said_ok<br />
+  &nbsp;</span><span class="ysh3">INTERFACE void fy2000debug1(void);<br />
+  &nbsp;#define fy2000debug() do{\<br />
+  &nbsp;&nbsp;printf(&quot;\n===FY2000 In %s -&gt; %d...===\n&quot;,__FILE__,__LINE__);\<br />
+  &nbsp;&nbsp;fy2000debug1();}while(0)</span><br />
+  <span class="ysh3">#endif</span></p>
+    <p><span class="ysh3">3.在工作中遇到声音，画面花，LVDS异常等可以用单步执行解决的问题时，直接在Code中加入语句<span class="ysh5">fy2000debug()</span>；即可。</span></p>
+    <p class="ysh3">4.如何连接Debug工具使用</p>
+    <p class="ysh3">&nbsp;&nbsp;打开软件MSTV_Tool.exe ，用串口的方式和TV平台连接好，如下图</p>
+    <p><img src="../../img/例图17.jpg" alt="例图17" width="750" height="486" hspace="30" /></p>
+    <p><span class="ysh3">然后点击View中的Direct Command Mode 如下图所示，</span></p>
+    <p><img src="../../img/例图18.gif" alt="例图18" width="428" height="376" hspace="50" /></p>
+    <p><span class="ysh3">接着会弹出一个窗口，在弹出的窗口中选择Mode中的Advanced,如下图。</span></p>
+    <p><img src="../../img/例图20.jpg" alt="例图20" width="287" height="166" hspace="50" /></p>
+    <p><span class="ysh3">接着会在本框右侧弹出命令菜单，如下图：</span></p>
+    <p><img src="../../img/例图19.gif" alt="例图19" width="647" height="646" hspace="50" /></p>
+    <p class="ysh3">然后在Command选项中选择Test Command，在Data Edit选框中输入命令即可。</p>
+    <p class="ysh3">温馨提示：</p>
+    <p class="ysh3">根据上面写的接口函数可知，当程序运行到<span class="ysh5">fy2000debug()</span>；时，输入31为函数继续执行。</p>
+    <p class="ysh3">&nbsp;</p>
+    <p><span class="ysh1"><a name="bottom" id="bottom"></a>谢谢阅读</span></p></td>
+  </tr>
+  <tr align="center">
+    <td valign="top" bgcolor="#69B6DA"><p><a href="../TV_sys.html" class="ys01">TV系统</a><br />
+      <a href="../Vital_func.html" class="ys01">重要函数体<br />
+      </a><a href="../State_machine.html" class="ys01">状态机</a><br />
+      <a href="../Timer.html" class="ys01">软定时器</a><br />
+      <a href="../IR.html" class="ys01">红外遥控<br />
+    </a><a href="../Keypad.html" class="ys01">按键板</a><br />
+    <a href="../Skintool.html" class="ys01">Skintool<br />
+    </a><a href="../other.html" class="ys01">其它</a></p></td>
+  </tr>
+  <tr align="center">
+    <td rowspan="2" valign="top" bgcolor="#69B6DA">&nbsp;</td>
+  </tr>
+  <tr align="center">
+    <td width="822" align="right" valign="top" bgcolor="#E8E8D7"><span class="ys0211"><span class="ys022">[<a href="../../TV_index.html">返回主页</a>]</span>[<a href="#title">返回顶部</a>]</span></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" bgcolor="#FF9999"><span class="ysh06"><span class="ysh09"><span class="ys02"><span class="ysh03">※※※※※※※※※※※※※※※【札 记 分 享】</span><span class="ysh03">※</span><span class="ysh03">※</span><span class="ysh03">※</span><span class="ysh03">※</span><span class="ysh03">※</span><span class="ysh03">※</span><span class="ysh03">※</span><span class="ysh03">※</span><span class="ysh03">※※※</span><span class="ysh03">※</span><span class="ysh03">※</span><span class="ysh03">※</span><span class="ysh03">※</span></span></span></span></td>
+  </tr>
+  <tr>
+    <td height="100" colspan="2" align="center" background="../../img/背景2.jpg"><p class="ysh05">天空没有鸟的痕迹，但它已飞过</p></td>
+  </tr>
+</table>
+<hr align="center" width="1000" />
+<table width="1000" border="0" align="center">
+  <tr>
+    <td class="ysh10">本想沉溺于莲花深处，不料翻滚于水物之间</td>
+  </tr>
+  <tr>
+    <td><span class="ys021">更新日期 
+  &nbsp;&nbsp;
+  &nbsp;
+  <!-- #BeginDate format:fCh2m -->2018年2月8日 星期四   18:09<!-- #EndDate -->
+    </span></td>
+  </tr>
+  <tr>
+    <td><span class="ys011">欢迎访问官网 www.fy2000.com 蓝天的精灵工作室</span></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p class="ys02">&nbsp;</p>
+</body>
+</html>

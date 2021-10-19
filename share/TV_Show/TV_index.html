@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="icon" href="../img/fy2000_tb.png">
+	<title>TV 小知识</title>
+	<style type="text/css">
+	.top-header{
+		margin: auto;
+		width: 1000px;
+		height: 53px;
+		background-image: url(./img/TVindex_top.jpg);
+	}
+	.top-nav-table{
+		margin: auto;
+		width: 1000px;
+		height: 50px;
+	}
+	.top-nav-table tr td{
+		width: 125px;
+		font-family: "微软雅黑";
+		text-align: center;
+		font-size: 18px;
+	}
+	.mid-nav-table{
+		margin: auto;
+		width: 1000px;
+	}
+	#today-knowledge{
+		width: 700px;
+		height: 50px;
+		font-family: ;
+		font-size: 24px;
+		font-weight: bold;
+		color: #003300;
+		text-align: center;
+		background-color: #C1C1FF;
+	}
+	#history-knowledge{
+		width: 254px;
+		height: 50px;
+		color: #FFFF00;
+		font-family: "微软雅黑";
+		font-size: 24px;
+		font-weight: bold;
+		text-align: center;
+		background-color: #3399CC;
+	}
+	.today-knowledge-item1{
+		padding-left: 10px;
+		font-family: "楷体";
+		font-size: 20px;
+		background-color: #E8E8D7;
+	}
+	.today-knowledge-item2{
+		padding-top: 10px;
+		padding-bottom: 10px;
+		font-family: "幼圆";
+		font-size: 25px;
+		color: #000000;
+		text-align: center;
+		background-color: #FF9999;
+	}
+	.history-knowledge-item1{
+		font-family: "楷体";
+		font-size: 20px;
+		vertical-align: top;
+		background-color: #69B6DA;
+	}
+	.history-knowledge-item1 ul{
+		padding-left: 25px;
+	}
+	.history-knowledge-item1 ul li{
+		color: #FFFFFF;
+		margin-top: 5px;
+	}
+	.you-want{
+		font-family: "微软雅黑";
+		font-weight: bold;
+		color: #003366;
+		text-align: center;
+		background-color: #FFCCFF;
+	}
+	.my-notes{
+		padding-left: 124px;
+		font-family: "隶书";
+		font-size: 36px;
+		color: #E8DBE6;
+		background-image: url(./img/背景1.jpg);
+	}
+	.you-want ul{
+		padding: 0;
+		list-style-type: none;
+	}
+	.you-want ul li{
+		margin-top: 20px;
+	}
+	.last-word {
+		width: 1000px;
+		margin: auto;
+	}
+	.last-word span {
+		font-size: 18px;
+		color: #0066CC;
+	}
+	</style>
+	<script type="text/javascript">
+		function baiduSwapImg(showflag){
+			var baidu_tag = document.getElementById("baidu-link-img");
+			if (showflag == 0) {
+				baidu_tag.src = "./img/baidu_normal.gif";
+			} else{
+				baidu_tag.src = "./img/baidu_focus.gif";
+			}
+		}
+		function zxwSwapImg(showflag){
+			var zxw_tag = document.getElementById("zxw-link-img");
+			if (showflag == 0) {
+				zxw_tag.src = "./img/51ZXW_normal.jpg";
+			} else{
+				zxw_tag.src = "./img/51ZXW_focus.jpg";
+			}
+		}
+		function fy2000SwapImg(showflag){
+			var fy2000_tag = document.getElementById("fy2000-link-img");
+			if (showflag == 0) {
+				fy2000_tag.src = "./img/fy2000_normal.gif";
+			} else{
+				fy2000_tag.src = "./img/fy2000.focus.gif";
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<div class="top-header"></div>
+	<table class="top-nav-table">
+		<tr>
+			<td ><a href="tv_item/TV_sys.html">TV系统</a></td>
+			<td ><a href="tv_item/Vital_func.html">重要函数体</a></td>
+			<td ><a href="tv_item/State_machine.html">状态机</a></td>
+			<td ><a href="tv_item/Timer.html">软定时器</a></td>
+			<td ><a href="tv_item/IR.html">红外遥控</a></td>
+			<td ><a href="tv_item/Keypad.html">按键板</a></td>
+			<td ><a href="tv_item/Skintool.html">Skintool</a></td>
+			<td ><a href="tv_item/other.html">其它</a></td>
+		</tr>
+	</table>
+	<hr style="width: 1000px;" />
+	<table class="mid-nav-table">
+		<tr>
+			<td id="today-knowledge">◆◆◆◆◆◆◆◆→ 今 日 TV 小 知 识 ←◆◆◆◆◆◆◆◆</td>
+			<td id="history-knowledge">历史小知识</td>
+		</tr>
+		<tr>
+			<td class="today-knowledge-item1">1.TV通道，流动字体卡顿和屏参中的DCLK</td>
+			<td class="history-knowledge-item1" rowspan="4">
+				<ul>
+					<li><a href="tv_item/Vital_func.html">关于文本的常用函数接口</a></li>
+					<li>常用的点屏注意事项</li>
+					<li>工厂菜单的显示原理</li>
+					<li>MUTE图标的显示原理</li>
+					<li>如何用PQ工具拉Gamma曲线</li>
+					<li>一些常用的PQ寄存器地址</li>
+					<li>其它知识</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td class="today-knowledge-item1">
+				<p style="text-indent: 2em;">遇到一种这样的情况，TV平台搜完台后，在播放DTV有滚动字符的画面时，发现滚动字符卡顿，
+				进过对比分析，发现我们在屏参中配置的DCLK参数最大值和最小值写反了，调整后，现象OK。</p>
+			</td>
+		</tr>
+		<tr>
+			<td class="today-knowledge-item1">2.NonOS对于有透明层图片的处理</td>
+		</tr>
+		<tr>
+			<td class="today-knowledge-item1">
+				<p style="text-indent: 2em;">大家应该发现了，NonOS中的UI素材一般没有含有透明层的图片素材，
+				这是因为NonOS本身的机制无法对透明层进行处理，通过实验你会发现，NonOS对有透明层素材的处理有两种：
+				<p style="padding-left: 100px;">a.全透明的部分填充为白色。</p>
+				<p style="padding-left: 100px;">b.半透明部分填充为对应色的实色。</p>
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td class="today-knowledge-item2">※※※※※※※※※※【札 记 分 享】※※※※※※※※※※</td>
+			<td class="you-want">你可能还想要到这些地方搜索</td>
+		</tr>
+		<tr>
+			<td class="my-notes">不要在夕阳西下的时候幻想；<br />而要在旭日初升的时候努力。</td>
+			<td class="you-want">
+				<ul>
+					<li>
+						<a href="https://www.baidu.com" onmouseout="baiduSwapImg(0)" onmouseover="baiduSwapImg(1)">
+							<img id="baidu-link-img" src="./img/baidu_normal.gif" />
+						</a>
+					</li>
+					<li>
+						<a href="http://www.51zxw.net" onmouseout="zxwSwapImg(0)" onmouseover="zxwSwapImg(1)">
+							<img id="zxw-link-img" src="./img/51ZXW_normal.jpg" />
+						</a>
+					</li>
+					<li>
+						<a href="../index.html" onmouseout="fy2000SwapImg(0)" onmouseover="fy2000SwapImg(1)">
+							<img id="fy2000-link-img" src="./img/fy2000_normal.gif" />
+						</a>
+					</li>
+				</ul>
+			</td>
+		</tr>
+	</table>
+	<hr style="width: 1000px;" />
+	<div class="last-word">
+		<span style="color: #0099CC;">时间就像一张网，你撒在哪里，你的收获就在哪里
+		-------------------------------------------------------------------
+		</span><a href="../index.html">返回主页</a><br />
+		<span>更新日期 &nbsp; &nbsp; &nbsp; 2021年10月18日 星期五 上午 8:56</span><br />
+		<span>欢迎访问官网 <a href="#">www.fy2000.com</a> &#128151 蓝天的精灵工作室</span>
+	</div>
+</body>
+</html>

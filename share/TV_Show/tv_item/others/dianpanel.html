@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="icon" href="../../../img/fy2000_tb.png">
+<title>TV 小知识</title>
+<style type="text/css">
+#ys01 {
+	text-align: center;
+	font-weight: bold;
+}
+.ys02 {
+	text-align: center;
+}
+.ys01 {
+	font-family: "微软雅黑";
+	text-align: center;
+	font-size: 18px;
+}
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+a:active {
+	text-decoration: none;
+	color: #E4E4E4;
+}
+.ysh03 {
+	font-family: "幼圆";
+	font-size: 18px;
+	color: #F60;
+}
+.ysh03 {
+	font-weight: bold;
+	color: #030;
+	font-size: 24px;
+}
+.ysh04 {
+	font-family: "楷体";
+	font-size: 20px;
+}
+.ysh05 {
+	font-family: "隶书";
+	font-size: 36px;
+	color: #E8DBE6;
+}
+.ysh06 {
+	color: #FF0;
+	font-family: "微软雅黑";
+	font-weight: bold;
+}
+.ysh07 {
+	color: #FFF;
+}
+.ysh08 {
+	font-family: "黑体";
+	font-size: 18px;
+}
+.ysh09 {
+	color: #036;
+}
+.ysh10 {
+	font-family: "隶书";
+	font-size: 18px;
+	color: #999;
+}
+.ys021 {
+	font-size: 18px;
+	color: #06C;
+}
+.ys011 {
+	font-size: 18px;
+	color: #06C;
+}
+.ysh1 {
+	font-family: "黑体";
+	font-size: 36px;
+	color: #F00;
+}
+.ysh2 {	font-family: "楷体";
+	font-size: 24px;
+	color: #000;
+}
+.ysh3 {	font-family: "楷体";
+}
+.ysh3 {	font-size: 24px;
+}
+.ys0211 {font-size: 14px;
+}
+.ys022 {	font-size: 14px;
+	color: #000;
+}
+.ysh11 {
+	color: #F30;
+}
+</style>
+<script type="text/javascript">
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+</script>
+</head>
+
+<body>
+<p class="ys02"><img src="../../img/item_top.gif" width="1000" height="53" alt="item_top" /></p>
+<hr width="1000" />
+<table width="1000" border="0" align="center" cellpadding="10">
+  <tr>
+    <td colspan="2" align="right" bgcolor="#C1C1FF"><span class="ys022">[<a href="#bottom">跳到末尾</a>][<a href="../../TV_index.html">返回主页</a>][<a href="../other.html">返回上一页</a>]</span></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" bgcolor="#C1C1FF" class="ysh1"><a name="top" id="top"></a>点屏小知识</td>
+  </tr>
+  <tr>
+    <td width="132" align="center" bgcolor="#99FFFF"><a href="tv_item/TV_sys.html" class="ys01">知识模块</a></td>
+    <td width="822" rowspan="3" valign="top" bgcolor="#E8E8D7"><p align="left" class="ysh3"><span class="ysh11">普通屏</span></p>
+      <p align="left" class="ysh3">1.1366的屏配置不能点1920的屏，反之亦然。</p>
+      <p align="left" class="ysh3">2.如果在点屏时，上电后不亮可以先用外接电源点亮屏背光，然后进入工厂菜单调节动态背光直到点亮，然后将背光先插回板卡即可。（在可以出来工厂菜单的情况下） </p>
+<p align="left" class="ysh3">3.点屏时一定要确定LVDS电压是5V还是12V。</p>
+      <p align="left" class="ysh3">4.如果点屏时发现UI字符可以显示，但是画面是花的，那么可以调节工厂菜单的TI Mode项或者TI Bit Mode项解决。</p>
+      <p align="left" class="ysh3">5.如果点屏后发现字符显示为虚线字符，可以调节工厂菜单的Swap Part项解决。</p>
+      <p align="left" class="ysh3">6.UI的分辨率决定了使用此UI只能点大于等于UI分辨率的屏。</p>
+      <p align="left" class="ysh3">7.如果有的屏开机LOGO闪线，抖动等问题，大多和DCLK有关，也可以修改屏参中的m_ucOutTimingMode，有三种选择：（E_PNL_CHG_DCLK、   E_PNL_CHG_HTOTAL、E_PNL_CHG_VTOTAL）。</p>
+      <p align="left" class="ysh3">8.遇到TV画面出现滚动字符卡顿的问题时，可以调节DCLK参数看一下。</p>
+      <p align="left" class="ysh3">9.遇到开机黑屏的情况时，首先可以用电压表测试背光电压和屏电压是否正确，其次确认屏的背光条为高开还是低开。黑屏和很多因素有关，可以从基本的因素入手，一一排除。</p>
+      <p align="left" class="ysh3">10.在非人为的情况下开机进入老化模式，一般是由于屏参匹配不对引起的。</p>
+      <p align="left" class="ysh3">11.待定。。。</p>
+      <p align="left" class="ysh3"><span class="ysh11">4K屏</span></p>
+      <p align="left" class="ysh3">1.一般遇到的分屏显示问题，可以修改屏参中的m_bPanelDualPort参数。</p>
+      <p align="left" class="ysh3">2.遇到USB中间有竖线的问题反馈给原厂解决。</p>
+      <p align="left" class="ysh3">3.遇到8903的TCON时，要格外注意，需要打开ENABLE_TCON_IN8903_PROCESS</p>
+      <p align="left" class="ysh3">4.待定。。。</p>
+    <p><span class="ysh1"><a name="bottom" id="bottom"></a>谢谢阅读</span></p></td>
+  </tr>
+  <tr align="center">
+    <td valign="top" bgcolor="#69B6DA"><p><a href="../TV_sys.html" class="ys01">TV系统</a><br />
+      <a href="../Vital_func.html" class="ys01">重要函数体<br />
+      </a><a href="../State_machine.html" class="ys01">状态机</a><br />
+      <a href="../Timer.html" class="ys01">软定时器</a><br />
+      <a href="../IR.html" class="ys01">红外遥控<br />
+    </a><a href="tv_item/Keypad.html" class="ys01">按键板<br />
+    </a><a href="tv_item/Skintool.html" class="ys01"></a><a href="../Skintool.html" class="ys01">Skintool<br />
+    </a><a href="../other.html" class="ys01">其它</a></p></td>
+  </tr>
+  <tr align="center">
+    <td rowspan="2" valign="top" bgcolor="#69B6DA">&nbsp;</td>
+  </tr>
+  <tr align="center">
+    <td width="822" align="right" valign="top" bgcolor="#E8E8D7"><span class="ys0211"><span class="ys022">[<a href="../../TV_index.html">返回主页</a>]</span>[<a href="#top">返回顶部</a>]</span></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" bgcolor="#FF9999"><span class="ysh06"><span class="ysh09"><span class="ys02"><span class="ysh03">※※※※※※※※※※※※※※※【札 记 分 享】</span><span class="ysh03">※</span><span class="ysh03">※</span><span class="ysh03">※</span><span class="ysh03">※</span><span class="ysh03">※</span><span class="ysh03">※</span><span class="ysh03">※</span><span class="ysh03">※</span><span class="ysh03">※※※</span><span class="ysh03">※</span><span class="ysh03">※</span><span class="ysh03">※※</span></span></span></span></td>
+  </tr>
+  <tr>
+    <td height="100" colspan="2" align="center" background="../../img/背景2.jpg" class="ysh05">有希望总是幸福的</td>
+  </tr>
+</table>
+<hr align="center" width="1000" />
+<table width="1000" border="0" align="center">
+  <tr>
+    <td class="ysh10">本想沉溺于莲花深处，不料翻滚于水物之间</td>
+  </tr>
+  <tr>
+    <td><span class="ys021">更新日期 
+  &nbsp;&nbsp;
+  &nbsp;
+  <!-- #BeginDate format:fCh2m -->2018年2月8日 星期四   13:02<!-- #EndDate -->
+    </span></td>
+  </tr>
+  <tr>
+    <td><span class="ys011">欢迎访问官网 www.fy2000.com 蓝天的精灵工作室</span></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p class="ys02">&nbsp;</p>
+</body>
+</html>

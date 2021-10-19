@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>C# Basic</title>
+<style type="text/css">
+.ysh1 {
+	text-align: center;
+}
+.ysh2 {
+	font-family: "黑体";
+	font-size: 18px;
+}
+.ysh3 {
+	font-family: "黑体";
+	font-size: 24px;
+}
+.ysh4 {
+	color: #F00;
+}
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+a:active {
+	text-decoration: none;
+}
+</style>
+</head>
+
+<body class="ysh1">
+<p><img src="../images/C_sharp_item_top.jpg" width="1000" height="53" alt="C_sharp_item_top" /></p>
+<table width="1000" border="0" align="center" class="ysh1">
+  <tr>
+    <td width="150" height="30" align="center" bgcolor="#CCCCFF" class="ysh3">知识模块</td>
+    <td width="850" height="30" align="center" bgcolor="#FFFFCC" class="ysh3">C # 基础知识笔记</td>
+  </tr>
+  <tr>
+    <td width="150" rowspan="5"><table width="150" border="0" align="center">
+        <tr>
+          <td align="center"><a href="basic_knowledge.html">常用知识</a></td>
+        </tr>
+        <tr>
+          <td align="center"><a href="C_sharp_language.html">常用函数</a></td>
+        </tr>
+        <tr>
+          <td align="center"><a href="C_sharp_type.html">类型</a></td>
+        </tr>
+        <tr>
+          <td align="center"><a href="keyword.html">关键字</a></td>
+        </tr>
+        <tr>
+          <td align="center"><a href="ArraysAndCollections.html">数组与集合</a></td>
+        </tr>
+        <tr>
+          <td height="20" align="center"><a href="C_sharp_string.html">String类型</a></td>
+        </tr>
+        <tr>
+          <td height="20">&nbsp;</td>
+        </tr>
+    </table></td>
+    <td width="850" align="left" class="ysh2">1.C#不是读作“C#”，而是读作“C Sharp”，C#是运行在.net CLR上的，用于创建应用程序的一种高级的编程语言。可以编写桌面应用程序、Windows Store应用程序、Web应用程序、WCF服务等。</td>
+  </tr>
+  <tr>
+    <td width="850" align="left" class="ysh2">2..net不是读作“点net”，而是读作“dotnet”，是微软开发的一个框架，最新版本4.5。.net是一个庞大的代码库，分为多个不同的模块。它定义了基本的类型，被称为通用类型系统（CTS）；包含.net公共语言运行库（简称CLR，负责管理用.net开发的所有应用程序的执行） </td>
+  </tr>
+  <tr>
+    <td width="850" align="left" class="ysh2">3.OOP-----面向对象编程技术(Object Oriented Programming，OOP，面向对象程序设计)</td>
+  </tr>
+  <tr>
+    <td width="850" align="left" class="ysh2">4.通用类型系统-----------Common type system(CTS)</td>
+  </tr>
+  <tr>
+    <td width="850" align="left" class="ysh2">5.公共语言运行库---------Common language Runtime(CLR)</td>
+  </tr>
+  <tr>
+    <td width="150">&nbsp;</td>
+    <td width="850" align="left" class="ysh2">6..net的两种交互模式：<br />
+a.C/S模式(客户机/服务器模式):Client/Server,客户端需要安装专门的客户端软件<br />
+b.B/S模式(浏览器/服务器模式):Brower/Server,客户端只需要安装一个浏览器就可以了</td>
+  </tr>
+  <tr>
+    <td width="150">&nbsp;</td>
+    <td width="850" align="left" class="ysh2">7..net framework编写应用程序的过程：<br />
+a.使用某种.net兼容语言编写代码<br />
+b.把代码编译为CIL，存储在程序集中<br />
+c.在执行代码时，使用JIT编译器将代码编译为本机代码<br />
+d.托管到CLR环境下运行本机代码</td>
+  </tr>
+  <tr>
+    <td width="150">&nbsp;</td>
+    <td width="850" align="left" class="ysh2">8.通用中间语言-----------Conmmon intermedia language(CIL)</td>
+  </tr>
+  <tr>
+    <td width="150">&nbsp;</td>
+    <td width="850" align="left" class="ysh2">9.控制台程序----------控制台程序是为了兼容DOS程序而设立的，这种程序的执行就好像在一个DOS窗口中执行一样，没有自己的界面。只是通过字符串来显示或者监控程序。控制台程序常常被应用在测试、监控等用途，用户往往只关心数据，不在乎界面。</td>
+  </tr>
+  <tr>
+    <td width="150">&nbsp;</td>
+    <td width="850" align="left" class="ysh2">10.命名空间是.net中提供应用程序代码容器的方式，这样就可以唯一的标识代码及其内容。命名空间是以层的形式存在的，多层时用&quot;.&quot;隔开。</td>
+  </tr>
+  <tr>
+    <td width="150">&nbsp;</td>
+    <td width="850" align="left" class="ysh2">11.标识符----在编程语言中，标识符就是程序员自己规定的具有特定含义的词，比如类名称，属性名称，变量名等。只能由大写字母、小写字母、数字、下划线组成。</td>
+  </tr>
+  <tr>
+    <td width="150">&nbsp;</td>
+    <td width="850" align="left" class="ysh2">12.C#中如果关键字要作为标识符使用，需要在前面加上@符号，如:@class</td>
+  </tr>
+  <tr>
+    <td width="150">&nbsp;</td>
+    <td width="850" align="left" class="ysh2">13..net中命名规范有两种，一种camelCase，一种PascalCase</td>
+  </tr>
+  <tr>
+    <td width="150">&nbsp;</td>
+    <td width="850" align="left" class="ysh2">14.快速注示：Ctrl+K 松开K 按下C；&nbsp;  取消注示：Ctrl+K 松开K 按下U；</td>
+  </tr>
+  <tr>
+    <td width="150">&nbsp;</td>
+    <td width="850" align="left" class="ysh2">15.变量名必须以字母、下划线或@开头，不要以数字开头，在C#中是区分大小写的，当用到英文单词的缩写时应当全部用大写</td>
+  </tr>
+  <tr>
+    <td width="150">&nbsp;</td>
+    <td width="850" align="left" class="ysh2">16.定义常量需要在前面加上 const;格式：const 数据类型 常量名称=常量值；</td>
+  </tr>
+  <tr>
+    <td width="150">&nbsp;</td>
+    <td width="850" align="left" class="ysh2">17.@的作用：a.忽略转义字符 b.让字符串跨行 c.可以让关键字变为标识符使用</td>
+  </tr>
+  <tr>
+    <td width="150">&nbsp;</td>
+    <td width="850" align="left" class="ysh2">18.C#中预定义的数据类型有两种，a.值类型(存储在栈中) b.引用类型(存储在堆中)</td>
+  </tr>
+  <tr>
+    <td width="150">&nbsp;</td>
+    <td width="850" align="left" class="ysh2">19.表达式-----将变量、字面值和运算符组合起来就得到了表达式。</td>
+  </tr>
+  <tr>
+    <td width="150">&nbsp;</td>
+    <td width="850" align="left" class="ysh2">20.运算符按操作数分类：一元运算符、二元运算符、三元运算符（?:）</td>
+  </tr>
+  <tr>
+    <td width="150">&nbsp;</td>
+    <td width="850" align="left" class="ysh2">21.运算符按运算类型分类：数学运算符、赋值运算符、关系运算符、布尔运算符、位运算符、其它运算符</td>
+  </tr>
+  <tr>
+    <td width="150">&nbsp;</td>
+    <td width="850" align="left" class="ysh2">22.关系运算符的结果为true和false两种，返回一个bool类型。关系运算符又叫比较运算符</td>
+  </tr>
+  <tr>
+    <td width="150">&nbsp;</td>
+    <td width="850" align="left" class="ysh2">23.关系运算符作用的操作数如果是两个字符串，那么只能用 ==和！=</td>
+  </tr>
+  <tr>
+    <td width="150">&nbsp;</td>
+    <td width="850" align="left" class="ysh2">24.布尔运算符：&amp;&amp;、||、！、^、&amp;、|</td>
+  </tr>
+  <tr>
+    <td width="150">&nbsp;</td>
+    <td width="850" align="left" class="ysh2">25.位运算符：～、&amp;、|、&lt;&lt;、&gt;&gt;、^</td>
+  </tr>
+  <tr>
+    <td width="150">&nbsp;</td>
+    <td width="850" align="left" class="ysh2">26.字符串连接运算符：+； </td>
+  </tr>
+  <tr>
+    <td width="150">&nbsp;</td>
+    <td width="850" align="left" class="ysh2">27.is运算符：用于动态的检查对象的运行时类型是否与给定类型兼容。 a = b is string;</td>
+  </tr>
+  <tr>
+    <td width="150">&nbsp;</td>
+    <td width="850" align="left" class="ysh2">28.<span class="ysh4">自己查阅运算符的优先级</span></td>
+  </tr>
+  <tr>
+    <td width="150">&nbsp;</td>
+    <td width="850" align="left" class="ysh2">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="150">&nbsp;</td>
+    <td width="850">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="150">&nbsp;</td>
+    <td width="850">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="150">&nbsp;</td>
+    <td width="850">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="150">&nbsp;</td>
+    <td width="850">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="150">&nbsp;</td>
+    <td width="850" align="right"><a href="../Csharp.html">返回上一页 </a>&nbsp;<a href="../index.html">返回首页</a></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="icon" href="../../img/fy2000_tb.png">
+<title>TV 小知识</title>
+<style type="text/css">
+#ys01 {
+	text-align: center;
+	font-weight: bold;
+}
+.ys02 {
+	text-align: center;
+}
+.ys01 {
+	font-family: "微软雅黑";
+	text-align: center;
+	font-size: 18px;
+}
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+a:active {
+	text-decoration: none;
+	color: #E4E4E4;
+	font-size: 20px;
+	font-family: "微软雅黑";
+}
+ysh1 {
+	font-family: "黑体";
+}
+.ysh1 {
+	font-size: 36px;
+	color: #F00;
+	font-family: "黑体";
+}
+.ysh2 {
+	font-family: "黑体";
+	font-size: 20px;
+}
+.ysh3 {
+	font-family: "宋体";
+	font-size: 24px;
+}
+.ysh4 {
+	font-family: "微软雅黑";
+	font-size: 24px;
+}
+.ysh5 {
+	font-family: "微软雅黑";
+	font-size: 20px;
+	color: #000;
+}
+.ysh03 {font-family: "幼圆";
+	font-size: 18px;
+	color: #F60;
+}
+.ysh03 {font-weight: bold;
+	color: #030;
+	font-size: 24px;
+}
+.ysh05 {font-family: "黑体";
+	font-size: 36px;
+	color: #E8DBE6;
+}
+.ys0211 {font-size: 14px;
+	color: #06C;
+}
+.ys022 {font-size: 14px;
+	color: #000;
+}
+.ysh10 {font-family: "隶书";
+	font-size: 18px;
+	color: #999;
+}
+.ys0111 {font-size: 18px;
+	color: #06C;
+}
+</style>
+<script type="text/javascript">
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+</script>
+</head>
+
+<body>
+<p class="ys02"><img src="../img/item_top.gif" width="1000" height="53" alt="item_top" /></p>
+<hr width="1000" />
+<table width="1000" border="0" align="center" cellpadding="10">
+  <tr>
+    <td colspan="2" align="right" bgcolor="#C1C1FF"><span class="ys022">[<a href="#bottom">跳到末尾</a>][<a href="../TV_index.html">返回主页</a>]</span></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" bgcolor="#C1C1FF" class="ysh1"><a name="top" class="ysh1" id="top"></a>红外遥控的学习</td>
+  </tr>
+  <tr>
+    <td width="132" align="center" bgcolor="#99FFFF"><a href="tv_item/TV_sys.html" class="ys01">知识模块</a></td>
+    <td width="822" valign="middle" bgcolor="#E8E8D7">（以下内容都是基于Mstar NonOS软件架构而言）</td>
+  </tr>
+  <tr align="center">
+    <td align="center" valign="top" bgcolor="#69B6DA"><p><a href="TV_sys.html" class="ys01">TV系统</a><br />
+      <a href="Vital_func.html" class="ys01">重要函数体<br />
+      </a><a href="State_machine.html" class="ys01">状态机</a><br />
+      <a href="Timer.html" class="ys01">软定时器</a><br />
+      <a href="IR.html" class="ys01">红外遥控<br />
+    </a><a href="Keypad.html" class="ys01">按键板<br />
+    </a><a href="tv_item/Skintool.html" class="ys01"></a><a href="Skintool.html" class="ys01">Skintool<br />
+    </a><a href="other.html" class="ys01">其它</a></p></td>
+    <td width="822" align="left" valign="top" bgcolor="#E8E8D7"><p class="ys03"><span class="ysh3">概要：</span></p>
+      <ol>
+        <li class="ys04"><span class="ysh2"><a href="#mcjs">名词解释</a></span></li>
+        <li class="ys04"><span class="ysh2"><a href="#NECxy">NEC协议</a></span></li>
+        <li class="ys04"><span class="ysh2"><a href="#tz">拓展</a></span></li>
+        <li class="ys04"><span class="ysh2"><a href="#ir">红外接收头</a></span></li>
+        <li class="ys04"><span class="ysh2"><a href="#swdecode">代码的软解码</a></span></li>
+        <li class="ys04"><span class="ysh2"><a href="#sjcz">实际的操作</a></span></li>
+    </ol></td>
+  </tr>
+  <tr align="center">
+    <td rowspan="8" valign="top" bgcolor="#69B6DA">&nbsp;</td>
+    <td width="822" align="left" valign="top" bgcolor="#E8E8D7"><p class="ys05"><a name="mcjs" id="mcjs"></a><span class="ysh4">名词解释</span></p>
+      <p class="ys06"><span class="ysh5"><span class="ysh5">软解码</span><span class="ysh6">：&#13;<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        解码过程由CPU完成，要消耗CPU资源。速度相对慢。可使硬件简单化。&#13;</span></span></p>
+      <p class="ys06"><span class="ysh5"><span class="ysh6">硬解码：<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    解码过程由硬件完成，不占用CPU资源。速度相对快。硬件架构极其复杂。</span></span></p></td>
+  </tr>
+  <tr align="center">
+    <td align="left" valign="top" bgcolor="#E8E8D7"><p class="ys06"><span class="ys05"><a name="NECxy" id="NECxy"></a></span><span class="ysh4">NEC协议</span></p>
+      <p class="ys06"><span class="ysh5">&nbsp;&nbsp; NEC协议特征：<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        a.&nbsp;&nbsp; 8位地址码，8位命令码<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        b.&nbsp; 完整发射两次地址码和命令码，以提高可靠性<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        c.&nbsp; 脉冲时间长短调制方式<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        d.&nbsp; 38KHz载波频率 （455/12KHz）<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    e.&nbsp; 位时间1.12ms或2.25ms</span></p>
+    <p class="ys06"><img src="../img/NEC协议.jpg" alt="NEC 协议" width="625" height="408" hspace="30" /></p>
+    <p class="ys06"><img src="../img/NEC-Repeat协议.jpg" alt="repeat" width="629" height="389" hspace="30" /></p></td>
+  </tr>
+  <tr align="center">
+    <td align="left" valign="top" bgcolor="#E8E8D7"><p class="ys06"><span class="ys05"><a name="tz" id="tz"></a></span><span class="ysh4">拓展</span></p>
+      <p class="ys06"><span class="ysh5">1.地址位和数据位都是8bit，为什么要发送32bit？</span></p>
+      <p class="ys06"><span class="ysh5">德玛：鬼知道！你去问鬼吧，哈哈哈！</span></p>
+      <p class="ys06"><span class="ysh5">盲僧：这你就不知道了吧，是这样的：为了提高红外发射和接受的抗干扰能力，NEC协议要求在发送地址码和数据码后跟上地址码和数据码的反码，用于接受端校正数据用。&#13;</span></p>
+      <p class="ys06"><span class="ysh5">2.为什么遥控器要用38KHz的载波信号？</span></p>
+      <p class="ys06"><span class="ysh5">战争女神：平时都是拿钱办事，从不问为什么。就是这样。</span></p>
+      <p class="ys06"><span class="ysh5">无双剑姬：简单说就是为了抗干扰，红外遥控常用的载波频率为38kHz，这是由发射端所使用的455kHz晶振来决定的，在发射端要对晶振进行整数分频，分频系数一般取12，所以455kHz÷12≈37.9kHz ≈38kHz。也有一些遥控系统采用36kHz、40kHz、56kHz等， 一般由发射端晶振的振荡频率来决定。所谓抗干扰就是遥控器的中心频率要与接收头所用的频率一致，这样才能达到最好的接收效果。</span></p>
+<p class="ys06"><span class="ysh5">3.为什么有的按键比如(Menu)就只能接受一次，而Volume按键一直按着可以一直响应？</span></p>
+<p class="ys06"><span class="ysh5">无极剑圣：无形的意志可以击穿顽石</span></p>
+<p class="ys06"><span class="ysh5">德邦总管：从代码中的IR中断服务函数和码值处理函数可以看出，所有的Repeat码值都传到了上层，并没有做特殊处理。但是为什么呢？只有一种可能，就是上层做了特殊处理。经过苦苦的搜索发现，在MAPP_IR.C中&#13;有函数MApp_CEC_CheckRepeatKey()作用。</span></p></td>
+  </tr>
+  <tr align="center">
+    <td align="left" valign="top" bgcolor="#E8E8D7"><p class="ys05"><a name="ir" id="ir"></a><span class="ysh4">红外接收头</span></p>
+      <p class="ys05">&nbsp;&nbsp; &nbsp;<span class="ysh5">红外接受头的特性：</span></p>
+      <p class="ys05"><span class="ysh5"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 红外线接收头要有滤光片，将白光滤除。在以下环境条件下红外接收头会影响接收，甚至很严重:</span></p>
+      <p class="ys05"><span class="ysh5"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1、强光直射红外接收头,导致光敏管饱和,白光中红外成分也很强。<br />
+      </span><span class="ysh5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2、有强的红外热源。<br />
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="ysh5">3、有频闪的光源，比如日光灯。<br />
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4、强的电磁干扰，比如日光灯启动、马达启动等&#13;</span></p></td>
+  </tr>
+  <tr align="center">
+    <td align="left" valign="top" bgcolor="#E8E8D7"><p class="ys06"><span class="ys05"><a name="swdecode" id="swdecode"></a></span><span class="ysh4">代码的软解码</span></p>
+      <p class="ys06"><span class="ysh5">代码如何来软解码？</span></p>
+      <p class="ysh5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 既然接收头出来的信号是方波；是方波就会有高低电平，有高低电平就必然有电平的跳变。那么&#13;就可以用外部中断来捕获电平跳变持续的时间，然后根据NEC协议，判0，判1，再通过变量的移位操作来保存二进制码，从而实现软解码的目的。</p>
+      <p class="ysh5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 以下为一些代码的实现截图。<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.中断触发方式的设定</p>
+    <p class="ysh5"><img src="../img/例图2.gif" alt="例图2" width="600" height="95" hspace="40" /></p>
+    <p class="ys06"><span class="ysh5"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.函数体</span></p>
+    <p class="ys06">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<span class="ysh5">IR中断服务函数： <br />
+    &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="ysh5">static void MDrv_IR_SW_Isr(MHAL_SavedRegisters *pHalReg, U32 u32Data)</span></p>
+    <p class="ys06"><span class="ysh5"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 码值处理函数：<br />
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; BOOLEAN msIR_GetIRKeyCode(U8 *pkey,  U8 *pu8flag)</span></p>
+<p class="ysh5"><span class="ys06"><span class="ysh5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.中断服务函数：</span></span></p>
+<p class="ysh5"><img src="../img/例图3.gif" alt="例图3" width="756" height="336" hspace="30" /></p>
+<p class="ysh5"><img src="../img/例图4.gif" alt="例图4" width="625" height="184" hspace="30" /></p>
+<p class="ysh5"><img src="../img/例图5.gif" alt="例图5" width="558" height="267" hspace="30" /></p>
+<p class="ysh5"><img src="../img/例图6.gif" alt="例图6" width="582" height="327" hspace="30" /></p>
+<p class="ysh5"><img src="../img/例图7.gif" alt="例图7" width="593" height="336" hspace="30" /></p>
+<p class="ysh5"><img src="../img/例图8.gif" alt="例图8" width="669" height="352" hspace="30" /></p>
+<p class="ysh5"><span class="ys06">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4.码值处理</span></p>
+<p class="ysh5"><img src="../img/例图9.gif" alt="例图9" width="630" height="249" hspace="30" /></p>
+<p class="ysh5"><img src="../img/例图10.gif" alt="例图10" width="629" height="198" hspace="30" /></p>
+<p class="ysh5"><img src="../img/例图11.gif" alt="例图11" width="624" height="188" hspace="30" /></p>
+<p class="ysh5"><img src="../img/例图12.gif" alt="例图12" width="614" height="251" hspace="30" /></p></td>
+  </tr>
+  <tr align="center">
+    <td align="left" valign="top" bgcolor="#E8E8D7"><p><span class="ys05"><a name="sjcz" id="sjcz"></a></span><span class="ysh4"><span class="ysh5"><span class="ysh4">实际的操作</span></span></span></p>
+    <p><span class="ys06"><span class="ysh5">1.个人抓去的NEC遥控器波形图：</span></span></p>
+    <p><img src="../img/例图13.jpg" alt="例图13" width="750" height="110" hspace="30" /></p>
+    <p class="ysh5">移位操作后：1011  0100   0100  1011  0111   1101  0000  0010<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2</p>
+    <p class="ysh5"> 2.遥控器 Repeat 波形：</p>
+    <p class="ysh5"><img src="../img/例图14.gif" alt="例图14" width="750" height="116" hspace="30" /></p>
+    <p class="ysh5"><img src="../img/例图15.jpg" alt="例图15" width="311" height="232" hspace="30" /></p>
+    <p class="ysh5">&nbsp;</p></td>
+  </tr>
+  <tr align="center">
+    <td align="left" valign="top" bgcolor="#E8E8D7"><p class="ysh51"><span class="ysh12"><a name="bottom" id="bottom"></a></span><span class="ysh1">感谢阅读</span></p></td>
+  </tr>
+  <tr align="center">
+    <td width="822" align="right" valign="top" bgcolor="#E8E8D7"><span class="ys0211"><span class="ys022">[<a href="../TV_index.html">返回主页</a>]</span>[<a href="#top">返回顶部</a>]</span></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" bgcolor="#FF9999"><span class="ys02"><span class="ysh03">※※※※※※※※※※※※※※※【札 记 分 享】</span><span class="ysh03">※</span><span class="ysh03">※</span><span class="ysh03">※</span><span class="ysh03">※</span><span class="ysh03">※</span><span class="ysh03">※</span><span class="ysh03">※</span><span class="ysh03">※</span><span class="ysh03">※※※</span><span class="ysh03">※</span><span class="ysh03">※</span><span class="ysh03">※※</span></span></td>
+  </tr>
+  <tr>
+    <td height="100" colspan="2" align="center" background="../img/背景2.jpg" class="ysh05">禽兽之变诈几何哉？止增笑耳。</td>
+  </tr>
+</table>
+<hr align="center" width="1000" />
+<table width="1000" border="0" align="center">
+  <tr>
+    <td class="ysh10">本想沉溺于莲花深处，不料翻滚于水物之间</td>
+  </tr>
+  <tr>
+    <td><span class="ys0211">更新日期 
+  &nbsp;&nbsp;
+  &nbsp;
+  <!-- #BeginDate format:fCh2m -->2018年2月8日 星期四   18:00<!-- #EndDate -->
+    </span></td>
+  </tr>
+  <tr>
+    <td><span class="ys0111">欢迎访问官网 www.fy2000.com 蓝天的精灵工作室</span></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p class="ys02">&nbsp;</p>
+</body>
+</html>

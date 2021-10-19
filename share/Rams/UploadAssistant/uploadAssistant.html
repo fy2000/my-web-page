@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>上传助手程序分享</title>
+	<link rel="icon" href="../../img/fy2000_tb.png">
+	<style>
+		.body-style {
+			display: flex;
+			flex-direction: column;
+			min-height: 1000px;
+			align-items: center;
+			background-color: #FFE4E1;
+		}
+		header{
+			order: 2;
+			width: 1000px;
+			text-align: center;
+		}
+		.div-content-body {
+			order: 3;
+			display: flex;
+			width: 1000px;
+			border-top: 1px solid black;
+			border-bottom: 1px solid black;
+		}
+		.left-nav {
+			order: 1;
+			width: 120px;
+			border-right: 1px solid black;
+		}
+		.right-aside {
+			order: 3;
+			width: 120px;
+			border-left: 1px solid black;
+		}
+		.main-content-style {
+			order: 2;
+			width: 700px;
+			padding-left: 30px;
+			padding-right: 30px;
+		}
+		.nav-ul-bar {
+			position: sticky;
+			top: 16px;
+		}
+		.nav-ul-bar li {
+			margin-top: 6px;
+			margin-bottom: 6px;
+		}
+		.nav-ul-bar li a {
+			text-decoration: none;
+		}
+		.nav-ul-bar li a:hover {
+			font-weight: bold;
+		}
+		.div-top-bar {
+			order: 1;
+			width: 1000px;
+			border-bottom: 2px solid #FFAA33;
+		}
+		.top-ul-bar {
+			list-style-type: none;
+		}
+		.top-ul-bar li {
+			display: inline;
+		}
+		.top-ul-bar li a {
+			margin: 6px;
+			padding: 2px;
+			font-size: 20px;
+			text-align: center;
+			text-decoration: none;
+		}
+		.top-ul-bar li a:hover {
+			text-shadow: 2px 2px 5px red;
+		}
+		.aside-ul-bar {
+			position: sticky;
+			top: 16px;
+			padding-left: 15px;
+			list-style-type: none;
+		}
+		.aside-ul-bar li {
+			margin-top: 6px;
+			margin-bottom: 6px;
+		}
+		.aside-ul-bar li a {
+			text-align: center;
+			text-decoration: none;
+		}
+		.aside-ul-bar li a:hover {
+			font-weight: bold;
+		}
+
+		/*表格CSS设计*/
+		#tb-decodability {
+			font-family: Arial, Helvetica, sans-serif;
+			border-collapse: collapse;
+		}
+		#tb-decodability th, #tb-decodability td {
+			border: 1px solid #AAAAAA;
+			padding: 8px;
+		}
+		#tb-decodability tr:nth-child(even) {
+			background-color: #f2f2f2;
+		}
+		#tb-decodability tr:hover {
+			background-color: #ddd;
+		}
+		#tb-decodability th {
+			padding-top: 12px;
+			padding-bottom: 12px;
+			text-align: left;
+			background-color: #4CAF50;
+			color: white;
+		}
+		/*图标和名称*/
+		.lable-name {
+			margin-left: 70px;
+			height: 80px;
+		}
+		.lable-name:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+		/*目录结构*/
+		.dir-structure {
+			width: 100%;
+			height: 100%;
+		}
+		.dir-structure:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+		.div-flex-think {
+			display: flex;
+			flex-wrap: wrap;
+			margin-left: 26px;
+			margin-right: 26px;
+		}
+		.div-flex-think-row {
+			flex-basis: 100%;
+			display: flex;
+		}
+		.div-flex-think-row:nth-child(1) {
+			justify-content: space-between;
+		}
+		.div-flex-think-row:nth-child(3) {
+			justify-content: space-between;
+		}
+		.div-flex-think-row:nth-child(2) {
+			justify-content: center;
+		}
+		.think-boder:hover {
+			border: 5px solid #009933;
+		}
+		/*用来消除浮动的*/
+		.clear-float:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+		footer {
+			order: 4;
+			width: 1000px;
+		}
+		footer span {
+			font-size: 18px;
+			color: #0066CC;
+		}
+	</style>
+</head>
+<body class="body-style">
+	<div class="div-top-bar">
+		<img src="../img/MasterCom.gif" style="float: left; width: 150px;">
+		<ul class="top-ul-bar">
+			<li><a href="../UploadAssistant/uploadAssistant.html">上传助手</a></li>
+			<li><a href="../decoder/decoder.html">解码程序</a></li>
+			<li><a href="../4gkpistat/4gkpistat.html">4G-KPI统计</a></li>
+			<li><a href="../5gkpistat/5gkpistat.html">5G-KPI统计</a></li>
+			<li><a href="#">区域统计</a></li>
+			<li><a href="#">服务后台</a></li>
+			<li><a href="#">设备调度</a></li>
+		</ul>
+	</div>
+	<header><h1 style="font-family: SimSun;">上传助手程序讲解</h1></header>
+	<div class="div-content-body">
+		<main class="main-content-style">
+			<h3><a name="main-introduction">一、程序的简介</h3>
+			<ul>
+				<li>
+					<h4>上传助手程序的背景：</h4>
+    				<p style="text-indent: 2em;">
+						随着通信测试业务的发展，市面上涌现出了许多的测试设备，每种测试设备生成的文件后缀千奇百怪，各个厂家命名的文件名形形色色，
+						如果不加以控制上传的文件，那么路网通平台将会堆满许多“垃圾文件”。其次，对于文件项目类型，测试类型，地域值等需要借助路径解码算法获取，
+						因此需要通过文件名来识别一些字段信息，并且需要将文件放入正确的目录下才能准确解码。
+					</p>
+    				<p style="text-indent: 2em;">因此开发了上传助手，对上传的文件进行监控、分配和限制。</p>
+				</li>
+				<li>
+					<h4>图标和名称</h4>
+					<div class="lable-name">
+						<img src="../img/uploadAssistant/uploadAssistant.png" style="height: 80px; float: left;">
+						<h3 style="float: left; color: #3300CC; line-height: 80px; margin: 0 100px 0;">UploadAssistant.exe</h3>
+					</div>
+					<p>此外还有一些关于中低端优化服务项目的功能。</p>
+				</li>
+				<li>
+					<h4>角色与位置</h4>
+					<a href="../img/uploadAssistant/sczs_pos_ybj.png" target="_blank"><img src="../img/uploadAssistant/sczs_pos.png" width="600px"></a>
+				</li>
+			</ul>
+			<h3><a name="main-pro-func">二、程序说明</h3>
+			<ol>
+				<li>
+					<h4>登陆界面</h4>
+					<div class="clear-float">
+						<a href="../img/uploadAssistant/sczs_login.png" target="_blank">
+							<img src="../img/uploadAssistant/sczs_login.png" style="margin-right: 30px; width: 290px; float: left;">
+						</a>
+						<span style="color: red;">界面说明：</span><br />如左图为上传助手登陆界面。<br />
+						<br />1.数据库下拉框灰显，不能进行选择。
+						<br />2.数据库在配置文件中设置。
+						<br />3.用户名为ftp用户名。ftp用户名需要从数据库拿到的用户名列表中进行选择。不能自行输入。
+						<br />4.密码为对应ftp用户名的密码，需要自行输入。
+						<br />5.保存用户名和密码就是字面意思。
+						<br />6.点击确定后，如果密码和数据库中的一样，才能登陆。
+					</div>
+				</li>
+				<li>
+					<h4>程序主界面</h4>
+					<p>主界面有<span style="color: red; font-weight: bold;">格式检测</span>和<span style="color: red; font-weight: bold;">数据上传</span>两部分构成</p>
+					<div class="clear-float">
+						<1><span style="color: brown; font-weight: bold;">格式检测界面</span><br /><br />
+						<a href="../img/uploadAssistant/sczs_gsjc.png" target="_blank">
+							<img src="../img/uploadAssistant/sczs_gsjc.png" style="margin:0 20px 20px 0; width: 300px; float: left;">
+						</a>
+						<span style="color: red;">界面说明：</span><br />
+						<br />1.点击树状节点，然后使用右键功能进行文件导入。导入的文件经过路径解析和上传功能后就会上传到这个节点目录下。
+						<br />2.添加后的文件会显示在这里，可以右键取消导入的文件。
+						<br />3.在节点目录上配置的属性信息会显示在这里，随着选中的节点变化而变化。
+						<br />4.日志窗口，显示文件解析结果信息。
+						<br />5.呈现历史导入文件的信令。使用右键功能可以导出到Excel文件中。
+						<br />6.导入文件后，点击“开始解析”按钮，即可执行文件路径解析。结果提示会显示在日志输出框中。
+					</div>
+					<p></p>
+					<div class="clear-float">
+						<2><span style="color: brown; font-weight: bold;">数据上传界面</span><br /><br />
+						<a href="../img/uploadAssistant/sczs_sjsc.png" target="_blank">
+							<img src="../img/uploadAssistant/sczs_sjsc.png" style="margin-right: 30px; width: 300px; float: left;">
+						</a>
+						<span style="color: red;">界面说明：</span><br /><br />在格式检测界面中所有通过检测的文件都会显示在这个文件列表中。点击开始上传后，文件会通过ftp协议传输到
+						对应的路径解析配置的节点目录下。底部显示传输字节情况和传输文件个数情况。传输完毕后，点击完成并返回按钮，返回。
+					</div>
+				</li>
+			</ol>
+			<h3><a name="main-work-principle">三、工作原理</h3>
+			<ul>
+				<li>
+					<h4>程序原理图</h4>
+					<p class="clear-float">
+						<a href="../img/uploadAssistant/sczs_cxyl_ybj.png" target="_blank">
+							<img src="../img/uploadAssistant/sczs_cxyl.png" style="width: 350px;">
+						</a>
+						<br /><br />
+						由上图可以看出，程序初始化阶段会加载配置文件，然后加载DBSetting数据库配置表，接着弹出FTP登陆界面，校验FTP账户密码，最后加载路径解析数据库配置。成功后进入主界面。
+						用户可以导入文件，对文件进行检测，上传等操作。
+					</p>
+				</li>
+			</ul>
+			<h3><a name="main-pro-maintain">四、配置文件说明</h3>
+			<ul>
+				<li>
+					<h4>配置文件名称：UploadAssistant.exe.config</h4>
+				</li>
+				<li>
+					<h4>配置字段说明</h4>
+					<table id="tb-decodability" style="width: 90%;">
+						<tr><th>字段名</th><th>说明</th></tr>
+						<tr><td>ftpIP</td><td>上传使用的远程FTP服务器</td></tr>
+						<tr><td>sqlIP</td><td>数据库主库服务器</td></tr>
+						<tr><td>dataTable</td><td>访问的数据库名</td></tr>
+						<tr><td>RootDir</td><td>远程FTP目录</td></tr>
+						<tr><td>ftpPort</td><td>远程FTP端口</td></tr>
+						<tr><td>sqlPort</td><td>数据库访问端口</td></tr>
+						<tr><td>logConfig_MonthSpan</td><td>呈现历史上传数据时间限制</td></tr>
+						<tr><td>OnlyMasterSetting</td><td>是否为单一主库</td></tr>
+						<tr><td>PswMainDB</td><td>数据库密码</td></tr>
+						<tr><td>IP4OA</td><td>是否为OA系统</td></tr>
+						<tr><td>serverip_OA</td><td>OA系统IP</td></tr>
+						<tr><td>dbport_OA</td><td>OA系统访问端口</td></tr>
+						<tr><td>IsSandbox</td><td>是否为沙盒测试</td></tr>
+						<tr><td>FTP协议</td><td>FTP协议类型(ftp 、sftp)</td></tr>
+					</table>
+				</li>
+				<li>
+					<h4>其它功能项比较抽象，请培训讲师现场操作演示！</h4>
+					<img src="../img/uploadAssistant/图片一.png" style="width: 40%; margin-right: 30px;">
+					<img src="../img/uploadAssistant/图片二.png" style="width: 40%;">
+				</li>
+			</ul>
+			<div style="margin-top: 100px; text-align: center; border-top: 1px solid black;">
+				<img src="../img/uploadAssistant/ganxieyu.png">
+			</div>
+		</main>
+		<nav class="left-nav">
+			<ul class="nav-ul-bar">
+				<li><a href="#main-introduction">程序简介</a></li>
+				<li><a href="#main-pro-func">程序说明</a></li>
+				<li><a href="#main-work-principle">工作原理</a></li>
+				<li><a href="#main-pro-maintain">配置说明</a></li>
+			</ul>
+		</nav>
+		<aside class="right-aside">
+			<ul class="aside-ul-bar">
+				<li><a href="../Rams_index.html" style="background-color: #FFA07A;">返回主页</a></li>
+				<li><a href="../UploadAssistant/uploadAssistant.html">上传助手</a></li>
+				<li><a href="../decoder/decoder.html">解码程序</a></li>
+				<li><a href="../4gkpistat/4gkpistat.html">4G-KPI统计</a></li>
+				<li><a href="../5gkpistat/5gkpistat.html">5G-KPI统计</a></li>
+				<li><a href="#">区域统计</a></li>
+				<li><a href="#">服务后台</a></li>
+				<li><a href="#">设备调度</a></li>
+			</ul>
+		</aside>
+	</div>
+	<footer>
+		<br />
+		<span style="color: #0099CC;">火把虽然下垂，火焰却一直向上燃烧
+		---------------------------------------------------------------------------------
+		</span><a href="../Rams_index.html">返回主页</a><br />
+		<span>更新日期 &nbsp; &nbsp; &nbsp; 2021年10月15日 星期五 上午 10:48</span><br />
+		<span>欢迎访问官网 <a href="#">www.fy2000.com</a> &#128151 蓝天的精灵工作室</span>
+		<p></p>
+	</footer>
+</body>
+</html>
