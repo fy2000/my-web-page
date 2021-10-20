@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="icon" href="../img/fy2000_tb.png">
+<title>Git Bssh</title>
+<style type="text/css">
+	body{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		min-width: 1000px;
+		background-color: rgb(253, 252, 248);
+	}
+	p{
+		text-indent: 2em;
+	}
+	header{
+		order: 1;
+		width: 1000px;
+		height: 100px;
+		text-align: center;
+		color: #E0FFFF;
+		background-color: #009933;
+	}
+	header img{
+		float: left;
+	}
+	header:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+	
+	.section{
+		order: 2;
+		width: 1000px;
+		border-bottom: 1px solid #999999;
+	}
+	
+	footer {
+		order: 3;
+		width: 1000px;
+	}
+	footer span {
+		font-size: 18px;
+		color: #0066CC;
+	}
+</style>
+</head>
+
+<body>
+	<header id="headbox" class="headbox">
+		<img src="./git_img/git_mark_pic.png" >
+		<h1>Git Bash 操作命令</h1>
+	</header>
+	
+	<div class="section">
+		<ul>
+			<li>
+				<h3>什么是 Git ?</h3>
+				<p>Git 是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。
+				Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。[摘自网络]</p>
+			</li>
+			<li>
+				<h3>Git Bash 的下载和安装</h3>
+				<p>Git Bash软件直接在官网下载就可以了，官网：<a href="https://git-scm.com/">git-scm.com</a>。 如下图所示，点击下载Windows最新版本即可。</p>
+				<a href="./git_img/git-scm.com.png" target="_blank">
+					<img src="./git_img/git-scm.com.png" style="width: 30%; margin-left: 35px;">
+				</a>
+				<p>下载好之后，你会得到一个<img src="git_img/git_install_exe.png" >类似这样的Git安装可执行文件。双击运行，除了在选择安装路径的时候根据自己需要更改下，其它步骤直接点击next就可以了。</p>
+				<p>安装好之后，在 Windows 的 cmd 命令窗口中输入：<code>git --version</code> 后回车，出现git版本号即表示安装成功。</p>
+				<img src="./git_img/git_cmd_version.png" style="margin-left: 35px;">
+				<p>其实不用上述这样确认也可以的。在安装好之后，桌面一般会生成 Git 的快捷方式。双击能运行就可以了。</p>
+				<img src="git_img/git_face.png" style="margin-left: 35px;">
+			</li>
+			<li>
+				<h3>Git 命令</h3>
+				<p>讲解Git操作命令，我不打算直接单独来讲解命令，原因有二，其一、我自己学习的时候，感觉单独学习命令不仅枯燥而且掌握不牢。借助实际操作学习才最有效。其二、我本身也是菜鸟，单独讲解不实际。
+				下面就借助实际项目“如何将本地web文件上传到Github”来进行命令讲解。</p>
+				<ol>
+					<li>
+						<h4>在Github上创建一个存放web文件的仓库</h4>
+						<p>-> 要想创建仓库，你必须是注册了Github账号的。然后在自己主页上点击 New 创建仓库。我的注册的账号是 fy2000。</p>
+						<img src="./git_img/new_repositories.png" style="margin-left: 4%;">
+						<p>-> 填写新建仓库信息，最后创建仓库。这里我的仓库起名为 mytest 。</p>
+						<img src="./git_img/fill_new_repositories.png" style="margin-left: 4%;">
+						<p>-> 创建后的 mytest 仓库显示如下。</p>
+						<a href="./git_img/repositories_created.png" target="_blank">
+							<img src="./git_img/repositories_created.png" style="width: 80%; margin-left: 4%;">
+						</a>
+					</li>
+					<li>
+						<h4>上传本地web工程文件到 mytest 远程仓库</h4>
+						<ul>
+							<li>
+								<h4>本地web工程文件介绍</h4>
+								<p>首先，我们的web工程项目是一个淘宝的静态网页。文件目录是 D:\MyProTest\html\HBuilderProjects\taobao\</p>
+								<img src="./git_img/web_taobao_path.png" style="margin-left: 5%;">
+							</li>
+							<li>
+								<h4>新建本地仓库目录</h4>
+								<p>在自己本地新建一个文件夹，作为本地库目录。或者直接使用web工程文件夹作为本地仓库目录。我新建的文件夹为GitTest，目录：D:\MyProTest\GitTest\ 。</p>
+							</li>
+							<li>
+								<h4>初始化本地仓库</h4>
+								<p>打开新建的 GitTest 目录，此时为空，在空白处右键，选择 Git bash here，此时就会打开 Git bash 命令窗口，并且目录定位到你的 GitTest 目录。</p>
+								<img src="./git_img/init_local_repositories_1.png" style="margin-left: 35px;">
+								<p>运行命令 git init 回车，此时就初始化了你的本地仓库 GitTest，你会看到在此文件夹下出现了一个 .git 的文件夹。</p>
+								<img src="./git_img/git_init_repositories_2.png"  style="margin-left: 35px;">
+								<img src="./git_img/git_init_repositories_3.png" style="margin-left: 35px;">
+							</li>
+							<li>
+								<h4>获取远程库 mytest 的远程链接地址</h4>
+								<p>在Github上的 mytest 仓库页面选择 Code 按钮，在弹出的选项卡中选择协议 SSH ，然后下面出现的 git@github.com:fy2000/mytest.git 就是远程访问链接。</p>
+								<a href="./git_img/remote_reposories_path.png" target="_blank">
+									<img src="./git_img/remote_reposories_path.png" style="width: 80%; margin-left: 35px;">
+								</a>
+							</li>
+							<li>
+								<h4>将本地库和远程库 mytest 关联</h4>
+								<p>关联远程库命令-> git remote add origin remote_path ，remote_path 为远程库访问链接。</p>
+								<p>运行命令：git remote add origin git@github.com:fy2000/mytest.git ，此时会在本地库文件夹GitTest中的.git/config文件中添加远程库记录。</p>
+								<img src="./git_img/git_add_remote.png" style="width: 300px; height: 150px; margin-left: 35px;">
+								<img src="./git_img/git_config.png" style="width: 300px; height: 150px; margin-left: 35px;">
+							</li>
+							<li>
+								<h4>将本地web项目文件加载到本地缓存区</h4>
+								<p>待上传的文件必须在当前使用的仓库里面，即在仓库目录下面。首先将淘宝web项目文件复制到本地仓库 GitTest 下面。</p>
+								<p>命令：git add project_path ，将web工程文件加入本地缓存区， project_path 为待上传的文件目录。</p>
+								<p>例如我要将淘宝文件加入缓存区的话需要执行命令：git add ./taobao/ ，这里使用相对路径是因为我当前所在的目录为 GitTest 目录下</p>
+								<img src="./git_img/git_add_file.png" style="margin-left: 35px;">
+							</li>
+							<li>
+								<h4>将缓存区中的文件上传到本地仓库 GitTest</h4>
+								<p>命令：git commit -m "本次操作的描述"，此命令可以将缓存区文件上传到本地仓库。入下图为成功上传。</p>
+								<img src="./git_img/git_commit.png" style="margin-left: 35px;">
+							</li>
+							<li>
+								<h4>将本地仓库的淘宝web工程同步到远程仓库 mytest 中</h4>
+								<p>命令：git push -u origin master -f，推送到git服务端，加-f则进行覆盖，不加则不覆盖</p>
+								<p>此时如果没有在 Github 上添加过 ssh key 的话，会报错。因为你虽然有了远程仓库的地址，但是你没有ssh key，你就没有权限访问。如下图</p>
+								<img src="./git_img/git_push_error.png" style="margin-left: 35px;">
+							</li>
+							<li>
+								<h4>创建 SSH Key</h4>
+								<p>配置一个本地 git 的用户名，命令：git config --global user.name "github账户名"</p>
+								<p>配置一个本地 git 的邮箱地址，命令：git config --global user.email "对应的邮箱地址" </p>
+								<p>生成SSH Key ，命令： ssh-keygen -t rsa -C "上面对应的邮箱地址" </p>
+								<img src="./git_img/create_ssh_key.png" style="margin-left: 35px;">
+							</li>
+							<li>
+								<h4>将生成的公式添加到 Github 账户中</h4>
+								<p>找到公匙所在文件，是一个 id_rsa.pub 名字的文件，上图中有提到，打开后全部复制里面的字符串内容。
+								然后打开Github账户主页，点击 <img src="./git_img/github_headpic.png">头像图标到设置界面，将复制的 ssh key 添加到里面即可。</p>
+								<img src="./git_img/ssh_key_file.png" style="margin-left: 35px;  margin-bottom: 15px;">
+								<img src="./git_img/add_sshkey_1.png" style="width: 80%; margin-left: 35px;" >
+								<img src="./git_img/add_sshkey_2.png" style="width: 80%; margin-left: 35px;" >
+								<img src="./git_img/add_sshkey_3.png" style="width: 80%; margin-left: 35px;" >
+								<p>到这里就添加好了ssh key。接下来就可以上传了。</p>
+							</li>
+							<li>
+								<h4>重新同步本地库的淘宝web项目到远程 mytest 仓库中</h4>
+								<p>执行命令：git push -u origin master，此时就可以顺利上传了。</p>
+								<img src="./git_img/git_push_repeat.png" style="margin-left: 35px;">
+							</li>
+							<li>
+								<h4>在 Github 上确认是否上传成功</h4>
+								<p>登陆自己的 Github 账户页面，打开 mytest 仓库，查看是否有自己的淘宝web项目文件。如果有，就上传成功了。</p>
+								<img src="./git_img/git_update_success_1.png" style="width: 80%; margin-left: 35px;">
+								<img src="./git_img/git_update_success_2.png" style="width: 80%; margin-left: 35px;">
+							</li>
+						</ul>
+					</li>
+				</ol>			
+			</li>
+			<li>
+				<h3>如何远程访问自己上传的项目网页</h3>
+				<ol>
+					<li>
+						<h4>登陆 Github 账户，进入网页所在的仓库，然后点击设置。</h4>
+						<a href="./git_img/show_html_1.png" target="_blank">
+							<img src="./git_img/show_html_1.png" style="width: 80%; margin-left: 35px;" >
+						</a>
+					</li>
+					<li>
+						<h4>在设置中选择 Pages 选项卡，然后在右侧选择分支。</h4>
+						<a href="./git_img/show_html_2.png" target="_blank">
+							<img src="./git_img/show_html_2.png" style="width: 80%; margin-left: 35px;" >
+						</a>
+					</li>
+					<li>
+						<h4>选择好分支后，保存，上面就会出现访问这个仓库根目录的网址，拷贝并记住。</h4>
+						<a href="./git_img/show_html_3.png" target="_blank">
+							<img src="./git_img/show_html_3.png" style="width: 80%; margin-left: 35px;" >
+						</a>
+					</li>
+					<li>
+						<h4>在浏览器的地址栏中输入拷贝的仓库地址，并在后面加上自己网页html文件所在的目录名，回车即可显示网页</h4>
+						<p>比如我的仓库网址为：https://fy2000.github.io/mytest/，我的淘宝html首页在目录 taobao/index.html</p>
+						<p>那我的网址就是：https://fy2000.github.io/mytest/taobao/index.html，在浏览器中显示如下</p>
+						<a href="./git_img/show_taobao.png" target="_blank">
+							<img src="./git_img/show_taobao.png" style="width: 80%; margin-left: 35px;" >
+						</a>
+					</li>
+				</ol>
+			</li>
+			<li>
+				<h3>结束语</h3>
+				<p>文章到这里就结束了，欢迎查阅！</p>
+			</li>
+		</ul>
+	</div>
+	
+	<footer>
+		<br />
+		<span style="color: #0099CC;">懂得进退，方能成就人生。
+		-------------------------------------------------------------------------------------------
+		</span><a href="../index.html">返回主页</a><br />
+		<span>更新日期 &nbsp; &nbsp; &nbsp; 2021年10月15日 星期五 上午 10:48</span><br />
+		<span>欢迎访问官网 <a href="#">www.fy2000.com</a> &#128151 蓝天的精灵工作室</span>
+		<p></p>
+	</footer>
+</body>
+</html>
