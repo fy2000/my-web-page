@@ -12,8 +12,11 @@
 		min-width: 1000px;
 		background-color: rgb(253, 252, 248);
 	}
-	p{
+	.chinese-indent{
 		text-indent: 2em;
+	}
+	h3{
+		color: #009966;
 	}
 	header{
 		order: 1;
@@ -44,6 +47,41 @@
 		border-bottom: 1px solid #999999;
 	}
 	
+	.section .code-area{
+		width: 100%;
+		height: 40px;
+		text-align: left;
+		border: 1px solid #DDDDDD;
+		border-radius: 10px;
+		background-color: #F8F8FF;
+	}
+	
+	.section .div-indent2em{
+		padding-left: 2em;
+	}
+	
+	/* 表格 */
+	#tb-decodability {
+		font-family: Arial, Helvetica, sans-serif;
+		border-collapse: collapse;
+	}
+	#tb-decodability th, #tb-decodability td {
+		border: 1px solid #AAAAAA;
+	}
+	#tb-decodability tr:nth-child(even) {
+		background-color: #f2f2f2;
+	}
+	#tb-decodability tr:hover {
+		background-color: #ddd;
+	}
+	#tb-decodability th {
+		padding-top: 8px;
+		padding-bottom: 8px;
+		text-align: left;
+		background-color: #4CAF50;
+		color: white;
+	}
+	
 	footer {
 		order: 4;
 		width: 1000px;
@@ -63,31 +101,276 @@
 	
 	<div class="head-nav">
 		[<a href="#htmlfooter">调到底部</a>]
-		[<a href="../index.html">返回主页</a>]
+		[<a href="../../index.html">返回主页</a>]
 	</div>
 	
 	<div class="section">
 		<ul>
 			<li>
 				<h3>什么是 Python ?</h3>
-				<p>Git 是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。
-				Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。[摘自网络]</p>
+				<p class="chinese-indent">Python 是一种解释型、面向对象、动态数据类型的高级程序设计语言。</p>
+				<p class="chinese-indent">Python 由 Guido van Rossum 于 1989 年底发明，第一个公开发行版发行于 1991 年。像 Perl 语言一样, Python 源代码同样遵循 GPL(GNU General Public License) 协议。</p>
 			</li>
 			<li>
-				<h3>Git Bash 的下载和安装</h3>
-				<p>Git Bash软件直接在官网下载就可以了，官网：<a href="https://git-scm.com/">git-scm.com</a>。 如下图所示，点击下载Windows最新版本即可。</p>
-				<a href="./git_img/git-scm.com.png" target="_blank">
-					<img src="./git_img/git-scm.com.png" style="width: 30%; margin-left: 35px;">
-				</a>
-				<p>下载好之后，你会得到一个<img src="git_img/git_install_exe.png" >类似这样的Git安装可执行文件。双击运行，除了在选择安装路径的时候根据自己需要更改下，其它步骤直接点击next就可以了。</p>
-				<p>安装好之后，在 Windows 的 cmd 命令窗口中输入：<code>git --version</code> 后回车，出现git版本号即表示安装成功。</p>
-				<img src="./git_img/git_cmd_version.png" style="margin-left: 35px;">
-				<p>其实不用上述这样确认也可以的。在安装好之后，桌面一般会生成 Git 的快捷方式。双击能运行就可以了。</p>
-				<img src="git_img/git_face.png" style="margin-left: 35px;">
+				<h3>Python 的强大之处</h3>
+				<ol>
+					<li>它是人工智能、大数据分析的主要支持语言。</li>
+					<li>它被称为“胶水语言”，能够更好的和其他语言及机器硬件粘合在一起。</li>
+					<li>它有着庞大的免费的“代码库”，初学者可以随意使用里面资源实现自己功能。</li>
+					<li>它是一个脚本语言，和其他语言相比更加简洁、高效。</li>
+					<li>它更加通俗易懂，好多省市已经将 Python 加入中小学课程。</li>
+					<li>最最重要的是， Python 广泛应用于自动化办公、自动化运维、网站开发、网络爬虫、大数据分析、数据挖掘、科学计算、机器学习、深度学习、神经网络等领域。</li>
+				</ol>
+			</li>
+			<li>
+				<h3>Python 基础语法1</h3>
+				<div class="div-indent2em">
+					<p>print() 函数的用法有以下几种：</p>
+					<ol>
+						<li>单刀赴会----不带引号。</li>
+						<li>黄袍加身----搭配单引号、双引号、三引号</li>
+					</ol>
+					<p>让我们一睹风采。</p>
+					<h4>无引号----单刀赴会——不带引号，可直接传入数字、变量名。</h4>
+					<div class="code-area" style="height: 70px;">
+						<pre><code>  print(1314)<br />  name = '哪吒'<br />  print(name)</code></pre>
+					</div>
+					
+					<h4>单引号用法----黄袍加身。</h4>
+					<div class="code-area">
+						<pre><code>  print('哪吒')</code></pre>
+					</div>
+					<p>这就是 print()中引号的用法: 当括号里有引号的时候，就相当于告诉计算机——您傻傻的就行了，不需要干别的，我给您什么，您就给我打印什么。</p>
+					
+					<h4>双引号用法----当输出内容中有单引号时，使用双引号可以输出单引号。</h4>
+					<div class="code-area" style="height: 56px;">
+						<pre><code>  print("哪吒")   #和单引号用法一样<br />  print("let's go go go!")  #输出为：let's go go go!</code></pre>
+					</div>
+					<p># 号常用作单行注释符号，用于解释单行代码。#号后面的任何内容都不会显示在屏幕上。</p>
+					
+					<h4>三引号用法 ----- print()函数中使用三引号'''实现跨行输出。</h4>
+					<div class="code-area" style="height: 80px;">
+						<pre><code>  print('''哪吒，<br />  托塔李天王家的三太子，<br />  变化三头六臂又或三头八臂，<br />  百邪不侵专克摄魂夺魄的莲花化身''')</code></pre>
+					</div>
+					<pre>输出为(格式保持不变)：<br />哪吒，<br />托塔李天王家的三太子，<br />变化三头六臂又或三头八臂，<br />百邪不侵专克摄魂夺魄的莲花化身</pre>
+					
+					<h4>转义字符</h4>
+					<p>还有另一种方法实现换行，就是使用转义字符 \n,像这样：</p>
+					<div class="code-area">
+						<pre><code>  print('哪吒，\n托塔李天王家的三太子，\n变化三头六臂又或三头八臂，\n百邪不侵专克摄魂夺魄的莲花化身'))</code></pre>
+					</div>
+					<pre>输出为：<br />哪吒，<br />托塔李天王家的三太子，<br />变化三头六臂又或三头八臂，<br />百邪不侵专克摄魂夺魄的莲花化身</pre>
+					
+					<h4>转义字符总结：</h4>
+					<table id="tb-decodability" style="width: 50%">
+						<tr><th>转义字符</th><th>意义</th></tr>
+						<tr><td style="text-align: center;">\a</td><td>响铃(BEL)</td></tr>
+						<tr><td style="text-align: center;">\b</td><td>退格(BS)，将当前位置移到前一列</td></tr>
+						<tr><td style="text-align: center;">\f</td><td>换页(FF)，将当前位置移到下页开头</td></tr>
+						<tr><td style="text-align: center;">\n</td><td>换行(LF)，将当前位置移到下一行开头</td></tr>
+						<tr><td style="text-align: center;">\r</td><td>回车(CR)，将当前位置移动到本行开头</td></tr>
+						<tr><td style="text-align: center;">\t</td><td>水平制表(HT)，跳到下一个TAB位置</td></tr>
+						<tr><td style="text-align: center;">\v</td><td>垂直制表(VT)</td></tr>
+						<tr><td style="text-align: center;">\0</td><td>空字符(NUL)</td></tr>
+						<tr><td style="text-align: center;">\'</td><td>代表一个单引号(撇号)字符</td></tr>
+						<tr><td style="text-align: center;">\"</td><td>代表一个双引号字符</td></tr>
+						<tr><td style="text-align: center;">\?</td><td>代表一个问号</td></tr>
+						<tr><td style="text-align: center;">\\</td><td>代表一个单斜杠字符</td></tr>
+						<tr><td style="text-align: center;">\xhh</td><td>1到2位十六进制所表示的任意字符</td></tr>
+						<tr><td style="text-align: center;">\ddd</td><td>1到3位八进制所代表的任意字符</td></tr>
+					</table>
+					
+					<h4>变量与赋值</h4>
+					<div class="code-area">
+						<pre><code>  name ='哪吒'</code></pre>
+					</div>
+					<p>这就是一个常见的给变量赋值的招式。 在这里 name 就是一个变量，将'哪吒'这两个文字赋值给了 name 这个变量。</p>
+					
+					<h4>变量的命名规范</h4>
+					<ol>
+						<li>只能包含数字、字母和下划线</li>
+						<li>不能以数字开头</li>
+						<li>尽量描述包含的数据内容</li>
+					</ol>
+					
+					<p>除了变量名之外，"="不是等于的意思，而是赋值，表示把 = 号右边的内容放进左边的变量。变量的最终值等于最后一次赋值结果。</p> 
+				</div>
+			</li>
+			<li>
+				<h3>Python 基础语法2</h3>
+				<div class="div-indent2em">
+					<p><b>数据类型</b><br />在 Python 江湖里，常用的数据类型有三种：<b>字符串</b>，<b>整数</b>，<b>浮点数</b>。</p>
+					<p><b>字符串</b>----穿上单引号、双引号、三引号黄袍的内容就是字符串，无论引号里面内容是中文、英文、法文、数字、符号、甚至是火星文。
+					就是由一个个字符连接起来的组合，你平时所见的字母、数字、汉字、符号都是字符。<br />如：'哪吒'、''美国队长''、'''黑寡妇'''</p>
+					<p><b>整数</b>----整数，英文为 integer，简称 int。Python 江湖的整数和我们现实数学中定义的一样：整数是正整数、零和负整数的统称。说白了，就是没有小数点的数字。<br />
+					如：18、192 、80</p>
+					<p><b>浮点数</b>----英文称为 float，Python 江湖中，将带有小数点的纯数字定义为浮点数。它是我们最常见的数据类型之一。<br />如：-9.99、9.00、3.1415926</p>
+					<p><b>四则运算</b>----法则和数学上的一致，符号有点差别<br />加(+)、减(-)、乘(*)、除(/)<br />Python中'%'为取余，例如：num = 3%2  --> num值为1</p>
+					
+					<h4>字符串的拼接</h4>
+					<div class="code-area" style="height: 85px;">
+						<pre><code>  hero = '美国队长'<br />  title = '漫威漫画'<br />  action = '取材于'<br />  print(hero+action+title)</code></pre>
+					</div>
+					<pre>输出：美国队长取材于漫威漫画</pre>
+					
+					<h4>数据类型的查询— type()函数</h4>
+					<div class="code-area" style="height: 85px;">
+						<pre><code>  name = '美国队长'<br />  num = 2<br />  print(type(name))<br />  print(type(num))</code></pre>
+					</div>
+					<pre>输出：<br />&lt;class 'str'&gt;<br />&lt;class 'int'&gt;</pre>
+					
+					<p><b>数据转换</b> ---- 数据转换的方法有3个: <b>str()</b> ，<b>int()</b>，<b>float()</b></p>
+					<table id="tb-decodability" style="width: 50%">
+						<tr><th>转换方向</th><th>转换方法</th></tr>
+						<tr><td style="padding-left: 5px;">str --> int</td><td>int() 文字类和小数点的字符串不能转换为int</td></tr>
+						<tr><td style="padding-left: 5px;">str --> float</td><td>float() 文字类的字符串不能转换为float</td></tr>
+						<tr><td style="padding-left: 5px;">int --> str</td><td>str()</td></tr>
+						<tr><td style="padding-left: 5px;">int --> float</td><td>float()</td></tr>
+						<tr><td style="padding-left: 5px;">float --> int</td><td>int() 抹0取整</td></tr>
+						<tr><td style="padding-left: 5px;">float --> str</td><td>str()</td></tr>
+					</table>
+				</div>
+			</li>
+			<li>
+				<h3>Python 基础语法3</h3>
+				<div class="div-indent2em">
+					<h4>if 条件判断</h4>
+					<ol>
+						<li>单项判断 ---- if 注意冒号下缩进</li>
+						<li>双向判断 ---- if...else...else需要一个平级的前提条件</li>
+						<li>多项判断 ---- if...elif...else...elif需要if，但不一定需要else</li>
+					</ol>
+					<p>if嵌套 ---- 条件套条件，额外条件要在基础条件下缩进</p>
+					<b>特别强调if语句的<span style="color: red;">缩进</span>和<span style="color: red;">冒号</span></b>
+					<div class="code-area" style="height: 130px;">
+						<pre><code>  JBTime = int(input('请输入小K的加班时间点：'))<br />  if JBTime > 10:<br />      print('小K 打车回家')<br />  elif JBTime >= 8:<br />      print('小K 坐地铁回家')<br />  else:<br />      print('小K 骑车回家')</code></pre>
+					</div>
+				</div>
+			</li>
+			<li>
+				<h3>Python 基础语法4</h3>
+				<div class="div-indent2em">
+					<h4>input()函数</h4>
+					<div class="code-area" style="height: 56px;">
+						<pre><code>  name = input('请输入你喜欢人的名字：')<br />  print(name)</code></pre>
+					</div>
+					<p>特点：</p>
+					<ol>
+						<li>有问有答，有来有往。需要在终端输入信息。</li>
+						<li>函数好用，赋值第一。input()函数的结果必须赋值。</li>
+						<li>返回类型，必为str。不管输入的是整数1234，还是字符串，input()函数的输入值，都会被强制性的转换为字符串类型。</li>
+						<li>想要整数，源头转换。输入值需要整数时，input()函数的结果需要强制转换。</li>
+					</ol>
+				</div>
+			</li>
+			<li>
+				<h3>Python 基础语法5</h3>
+				<div class="div-indent2em">
+					<h4>列表 (list)</h4>
+					<div class="code-area">
+						<pre><code>  transformers = ['擎天柱', '大黄蜂', '救护车']</code></pre>
+					</div>
+					<p>以上 ['擎天柱', '大黄蜂', '救护车'] 就是一个列表。<br />一个列表需要使用中括号[]将所有数据框起来，里面中的每一个数据叫做“元素”， 元素与元素之间使用逗号隔开。</p>
+					
+					<h4>列表的打印</h4>
+					<div class="code-area" style="height: 56px;">
+						<pre><code>  list = ['李雷','韩梅梅',180,3.5]<br />  print(list)</code></pre>
+					</div>
+					<pre>输出：['李雷', '韩梅梅', 180, 3]</pre>
+					<p>你会发现，列表的胸怀很宽广，各种类型的数据（字符串、整数、浮点数）都能放在里面。</p>
+					
+					<h4>从列表中提取单个元素</h4>
+					<span>我们就可以通过列表名搭配下标方式来提取列表中的元素，读取元素中的内容。</span>
+					<div class="code-area" style="height: 56px;">
+						<pre><code>  transformers = ['擎天柱','大黄蜂','救护车']<br />  print(transformers[1])</code></pre>
+					</div>
+					<pre>输出：大黄蜂	</pre>
+					<p>注意：<span style="color: red;">列表的下标是从0开始的</span></p>
+					
+					<h4>从列表中提取多个元素</h4>
+					<div class="code-area" style="height: 115px;">
+						<pre><code>  transformers = ['擎天柱','大黄蜂','救护车','巨无霸福特','红蜘蛛']<br />  print(transformers[:])<br />  print(transformers[2:])<br />  print(transformers[:2])<br />  print(transformers[1:3])<br />  print(transformers[2:4])</code></pre>
+					</div>
+					<pre>输出为：<br />['擎天柱', '大黄蜂', '救护车', '巨无霸福特', '红蜘蛛']<br />['救护车', '巨无霸福特', '红蜘蛛']<br />['擎天柱', '大黄蜂']<br />['大黄蜂', '救护车']<br />['救护车', '巨无霸福特']	</pre>
+					<p>这种通过冒号来截取列表元素的操作叫<span style="color: red;">切片</span>，就是将列表的某个片段，通过切割下标的方式来提取多个元素。<br /><span style="color: red;">江湖秘籍</span>：冒号左边空，就要从下标为0的元素开始取。右边空，就要取到列表的最后一个元素。后半句：冒号左边数字对应的元素要拿，右边的不动。</span></p>
+					
+					<h4>修改列表元素</h4>
+					<div class="code-area" style="height: 70px;">
+						<pre><code>  transformers = ['擎天柱','大黄蜂','救护车']<br />  transformers[2] = '威震天'<br />  print(transformers)</code></pre>
+					</div>
+					<pre>输出：['擎天柱','大黄蜂','威震天']</pre>
+
+					<h4>给列表添加 / 删除元素</h4>
+					<p>需要用<b>append()</b>函数给列表增加元素</p>
+					<div class="code-area" style="height: 70px;">
+						<pre><code>  transformers = ['擎天柱','大黄蜂','救护车','巨无霸福特','红蜘蛛']<br />  transformers.append('萨克巨人')<br />  print(transformers)</code></pre>
+					</div>
+					<pre>输出：['擎天柱', '大黄蜂', '救护车', '巨无霸福特', '红蜘蛛', '萨克巨人']</pre>
+					
+					<p>Python中删除列表元素需要用到<b>del</b>函数。</p>
+					<p><span style="color: red;">del函数的语法是</span>：del 列表名[元素的下标]。</p>
+					<div class="code-area" style="height: 70px;">
+						<pre><code>  transformers = ['擎天柱','大黄蜂','救护车','巨无霸福特','红蜘蛛']<br />  del transformers[2]<br />  print(transformers)</code></pre>
+					</div>
+					<pre>输出：['擎天柱', '大黄蜂', '巨无霸福特', '红蜘蛛']</pre>
+					
+					<h4>字典</h4>
+					<p>当需要存放键值对数据的时候，就需要用到字典。<br />字典和列表很相似，都有名称、赋值号、逗号做间隔，逗号间隔的还叫元素。<br />而不一样的是，字典每个元素由键与值组成，而列表不是，字典外层使用大括号{ }， 列表外层使用中括号[ ]。</p>
+					<div class="code-area">
+						<pre><code>  fc = { '擎天柱': 95, '大黄蜂':90, '救护车':86, '巨无霸福特':80, '红蜘蛛':80 }</code></pre>
+					</div>
+					<p>字典的元素由键与值组成，组成形式 键:值，冒号还是英文的冒号。'擎天柱': 95， 我们把'擎天柱'称为键，把95称为值。<br />你还可以使用len()函数来得到字典或列表的长度。len()函数括号里放字典或列表的名字。</p>
+					<div class="code-area" style="height: 85px;">
+						<pre><code>  transformers = ['擎天柱','大黄蜂','救护车','巨无霸福特','红蜘蛛']<br />  fc = { '擎天柱': 95 ,'大黄蜂':90 ,'救护车':86, '巨无霸福特':80,'红蜘蛛':80  }<br />  print(len(transformers))<br />  print(len(fc))</code></pre>
+					</div>
+					<pre>输出：5   5</pre>
+					<p><span style="color: red;">这里注意的是</span>：字典中的键是唯一的，值是可以重复的。也就是说，字典里只能有一个'擎天柱'的键，但是却可以有两个'80'的值。</p>
+					
+					<h4>从字典中提取元素</h4>
+					<p>现在，我们将擎天柱的战斗值取出来。和列表相似，使用[ ]，但是<span style="color: red;">字典没有下标，只能通过键名提取</span>，也就是：<span style="color: red;">字典名[键]</span></p>
+					<div class="code-area" style="height: 56px;">
+						<pre><code>  fc = { '擎天柱': 95 ,'大黄蜂':90 ,'救护车':86, '巨无霸福特':80,'红蜘蛛':80  }<br />  print(fc['擎天柱'])</code></pre>
+					</div>
+					<pre>输出：95</pre>
+					
+					<h4>修改字典元素值</h4>
+					<div class="code-area" style="height: 70px;">
+						<pre><code>  fc = { '擎天柱': 95 ,'大黄蜂':90 ,'救护车':86, '巨无霸福特':80,'红蜘蛛':80  }<br />  fc['巨无霸福特'] = 50 #修改元素巨无霸福特的值为50<br />  print(fc)</code></pre>
+					</div>
+					<pre>输出：{'擎天柱': 95, '大黄蜂': 90, '救护车': 86, '巨无霸福特': 50, '红蜘蛛': 80}</pre>
+					
+					<h4>给字典增加 / 删除元素</h4>
+					<div class="code-area" style="height: 100px;">
+						<pre><code>  fc = { '擎天柱': 95 ,'大黄蜂':90 ,'救护车':86, '巨无霸福特':80,'红蜘蛛':80  }<br />  del fc['巨无霸福特']  #删除元素：巨无霸福特<br />  print(fc)<br />  fc['巨无霸福特'] = 50 #增加元素：巨无霸福特<br />  print(fc)</code></pre>
+					</div>
+					<pre>输出：<br />{'擎天柱': 95, '大黄蜂': 90, '救护车': 86, '红蜘蛛': 80}<br />{'擎天柱': 95, '大黄蜂': 90, '救护车': 86, '红蜘蛛': 80, '巨无霸福特': 50}</pre>
+					<p>我们可以看到，删除字典里键值对是使用del语句： <span style="color: red;">del 字典名[键]</span>，而新增键值对是使用：<span style="color: red;">字典名[键]=值</span>。</p>
+					
+					<h4>在字典中嵌套列表</h4>
+					<div class="code-area" style="height: 70px;">
+						<pre><code>  zidian = {'name':['小号','小红','小兰'], 'age':['男','女','女']}<br />  print(zidian['name'])<br />  print(zidian['age'][1])</code></pre>
+					</div>
+					<pre>输出：<br />['小号', '小红', '小兰']<br />女</pre>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+				</div>
 			</li>
 			<li>
 				<h3>结束语</h3>
-				<p>兴趣是学习的动力，保持广泛的兴趣，带上火热的激情，整装再出发。</p>
+				<p>你有一个思想，我有一个思想，彼此交换，每个人有两个思想。</p>
 			</li>
 		</ul>
 	</div>
@@ -95,10 +378,10 @@
 	<footer name="htmlfooter" id="htmlfooter" >
 		<br />
 		<span style="color: #0099CC;">落霞与孤鹜齐飞，秋水共长天一色
-		-------------------------------------------------------------------------------
+		------------------------------------------------------------------------
 		</span>
 		[<a href="#htmlheader">返回顶部</a>]
-		[<a href="../index.html">返回主页</a>]<br />
+		[<a href="../../index.html">返回主页</a>]<br />
 		<span>更新日期 &nbsp; &nbsp; &nbsp; 2021年10月20日 星期三 上午 18:00</span><br />
 		<span>欢迎访问官网 <a href="#">www.fy2000.com</a> &#128151 蓝天的精灵工作室</span>
 		<p></p>
