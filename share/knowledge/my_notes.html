@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="icon" href="../img/fy2000_tb.png">
+<title>我的笔记</title>
+<style type="text/css">
+	body{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		min-width: 1000px;
+		background-color: rgb(253, 252, 248);
+	}
+	p{
+		text-indent: 2em;
+	}
+	header{
+		order: 1;
+		width: 1000px;
+		height: 100px;
+		text-align: center;
+		color: #004080;
+		background-color: #68DD8E;
+	}
+	header img{
+		float: left;
+	}
+	header:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+	
+	.head-nav{
+		order: 2;
+		width: 1000px;
+		text-align: right;
+	}
+	
+	.section{
+		order: 3;
+		width: 1000px;
+		border-bottom: 1px solid #999999;
+	}
+	
+	footer {
+		order: 4;
+		width: 1000px;
+	}
+	footer span {
+		font-size: 18px;
+		color: #0066CC;
+	}
+</style>
+</head>
+
+<body>
+	<header name="htmlheader" id="htmlheader" class="headbox">
+		<img src="./win_img/windows_pic.png" >
+		<h1>我的笔记</h1>
+	</header>
+	<div class="head-nav">
+		[<a href="#htmlfooter">调到底部</a>]
+		[<a href="../index.html">返回主页</a>]
+	</div>
+	<div class="section">
+		<ul>
+			<li>
+				<h3>打开系统自带的IE浏览器的另类方法</h3>
+				<p>在运行中输入iexplore，即可打开系统自带的IE浏览器。</p>
+			</li>
+			<li>
+				<h3>如何使用命令行打开 Visual Studio 软件?</h3>
+				<ol>
+					<li>新建文件夹。</li>
+					<li>添加环境变量(变量名为PATH，变量值为文件夹路径)。</li>
+					<li>将visual studio软件的快捷方式拷贝到文件夹中。</li>
+					<li>WIN+R打开运行命令窗口，输入快捷方式名称，按下回车即可打开软件。</li>
+				</ol>
+			</li>
+			<li>
+				<h3>敬请期待...</h3>	
+			</li>
+			<li>
+				<h3>结束语</h3>
+				<p>一点一滴，持之以恒，方可成就人生。</p>
+			</li>
+		</ul>
+	</div>
+	
+	<footer name="htmlfooter" id="htmlfooter">
+		<br />
+		<span style="color: #0099CC;">懂得进退，方能成就人生。
+		-------------------------------------------------------------------------------
+		</span>
+		[<a href="#htmlheader">返回顶部</a>]
+		[<a href="../index.html">返回主页</a>]<br />
+		<span>更新日期 &nbsp; &nbsp; &nbsp; 2021年10月21日 星期四 上午 11:00</span><br />
+		<span>欢迎访问官网 <a href="#">www.fy2000.com</a> &#128151 蓝天的精灵工作室</span>
+		<p></p>
+	</footer>
+</body>
+</html>

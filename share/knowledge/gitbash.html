@@ -32,14 +32,20 @@
 		clear: both;
 	}
 	
-	.section{
+	.head-nav{
 		order: 2;
+		width: 1000px;
+		text-align: right;
+	}
+	
+	.section{
+		order: 3;
 		width: 1000px;
 		border-bottom: 1px solid #999999;
 	}
 	
 	footer {
-		order: 3;
+		order: 4;
 		width: 1000px;
 	}
 	footer span {
@@ -50,10 +56,15 @@
 </head>
 
 <body>
-	<header id="headbox" class="headbox">
+	<header name="htmlheader" id="htmlheader" class="headbox">
 		<img src="./git_img/git_mark_pic.png" >
 		<h1>Git Bash 操作命令</h1>
 	</header>
+	
+	<div class="head-nav">
+		[<a href="#htmlfooter">调到底部</a>]
+		[<a href="../index.html">返回主页</a>]
+	</div>
 	
 	<div class="section">
 		<ul>
@@ -207,17 +218,19 @@
 			</li>
 			<li>
 				<h3>结束语</h3>
-				<p>文章到这里就结束了，欢迎查阅！</p>
+				<p>兴趣是学习的动力，保持广泛的兴趣，带上火热的激情，整装再出发。</p>
 			</li>
 		</ul>
 	</div>
 	
-	<footer>
+	<footer name="htmlfooter" id="htmlfooter" >
 		<br />
 		<span style="color: #0099CC;">懂得进退，方能成就人生。
-		-------------------------------------------------------------------------------------------
-		</span><a href="../index.html">返回主页</a><br />
-		<span>更新日期 &nbsp; &nbsp; &nbsp; 2021年10月15日 星期五 上午 10:48</span><br />
+		-------------------------------------------------------------------------------
+		</span>
+		[<a href="#htmlheader">返回顶部</a>]
+		[<a href="../index.html">返回主页</a>]<br />
+		<span>更新日期 &nbsp; &nbsp; &nbsp; 2021年10月20日 星期三 上午 18:00</span><br />
 		<span>欢迎访问官网 <a href="#">www.fy2000.com</a> &#128151 蓝天的精灵工作室</span>
 		<p></p>
 	</footer>
