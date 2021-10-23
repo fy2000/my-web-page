@@ -49,7 +49,7 @@
 	
 	.section .code-area{
 		width: 100%;
-		height: 40px;
+		height: 50px;
 		text-align: left;
 		border: 1px solid #DDDDDD;
 		border-radius: 10px;
@@ -132,7 +132,7 @@
 					</ol>
 					<p>让我们一睹风采。</p>
 					<h4>无引号----单刀赴会——不带引号，可直接传入数字、变量名。</h4>
-					<div class="code-area" style="height: 70px;">
+					<div class="code-area" style="height: 80px;">
 						<pre><code>  print(1314)<br />  name = '哪吒'<br />  print(name)</code></pre>
 					</div>
 					
@@ -143,13 +143,13 @@
 					<p>这就是 print()中引号的用法: 当括号里有引号的时候，就相当于告诉计算机——您傻傻的就行了，不需要干别的，我给您什么，您就给我打印什么。</p>
 					
 					<h4>双引号用法----当输出内容中有单引号时，使用双引号可以输出单引号。</h4>
-					<div class="code-area" style="height: 56px;">
+					<div class="code-area" style="height: 70px;">
 						<pre><code>  print("哪吒")   #和单引号用法一样<br />  print("let's go go go!")  #输出为：let's go go go!</code></pre>
 					</div>
 					<p># 号常用作单行注释符号，用于解释单行代码。#号后面的任何内容都不会显示在屏幕上。</p>
 					
 					<h4>三引号用法 ----- print()函数中使用三引号'''实现跨行输出。</h4>
-					<div class="code-area" style="height: 80px;">
+					<div class="code-area" style="height: 100px;">
 						<pre><code>  print('''哪吒，<br />  托塔李天王家的三太子，<br />  变化三头六臂又或三头八臂，<br />  百邪不侵专克摄魂夺魄的莲花化身''')</code></pre>
 					</div>
 					<pre>输出为(格式保持不变)：<br />哪吒，<br />托塔李天王家的三太子，<br />变化三头六臂又或三头八臂，<br />百邪不侵专克摄魂夺魄的莲花化身</pre>
@@ -208,7 +208,7 @@
 					<p><b>四则运算</b>----法则和数学上的一致，符号有点差别<br />加(+)、减(-)、乘(*)、除(/)<br />Python中'%'为取余，例如：num = 3%2  --> num值为1</p>
 					
 					<h4>字符串的拼接</h4>
-					<div class="code-area" style="height: 85px;">
+					<div class="code-area" style="height: 100px;">
 						<pre><code>  hero = '美国队长'<br />  title = '漫威漫画'<br />  action = '取材于'<br />  print(hero+action+title)</code></pre>
 					</div>
 					<pre>输出：美国队长取材于漫威漫画</pre>
@@ -242,7 +242,7 @@
 					</ol>
 					<p>if嵌套 ---- 条件套条件，额外条件要在基础条件下缩进</p>
 					<b>特别强调if语句的<span style="color: red;">缩进</span>和<span style="color: red;">冒号</span></b>
-					<div class="code-area" style="height: 130px;">
+					<div class="code-area" style="height: 150px;">
 						<pre><code>  JBTime = int(input('请输入小K的加班时间点：'))<br />  if JBTime > 10:<br />      print('小K 打车回家')<br />  elif JBTime >= 8:<br />      print('小K 坐地铁回家')<br />  else:<br />      print('小K 骑车回家')</code></pre>
 					</div>
 				</div>
@@ -251,7 +251,7 @@
 				<h3>Python 基础语法4</h3>
 				<div class="div-indent2em">
 					<h4>input()函数</h4>
-					<div class="code-area" style="height: 56px;">
+					<div class="code-area" style="height: 70px;">
 						<pre><code>  name = input('请输入你喜欢人的名字：')<br />  print(name)</code></pre>
 					</div>
 					<p>特点：</p>
@@ -273,7 +273,7 @@
 					<p>以上 ['擎天柱', '大黄蜂', '救护车'] 就是一个列表。<br />一个列表需要使用中括号[]将所有数据框起来，里面中的每一个数据叫做“元素”， 元素与元素之间使用逗号隔开。</p>
 					
 					<h4>列表的打印</h4>
-					<div class="code-area" style="height: 56px;">
+					<div class="code-area" style="height: 70px;">
 						<pre><code>  list = ['李雷','韩梅梅',180,3.5]<br />  print(list)</code></pre>
 					</div>
 					<pre>输出：['李雷', '韩梅梅', 180, 3]</pre>
@@ -281,7 +281,7 @@
 					
 					<h4>从列表中提取单个元素</h4>
 					<span>我们就可以通过列表名搭配下标方式来提取列表中的元素，读取元素中的内容。</span>
-					<div class="code-area" style="height: 56px;">
+					<div class="code-area" style="height: 70px;">
 						<pre><code>  transformers = ['擎天柱','大黄蜂','救护车']<br />  print(transformers[1])</code></pre>
 					</div>
 					<pre>输出：大黄蜂	</pre>
@@ -295,21 +295,21 @@
 					<p>这种通过冒号来截取列表元素的操作叫<span style="color: red;">切片</span>，就是将列表的某个片段，通过切割下标的方式来提取多个元素。<br /><span style="color: red;">江湖秘籍</span>：冒号左边空，就要从下标为0的元素开始取。右边空，就要取到列表的最后一个元素。后半句：冒号左边数字对应的元素要拿，右边的不动。</span></p>
 					
 					<h4>修改列表元素</h4>
-					<div class="code-area" style="height: 70px;">
+					<div class="code-area" style="height: 80px;">
 						<pre><code>  transformers = ['擎天柱','大黄蜂','救护车']<br />  transformers[2] = '威震天'<br />  print(transformers)</code></pre>
 					</div>
 					<pre>输出：['擎天柱','大黄蜂','威震天']</pre>
 
 					<h4>给列表添加 / 删除元素</h4>
 					<p>需要用<b>append()</b>函数给列表增加元素</p>
-					<div class="code-area" style="height: 70px;">
+					<div class="code-area" style="height: 80px;">
 						<pre><code>  transformers = ['擎天柱','大黄蜂','救护车','巨无霸福特','红蜘蛛']<br />  transformers.append('萨克巨人')<br />  print(transformers)</code></pre>
 					</div>
 					<pre>输出：['擎天柱', '大黄蜂', '救护车', '巨无霸福特', '红蜘蛛', '萨克巨人']</pre>
 					
 					<p>Python中删除列表元素需要用到<b>del</b>函数。</p>
 					<p><span style="color: red;">del函数的语法是</span>：del 列表名[元素的下标]。</p>
-					<div class="code-area" style="height: 70px;">
+					<div class="code-area" style="height: 80px;">
 						<pre><code>  transformers = ['擎天柱','大黄蜂','救护车','巨无霸福特','红蜘蛛']<br />  del transformers[2]<br />  print(transformers)</code></pre>
 					</div>
 					<pre>输出：['擎天柱', '大黄蜂', '巨无霸福特', '红蜘蛛']</pre>
@@ -320,7 +320,7 @@
 						<pre><code>  fc = { '擎天柱': 95, '大黄蜂':90, '救护车':86, '巨无霸福特':80, '红蜘蛛':80 }</code></pre>
 					</div>
 					<p>字典的元素由键与值组成，组成形式 键:值，冒号还是英文的冒号。'擎天柱': 95， 我们把'擎天柱'称为键，把95称为值。<br />你还可以使用len()函数来得到字典或列表的长度。len()函数括号里放字典或列表的名字。</p>
-					<div class="code-area" style="height: 85px;">
+					<div class="code-area" style="height: 100px;">
 						<pre><code>  transformers = ['擎天柱','大黄蜂','救护车','巨无霸福特','红蜘蛛']<br />  fc = { '擎天柱': 95 ,'大黄蜂':90 ,'救护车':86, '巨无霸福特':80,'红蜘蛛':80  }<br />  print(len(transformers))<br />  print(len(fc))</code></pre>
 					</div>
 					<pre>输出：5   5</pre>
@@ -328,44 +328,167 @@
 					
 					<h4>从字典中提取元素</h4>
 					<p>现在，我们将擎天柱的战斗值取出来。和列表相似，使用[ ]，但是<span style="color: red;">字典没有下标，只能通过键名提取</span>，也就是：<span style="color: red;">字典名[键]</span></p>
-					<div class="code-area" style="height: 56px;">
+					<div class="code-area" style="height: 70px;">
 						<pre><code>  fc = { '擎天柱': 95 ,'大黄蜂':90 ,'救护车':86, '巨无霸福特':80,'红蜘蛛':80  }<br />  print(fc['擎天柱'])</code></pre>
 					</div>
 					<pre>输出：95</pre>
 					
 					<h4>修改字典元素值</h4>
-					<div class="code-area" style="height: 70px;">
+					<div class="code-area" style="height: 80px;">
 						<pre><code>  fc = { '擎天柱': 95 ,'大黄蜂':90 ,'救护车':86, '巨无霸福特':80,'红蜘蛛':80  }<br />  fc['巨无霸福特'] = 50 #修改元素巨无霸福特的值为50<br />  print(fc)</code></pre>
 					</div>
 					<pre>输出：{'擎天柱': 95, '大黄蜂': 90, '救护车': 86, '巨无霸福特': 50, '红蜘蛛': 80}</pre>
 					
 					<h4>给字典增加 / 删除元素</h4>
-					<div class="code-area" style="height: 100px;">
+					<div class="code-area" style="height: 115px;">
 						<pre><code>  fc = { '擎天柱': 95 ,'大黄蜂':90 ,'救护车':86, '巨无霸福特':80,'红蜘蛛':80  }<br />  del fc['巨无霸福特']  #删除元素：巨无霸福特<br />  print(fc)<br />  fc['巨无霸福特'] = 50 #增加元素：巨无霸福特<br />  print(fc)</code></pre>
 					</div>
 					<pre>输出：<br />{'擎天柱': 95, '大黄蜂': 90, '救护车': 86, '红蜘蛛': 80}<br />{'擎天柱': 95, '大黄蜂': 90, '救护车': 86, '红蜘蛛': 80, '巨无霸福特': 50}</pre>
 					<p>我们可以看到，删除字典里键值对是使用del语句： <span style="color: red;">del 字典名[键]</span>，而新增键值对是使用：<span style="color: red;">字典名[键]=值</span>。</p>
 					
 					<h4>在字典中嵌套列表</h4>
-					<div class="code-area" style="height: 70px;">
+					<div class="code-area" style="height: 80px;">
 						<pre><code>  zidian = {'name':['小号','小红','小兰'], 'age':['男','女','女']}<br />  print(zidian['name'])<br />  print(zidian['age'][1])</code></pre>
 					</div>
-					<pre>输出：<br />['小号', '小红', '小兰']<br />女</pre>
+					<pre>输出：<br />['小号', '小红', '小兰']<br />女</pre>	
+				</div>
+			</li>
+			<li>
+				<h3>Python 基础语法6</h3>
+				<div class="div-indent2em">
+					<p>Python江湖里，提供了两种循环语句， <b>for…in</b>循环语句与<b>while</b>循环语句。</p>
+					<h4>for 循环</h4>
+					<span>for循环结构</span>
+					<div class="code-area" style="height: 70px;">
+						<pre><code>  for i in [1,2,3,4,5,6]:  #注意冒号“:”，不要丢掉<br />  print(str(i)+'取钱')  #注意循环体前面要缩进</code></pre>
+					</div>
+					<p>有一群人在排队取钱 ， 也就是列表[1,2,3,4,5,6]<br />它们中的每一个被叫号的时候（for i in），就开始轮流进去取钱。<br />每一个人进去，都会把号码给计算机，然后说“取钱” ， 也就是print(i+“取钱”)<br />最后计算机为每一个人都提供了服务。</p>
+					<p><span style="color: red;">for循环有三个要点</span>：1、叫号 2、一群等着取钱的人 3、办事流程<br />循环结束后 i 中存放的是最后一个元素的值<br />江湖秘籍： 字符串、列表、字典都可以是“一群排队取钱的人”。</p>
+					<p>除了字符串、列表、字典三种数据类型，我们还可以结合其他数据遍历。</p>
 					
+					<h4>range()函数</h4>
+					<span>for循环经常和range()函数一起搭配使用。</span>
+					<div class="code-area" style="height: 115px;">
+						<pre><code>  for i in range(5):<br />      print(i)<br />  for i in range(5,10):<br />      print(i)<br />  for i in range(0,10,2):<br />      print(i)</code></pre>
+					</div>
+					<pre>输出：<br />0 1 2 3 4<br />5 6 7 8 9<br />0 2 4 6 8<br />使用range(n)函数，就可以生成一个从0到n-1的整数序列。<br />使用range(x,y) 函数，你可以生成从x到y-1的整数序列。<br />使用range(0,n,step) 函数：你可以生成从0到n-1，数与数之间的间隔为step的整数序列。</pre>
+					<p><span style="color: red;">办事流程</span>的专名叫【for的循环体】：格式是【冒号】后另起一行，【缩进】写命令</p>
+				
+					<h4>while循环</h4>
+					<div class="code-area" style="height: 100px;">
+						<pre><code>  x = 0<br />  while x < 6:<br />      x = x+1<br />      print(x)</code></pre>
+					</div>
+					<p>while循环只需要两个步骤：1、设定条件 2、办事流程<br />while循环在英文中表示“当”， while后面跟条件，当满足条件时，才会执行while内部的循环体。<br />就在上面例子中，只要满足条件x&lt6， 就会不停的执行x=x+1，print(x+1)打印出来，直到不满足条件后，就停止办事流程。<br /><span style="color: red;">while 设定条件</span>：后面的循环体语句必须缩进，只有缩进了才是while循环的循环体，才能一遍又一遍的执行。</p>
+					<p>for循环和while循环都可以把一件事情重复N遍<br />for循环适用于循环次数明确的情况<br />while循环适用于循环次数不明确的情况</p>
+				</div>
+			</li>
+			<li>
+				<h3>Python 基础语法7</h3>
+				<div class="div-indent2em">
+					<h4>布尔值</h4>
+					<p>计算机的判断，只有两种结果，要么是True(条件为真), 要么为False（条件为假）。True与False叫做布尔值，这个判断真假的过程，叫做【布尔计算】。<br />
+					Python中的<b>比较运算符</b>：等于 ==、不等于 !=、大于 >、小于 <、大于等于 >=、小于等于 <=<br />
+					Python中的<b>真假判断</b>：假：False、0、''(空字符串)、[](空列表)、{}(空字典)、None。除此之外全部为真</p>
+					<p><b>bool()函数</b><br />bool()函数用来判断一个数据为真还是为假。有点和type()相似吧</p>
+					<div class="code-area" style="height: 190px;">
+						<pre><code>  print('以下数据判断结果都是【真】：')<br />  print(bool(True))<br />  print(bool(10))<br />  print(bool('xyz'))<br />  <br />  print('以下数据判断结果都是【假】：')<br />  print(bool(False))<br />  print(bool(0))<br />  print(bool(''))<br />  print(bool(None))</code></pre>
+					</div>
+					<pre>输出：<br />以下数据判断结果都是【真】：<br />True<br />True<br />True<br />以下数据判断结果都是【假】：<br />False<br />False<br />False<br />False</pre>
 					
+					<p><b>布尔值的运算----and</b><br />True and True  ----  为真<br />True and False  ----  为假<br />False and True  ----  为假<br />False and False  ----  为假</p>
+					<p><b>布尔值的运算----or</b><br />True or True  ----  为真<br />True or False  ----  为真<br />False or True  ----  为真<br />False or False  ----  为假</p>
+					<div class="code-area" style="height: 250px;">
+						<pre><code>  a = 5<br />  b = -5<br />  print('以下是and运算')<br />  if a==5 and b==5:    # 【b实际上是-5】<br />      print('True')<br />  else:<br />      print('False')<br />  <br />  <br />  print('以下是or运算')<br />  if a==5 or b==5:  # 【b实际上是-5】<br />      print('True')<br />  else:<br />      print('False')</code></pre>
+					</div>
+					<pre>输出：<br />以下是and运算<br />False<br />以下是or运算<br />True</pre>
+				
+					<p><b>布尔值的运算----not</b><br />接下来我们看一下not<br />not就是相反的意思。not False就是True, not True就是False</p>
+					<p><b>布尔值的运算---- in 与 not in</b><br />in 的意思“判断一个元素是否在一堆数据之中”，not in 相反。</p>
+					<div class="code-area" style="height: 150px;">
+						<pre><code>  list = [1,2,3,4]<br />  a = 1<br />  b = 10<br />  c = 0<br />  print(bool(a in list))<br />  print(bool(b in list))<br />  print(bool(c not in list))</code></pre>
+					</div>
+					<pre>输出：<br />True<br />False<br />True</pre>
 					
+					<p><b>四种新语句</b><br />
+						break语句：break语句的意思就是“打破”，在Python江湖中用来结束循环的。<br />
+						continue语句：continue的意思是“继续”。这个语句也是在循环内部使用的。当某个条件被满足的时候，触发continue语句，结束本次循环, 从下一次循环继续执行。<br />
+						pass语句：pass很常见，就是我们理解的“跳过”。pass语句就是占据一个位置“什么都不做”，满足我的条件，就跳过。
+					</p>
+					<div class="code-area" style="height: 115px;">
+						<pre><code>  age = int(input('请输入你的年龄:'))<br />  if age >= 18:<br />      pass<br />  else:<br />      print('你未成年，不得进入网吧')</code></pre>
+					</div>
+					<pre>输出：请输入你的年龄:20</pre>
+					<p>这个代码的意思是：当age>=18的时候，跳过，什么都不做。其他情况age<18的时候，执行 print('你未成年，不得进入网吧')语句。</p>
 					
+					<p>else语句：else语句不仅能够在if语句中使用，还能够和循环搭配使用。</p>
+					<div class="code-area" style="height: 150px;">
+						<pre><code>  for i in range(3):<br />      num = int(input('请输入0结束循环，你有3次机会:'))<br />      if num == 0:<br />          print('你触发了break语句，导致else语句不会生效。')    <br />          break<br />  else:<br />      print('3次循环你都错过了，else语句生效了。')</code></pre>
+					</div>
+					<p>
+						以上代码，你可以做两种尝试：1、连续3次不输入0； 2、输入一次0跳出循环<br />
+						一句话总结，当循环中没有碰到break语句，就会执行循环后面的else语句，否则就不会执行。
+					</p>
+					<div class="code-area" style="height: 180px;">
+						<pre><code>  num=0<br />  while num&lt;3:<br />      n = int(input('请输入0结束循环，你有3次机会:'))<br />      if n == 0:<br />          print('你触发了break语句，导致else语句不会生效。')<br />          break<br />      num+=1<br />  else:<br />      print('3次循环你都错过了，else语句生效了。')</code></pre>
+					</div>
+					<pre>输出：<br />请输入0结束循环，你有3次机会:4<br />请输入0结束循环，你有3次机会:5<br />请输入0结束循环，你有3次机会:6<br />3次循环你都错过了，else语句生效了。</pre>
+					<p>break、continue、pass、else都是和循环搭配使用的，也能够跳出循环。</p>
+				</div>
+			</li>
+			<li>
+				<h3>Python 基础语法8</h3>
+				<div class="div-indent2em">
+					<p><b>time模块</b><br />time.sleep(2)   表示延迟2秒</p>
+					<p><b>random随机数模块</b><br />randint(a,b)函数，括号内为a,b两个数字为生成随机数的范围，a是小数字，b是大数字。</p>
+					<div class="code-area">
+						<pre><code>  num = random.randint(1,100)  #随机生成1-100范围内（含1和100）的一个整数，并赋值给变量num</code></pre>
+					</div>
+				</div>
+			</li>
+			<li>
+				<h3>Python 基础语法9</h3>
+				<div class="div-indent2em">
+					<h4>列表和字典可以相互嵌套</h4>
+					<div class="code-area" style="height: 100px;">
+						<pre><code>  list1 = ['name', 'age', {'name':['小明','小红']}]<br />  print(list1)<br />  print(list1[2]['name'])<br />  print(list1[2]['name'][1])</code></pre>
+					</div>
+					<pre>输出：<br />['name', 'age', {'name': ['小明', '小红']}]<br />['小明', '小红']<br />小红</pre>
 					
+					<h4>打印九九乘法表</h4>
+					<div class="code-area" style="height: 190px;">
+						<pre><code>  #打印九九乘法表<br />  #因为是确定的次数，所以用for循环<br />  #又因为每行循环的子项是不需要换行的，所以需要用到python中print()不换行的用法<br />  #还可以利用格式化输出来精简代码<br />  #又因为每列需要向左靠齐，所以需要制表符的配合<br />  <br />  for i in range(1,10):<br />      for j in range(1, i+1):<br />          print('%dx%d=%d\t' %(j, i, i*j), end='')<br />      print('')</code></pre>
+					</div>
+					<pre>输出：<br />1x1=1<br />1x2=2   2x2=4<br />1x3=3   2x3=6   3x3=9<br />1x4=4   2x4=8   3x4=12  4x4=16<br />1x5=5   2x5=10  3x5=15  4x5=20  5x5=25<br />1x6=6   2x6=12  3x6=18  4x6=24  5x6=30  6x6=36<br />1x7=7   2x7=14  3x7=21  4x7=28  5x7=35  6x7=42  7x7=49<br />1x8=8   2x8=16  3x8=24  4x8=32  5x8=40  6x8=48  7x8=56  8x8=64<br />1x9=9   2x9=18  3x9=27  4x9=36  5x9=45  6x9=54  7x9=63  8x9=72  9x9=81</pre>
 					
+					<h4>知识点：</h4>
+					<ol>
+						<li>print()函数打印内容默认是换行的</li>
+						<li>print()函数打印不换行的用法：print('打印的内容', end='')  注：默认是 end='\n' 所以会换行</li>
+						<li>如果单独想换行的话，可以传入空字符串控制换行 print('')</li>
+					</ol>
 					
-					
-					
-					
-					
-					
-					
-					
-					
+					<h4>List sort()方法</h4>
+					<p>sort() 函数用于对原列表进行排序，如果指定参数，则使用比较函数指定的比较函数。</p>
+					<p>sort()方法语法：</p>
+					<div class="code-area">
+						<pre><code>  list.sort(cmp=None, key=None, reverse=False)</code></pre>
+					</div>
+					<p>参数：<br />
+						cmp -- 可选参数, 如果指定了该参数会使用该参数的方法进行排序。<br />
+						key -- 主要是用来进行比较的元素，只有一个参数，具体的函数的参数就是取自于可迭代对象中，指定可迭代对象中的一个元素来进行排序。<br />
+						reverse -- 排序规则，reverse = True 降序， reverse = False 升序（默认）。
+					</p>
+					<p>举例</p>
+					<div class="code-area" style="height: 100px;">
+						<pre><code>  #升序排序<br />  list=[523, 435, 712, 566, 613, 675, 620, 689, 643]<br />  list.sort()<br />  print(list)</code></pre>
+					</div>
+					<pre>输出：[435, 523, 566, 613, 620, 643, 675, 689, 712]</pre>
+					<div class="code-area" style="height: 100px;">
+						<pre><code>  #升序排序<br />  list=[523, 435, 712, 566, 613, 675, 620, 689, 643]<br />  list.sort(reverse = True)<br />  print(list)</code></pre>
+					</div>
+					<pre>输出：[712, 689, 675, 643, 620, 613, 566, 523, 435]</pre>
+				
+				
 				</div>
 			</li>
 			<li>
