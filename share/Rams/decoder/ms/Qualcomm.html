@@ -2,62 +2,59 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>解码程序分享</title>
-	<link rel="icon" href="../img/fy2000_tb.png">
+	<title>高通芯片解码分享</title>
+	<link rel="icon" href="../../../img/fy2000_tb.png">
 	<style>
 		.body-style {
 			display: flex;
 			flex-direction: column;
-			padding-left: 10%;
-			padding-right: 10%;
-			min-height: 100px;
+			align-items: center;
+			min-height: 1000px;
 			background-color: #FFE4E1;
 		}
-		header, footer {
-			flex: 1;
-			min-width: 1050px;
+		.div-top-bar {
+			order: 1;
+			width: 1000px;
+			border-bottom: 2px solid #FFAA33;
+		}
+		header {
+			order: 2;
+			width: 1000px;
 			text-align: center;
 		}
-		footer {
-			background-color: #CCEEFF;
-		}
 		.div-content-body {
+			order: 3;
 			display: flex;
-			flex: 1;
-			min-width: 1050px;
+			width: 1000px;
 			border-top: 1px solid black;
 			border-bottom: 1px solid black;
 		}
 		.left-nav {
-			order: -1;
+			order: 1;
 			flex: 0 0 120px;
 			border-right: 1px solid black;
 		}
 		.right-aside {
+			order: 3;
 			flex: 0 0 120px;
 			border-left: 1px solid black;
 		}
 		.main-content-style {
-			flex: 1;
+			order: 2;
+			width: 700px;
 			padding-left: 30px;
 			padding-right: 30px;
 		}
 		.nav-ul-bar {
 			position: sticky;
 			top: 16px;
-			padding: 0;
-			margin-left: 0;
-		}
-		.nav-ul-bar-style {
-			margin: 0;
-			padding-top: 10px;
-			padding-bottom: 10px;
+			padding-left: 28px;
 		}
 		.splitline {
 			line-height: 30px;
 			text-align: center;
 			color: #FFFFCC;
-			background-image: url(../img/decoder/Splitline.png);
+			background-image: url(../../img/decoder/Splitline.png);
 			background-size: 100% 30px;
 			background-repeat: no-repeat;
 		}
@@ -70,11 +67,6 @@
 		}
 		.nav-ul-bar li a:hover {
 			font-weight: bold;
-		}
-		.div-top-bar {
-			flex: 1;
-			min-width: 1050px;
-			border-bottom: 2px solid #FFAA33;
 		}
 		.top-ul-bar {
 			list-style-type: none;
@@ -176,360 +168,90 @@
 		.think-boder:hover {
 			border: 5px solid #009933;
 		}
+		
+		.hisilicon-data-img .img{
+			margin: 5px;
+			border: 1px solid #ccc;
+			float: left;
+			width: 300px;
+			height: 280px;
+		}
+		.hisilicon-data-img .img:hover{
+			border: 1px solid #777;
+		}
+		.hisilicon-data-img .img img{
+			width: 100%;
+			height: 80%;
+		}
+		.hisilicon-data-img .img .desc{
+			padding: 10px;
+			text-align: center;
+		}
+		.hisilicon-data-img:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+		footer {
+			order: 4;
+			width: 1000px;
+		}
+		footer span {
+			font-size: 18px;
+			color: #0066CC;
+		}
 	</style>
 </head>
 <body class="body-style">
 	<div class="div-top-bar">
-		<img src="../img/MasterCom.gif" style="float: left; width: 150px;">
+		<img src="../../img/MasterCom.gif" style="float: left; width: 150px;">
 		<ul class="top-ul-bar">
-			<li><a href="../UploadAssistant/uploadAssistant.html">上传助手</a></li>
-			<li><a href="../decoder/decoder.html">解码程序</a></li>
-			<li><a href="../4gkpistat/4gkpistat.html">4G-KPI统计</a></li>
-			<li><a href="../5gkpistat/5gkpistat.html">5G-KPI统计</a></li>
-			<li><a href="#">区域统计</a></li>
-			<li><a href="#">服务后台</a></li>
-			<li><a href="#">设备调度</a></li>
+			<li><a href="#">海思芯片</a></li>
+			<li><a href="./Qualcomm.html">高通芯片</a></li>
 		</ul>
 	</div>
-	<header><h1 style="font-family: SimSun;">解码程序讲解</h1></header>
+	<header><h1 style="font-family: SimSun;">高通芯片解码</h1></header>
 	<div class="div-content-body">
 		<main class="main-content-style">
-			<h3><a name="main-introduction">一、解码程序的简介</h3>
+			<h3><a name="main-introduction">一、前言</h3>
 			<ul>
 				<li>
-					<h4>图标和名称</h4>
-					<div class="lable-name">
-						<img src="../img/decoder/DtDrvServer.png" style="height: 80px; float: left;">
-						<h3 style="float: left; height: 80px; color: #3300CC; line-height: 80px; margin: 0 100px 0;">DtDrvServer.exe</h3>
-					</div>
+					<h4>背景</h4>
+					<p style="text-indent: 2em;">高通（英文名称：Qualcomm，中文简称：高通公司、美国高通或美国高通公司）创立于1985年，
+					总部设于美国加利福尼亚州圣迭戈市，35,400多名员工遍布全球。高通是全球领先的无线科技创新者，变革了世界连接、计算和沟通的方式。
+					把手机连接到互联网，高通的发明开启了移动互联时代。高通的基础科技赋能了整个移动生态系统，每一台3G、4G和5G智能手机中都有其发明。
+					高通公司是全球3G、4G与5G技术研发的领先企业，已经向全球多家制造商提供技术使用授权，涉及了世界上所有电信设备和消费电子设备的品牌。
+					在中国，高通开展业务已逾20年，与中国生态伙伴的合作已拓展至智能手机、集成电路、物联网、大数据、软件、汽车等众多行业。</p>
 				</li>
 				<li>
-					<h4>角色：<span style="color: #444444;">路网通的眼睛</span></h4>
-				</li>
-				<li>
-					<h4>作用：<span style="color: #444444;">翻译官</span></h4>
-					<p>市面上不同格式、不同厂家的数据，通过解码程序解析入库，可以形成格式统一的，便于路网通其它后台使用的数据。</p>
-				</li>
-				<li>
-					<h4>解码能力</h4>
-					<table id="tb-decodability" style="width: 100%;">
-						<tr><th>类型</th><th>说明</th></tr>
-						<tr><td>运营商</td><td>中国移动、中国联通、中国电信</td></tr>
-						<tr><td>网络制式</td><td>GSM、CDMA、WCDMA、LTE、NB-IOT、NR(NSA\SA)</td></tr>
-						<tr><td>业务类型</td><td>语音业务、数据业务、空闲业务、扫频测试</td></tr>
-						<tr><td>设备厂家</td><td>鼎利、中兴、新科思创、华为、诺优、ATU、CDS、烽火、TEMS</td></tr>
-						<tr><td>文件类型</td><td>rcu\source_rcu、aptx\apt、log\low\lte、csv、cu\dgz、raf\l5g</td></tr>
-						<tr><td>手机芯片</td><td>高通(2G\3G\4G) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp海思(2G\3G\4G\5G)</td></tr>
-					</table>
-				</li>
-				<li>
-					<h4>解码程序获取路径</h4>
-					<p>https://svn.mastercom.cn:4438/svn/RepositoriesRAMS/trunk/DataPlatform/AAA路网通版本发布/0_后台基本模块/DtDrvServer（解析程序）/00基础版本/2008数据库</p>
-				</li>
-				<li>
-					<h4>目录结构</h4>
-					<div class="dir-structure">
-						<img src="../img/decoder/mljg.png" style="float: left; height: 313px; margin-right: 30px;">
-						<table id="tb-decodability">
-							<tr><th>文件名</th><th>作用</th></tr>
-							<tr><td>ini 文件夹</td><td>存放解码程序的配置文件</td></tr>
-							<tr><td>lib 文件夹</td><td>存放wireshark库、第三方库</td></tr>
-							<tr><td>log 文件夹</td><td>存放解码过程中生成的日志文件</td></tr>
-							<tr><td>DtDrvServer.exe</td><td>解码程序执行文件</td></tr>
-							<tr><td>EncodeUtils.dll</td><td>DES编码和解码需要依赖的动态库</td></tr>
-							<tr><td>mtlib.dll/mtlib1.dll</td><td>调用wireshark库的中间层dll</td></tr>
-							<tr><td>WinRAR.exe</td><td>解压和压缩文件时需要调用的程序</td></tr>
-						</table>
-					</div>
-				</li>
-			</ul>
-			<h3><a name="main-pro-func">二、解码程序的功能</h3>
-			<ul>
-				<li>
-					<h4>系统架构位置</h4>
-					<a href="../img/decoder/xtjg_ybj.png" target="_blank"><img src="../img/decoder/xtjg.png" style="width: 90%;"></a>
-				</li>
-				<li>
-					<h4>路网通数据处理流程</h4>
-					<a href="../img/decoder/sjlct_ybj.png" target="_blank"><img src="../img/decoder/sjlct.png" style="width: 90%;"></a>
-				</li>
-				<li>
-					<h4>思 考</h4>
-					<div class="div-flex-think">
-						<div class="div-flex-think-row">
-							<div class="think-boder" style="background-color: #CC6633; width: 200px; height: 100px; border-radius: 50%;">
-								<p style="text-align:center;">各厂家<br />测试生成的数据文件<br />格式不统一</p>
-							</div>
-							<div class="think-boder" style="background-color: #CC0066; width: 200px; height: 100px; border-radius: 50%;">
-								<p style="text-align:center; color: white;">数据量相对较大<br />测试业务种类繁多</p>
-							</div>
-						</div>
-						<div class="div-flex-think-row">
-							<div style="width: 100px; height: 100px; border: 1px solid red; border-radius: 50%;">
-								<h3 style="text-align: center; line-height: 60px;">?思考?</h3>
-							</div>
-						</div>
-						<div class="div-flex-think-row">
-							<div class="think-boder" style="background-color: #6600FF; width: 200px; height: 100px; border-radius: 50%;">
-								<p style="text-align:center; color: white;">参数涉及繁杂<br />参数获取方法多变</p>
-							</div>
-							<div class="think-boder" style="background-color: #33CC00; width: 200px; height: 100px; border-radius: 50%;">
-								<p style="text-align:center;">如何保证<br />效率、可扩展性<br />等等</p>
-							</div>
-						</div>
-					</div>
-				</li>
-				<li>
-					<h4>由问题得出功能</h3>
-					<div>
-						<table>
-							<tr>
-								<td><img src="../img/decoder/fanyi.png" style="width: 60px;"></td>
-								<td><p style="padding-left: 16px; width: 160px;">可以将各厂家的数据解析为统一的格式</p></td>
-								<td style="width: 60px;"></td>
-								<td><img src="../img/decoder/binfa.png" style="width: 60px;"></td>
-								<td><p style="padding-left: 16px; width: 160px;">具有对数据进行预处理的能力</p></td>
-							</tr>
-							<tr>
-								<td><img src="../img/decoder/migong.png" style="width: 60px;"></td>
-								<td><p style="padding-left: 16px; width: 160px;">可实现参数的特殊算法处理</p></td>
-								<td style="width: 60px;"></td>
-								<td><img src="../img/decoder/pintu.png" style="width: 60px;"></td>
-								<td><p style="padding-left: 16px; width: 160px;">具有处理大量数据的能力，且可扩展</p></td>
-							</tr>
-						</table>
-					</div>
-				</li>
-				<li>
-					<h4>说明</h3>
-					<div>
-						<table>
-							<tr>
-								<td><img src="../img/decoder/fanyi.png" style="width: 40px;"></td>
-								<td>
-									<p style="padding-left: 16px;">
-										解码程序要能解析各种厂家、各种格式的数据，并且能生成统一的路网通数据结构输出，即不管什么测试数据，只要经过解码程序，输出的都是一种格式，且可被路网通的其它后台识别。
-									</p>
-								</td>
-							</tr>
-							<tr>
-								<td><img src="../img/decoder/binfa.png" style="width: 40px;"></td>
-								<td>
-									<p style="padding-left: 16px;">
-										在解码过程中，可以识别文件的有效性，可以按网络制式、日期等维度对文件进行归类，可以将文件和文件信息进行绑定，例如时间、轨迹、业务类型等信息，可以对文件信息参数进行累计，回填、剔除、抽样、修正等处理
-									</p>
-								</td>
-							</tr>
-							<tr>
-								<td><img src="../img/decoder/migong.png" style="width: 40px;"></td>
-								<td><p style="padding-left: 16px;">特殊算法主要指速率、RTP包、采样、修正规则等</p></td>
-							</tr>
-							<tr>
-								<td><img src="../img/decoder/pintu.png" style="width: 40px;"></td>
-								<td>
-									<p style="padding-left: 16px;">
-										可多线程、多进程处理，可通过硬解码直接解析数据文件，可以轻松扩展模块，比如：手机型号、网络制式、芯片解码器、文件类型等
-									</p>
-								</td>
-							</tr>
-						</table>
-					</div>
-				</li>
-
-			</ul>
-			<h3><a name="main-work-principle">三、解码程序的原理</h3>
-			<ul>
-				<li>
-					<h4>解码框架</h4>
-					<a href="../img/decoder/jmkj_ybj.png" target="_blank"><img src="../img/decoder/jmkj.png" style="width: 90%;"></a>
-				</li>
-				<li>
-					<h4>初始化</h4>
-					<p>解码程序的初始化分两部分：流程控制、参数配置。</p>
-					<img src="../img/decoder/init.png" style="width: 90%;">
-					<h4>*流程控制 ----></h4>
-					<table id="tb-decodability" style="width: 100%;">
-						<caption>配置节点</caption>
-						<tr><th>节点名称</th><th>说明</th></tr>
-						<tr><td>[COMMON]</td><td>主要存放路径配置项，ftp、work、save、stat</td></tr>
-						<tr><td>[DBSETTING]</td><td>主库配置信息</td></tr>
-						<tr><td>[DEAL]</td><td>流程控制快关，Gen2Csv 、Log2Fmt 、StatSample</td></tr>
-						<tr><td>[REENTRY]</td><td>文件防重入开关</td></tr>
-						<tr><td>[SHUNTBOX]</td><td>解码分流配置</td></tr>
-					</table>
-					<br />
-					<h4>*参数配置 ----></h4>
-					<p>读取数据库信息，根据读取的参数信息，来解析和匹配数据</p>
-					<table id="tb-decodability" style="width: 100%">
-						<caption>配置表</caption>
-						<tr><th>表名</th><th>记录内容</th></tr>
-						<tr><td>tb_cfg_static_dbsetting</td><td>记录了各个地市库数据的链接信息</td></tr>
-						<tr><td>tb_cfg_licence</td><td>记录了软件使用有效期限</td></tr>
-						<tr><td>tb_cfg_dirparser_dir </td><td>记录了路径文件夹的层级和ID</td></tr>
-						<tr><td>tb_cfg_dirparser_file</td><td>记录了文件类型和对应的ID</td></tr>
-						<tr><td>tb_cfg_dirparser_file_part</td><td>记录了文件解析模版信息</td></tr>
-						<tr><td>tb_cfg_dirparser_part</td><td>记录了文件解析位置信息</td></tr>
-						<tr><td>tb_cfg_static_arealist</td><td>记录了区域类型和区域ID</td></tr>
-						<tr><td>tb_cfg_dirparser_path</td><td>记录了以上表的关联性</td></tr>
-					</table>
-				</li>
-				<li>
-					<h4>文件读取</h4>
-					<p>对数据文件进行解压、过滤、分发、路径解析、文件重组、文件ID计算、数据分流、清理和更新数据库表等操作。</p>
-					<table id="tb-decodability" style="width: 100%">
-						<caption>配置表</caption>
-						<tr><th>操作</th><th>说明</th></tr>
-						<tr><td>解压</td><td>对rar、zip文件进行解压缩；对厂家自定义压缩算法进行解压</td></tr>
-						<tr><td>过滤</td><td>对非法文件、无效文件，正在占用的文件、中间文件等过滤</td></tr>
-						<tr><td>分发 </td><td>对需要转换的文件进行对应路径分发</td></tr>
-						<tr><td>路径解析</td><td>根据路径解析配置表，给文件绑定相应的属性</td></tr>
-						<tr><td>文件重组</td><td>对分割成多个文件上传的，要进行组合拼接为一个文件</td></tr>
-						<tr><td>File ID计算</td><td>根据规则计算文件ID</td></tr>
-						<tr><td>数据分流</td><td>解码分流</td></tr>
-						<tr><td>清理数据库表</td><td>对过时的，tb_adapter_file_list表数据进行清理</td></tr>
-						<tr><td>更新数据库表</td><td>将读取的符合条件的文件信息记录到tb_adapter_file_list中</td></tr>
-					</table>
-				</li>
-				<li>
-					<h4>预解码</h4>
-					<ul style="list-style-type: circle;">
-						<li>主要解析两个参数：网络类型、业务类型。</li>
-						<li>其次：运营商、双工模式、定制化识别。</li>
-					</ul>
-					<p><span style="font-weight: bold;">说明：</span></p>
-					<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;由于<span style="color: red;">网络制式</span>有很多，2G/3G/4G/5G每种制式的参数都不一样、每个制式都有自己存放数据的数据库表。在解码程序中，输出数据的模式采用了简单工厂模式，不同的网络制式会激活不同的网络输出类用于正式解码。</p>
-					<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: red;">业务类型</span>是一个比较重要的参数，但是此参数并不需要解析整个文件来确定，一般都是解析几条对应的信令就可知道是什么测试，所以放在试解码中。</p>
-					<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: red;">运营商</span>是文件分类的一个重要参数，在试解码中根据频点和移动网络编码PLMN来确定</p>
-				</li>
-				<li>
-					<h4>解码</h4>
-					<p>解析：主服、邻区、信令、事件、应用层、层1/2参数等。所有参数都在这一个环节被解析出来。</p>
-					<table id="tb-decodability" style="width: 100%">
-						<caption>详细说明</caption>
-						<tr><th>操作名</th><th>说明</th></tr>
-						<tr><td>参数解码</td><td>根据现有的高通协议、海思协议、以及分析出的其它厂家数据格式，来解析参数并存储到定制好的结构体中。</td></tr>
-						<tr><td>信令解码</td><td>调用Wireshark库进行层三信令的解析，并存储到数据结构中。</td></tr>
-						<tr><td>统计模块</td><td>对部分数据进行小粒度统计输出：比如：RTP信令参数，速率、里程、时长。</td></tr>
-						<tr><td>读写文件</td><td>数据作为采样点，被写入到BCP文件中和sam文件中，为后面的入库和统计做准备。</td></tr>
-						<tr><td>压缩文件</td><td>解码后的文件要压缩后搬到save目录中去。</td></tr>
-						<tr><td>告警处理</td><td>对于解码异常的情况输出信息到表或日志文件中。</td></tr>
-					</table>
-				</li>
-				<li>
-					<h4>入库</h4>
-					<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;将解码生成的回放采样点参数、统计采样点参数、信令参数、以及文件信息等等，做入库处理，并更新状态值，以激活其它后台处理。</p>
-					<p><span style="font-weight: bold;">说明：</span></p>
-					<ul style="list-style-type: circle;">
-						<li>主要有两类数据需要入库：回放采样点、信令。</li>
-						<li>其次统计采样点数据由于数据量相对较大，以文件的形式存放到统计目录下，只将文件的名称和绝对目录存入表中。</li>
-						<li>特例，扫频数据所有数据都是存放到库中的</li>
-						<li>除此之外，还会做业务类型、运营商的修正等</li>
-					</ul>
-				</li>
-				<li>
-					<h4>其它线程</h4>
-					<ul style="list-style-type: circle;">
-						<li><p>Gen文件搬移线程<br />由与华为的Gen文件无法直接解码，需要通过华为软件转换后，才能解码。</p></li>
-						<li><p>Tems文件搬移线程<br />Tems的文件，我们也无法直接解码，需要使用TEMS软件转换后，才能解析。</p></li>
-						<li><p>License监控线程<br />由于湖北路网通无合同维护事件推动开发的，用于检测软件许可证的线程。</p></li>
-						<li><p>喂狗线程<br />用来给配合看门狗程序工作的线程。</p></li>
-					</ul>
-				</li>
-			</ul>
-			<h3><a name="main-pro-maintain">四、解码程序的维护</h3>
-			<ul>
-				<li>
-					<h4>部署问题</h4>
-					<p style="color: red; font-weight: bold;">重要提醒：解码程序的部署路径必须是全英文; 数据库版本：SqlServer2008</p>
-					<p>当部署完软件后，无法启动时，一般会有提示，根据提示检查：</p>
-					<ul>
-						<li><p>系统提示不支持的情况：<br />一般是没有安装C++ 2015和2017运行时库</p></li>
-						<li><p>还是无法启动的:<br />主要检查软件目录下的文件是否有遗漏<br />数据库是否可以连接成功<br />
-								<ul>
-									<li><p>检查ini配置文件中的数据库配置信息。</p></li>
-									<li><p>然后要看部署的服务器有没有安装数据库驱动。</p></li>
-									<li><p>最后别名的设置是否正确。</p></li>
-								</ul>
-							</p>
-						</li>
-						<li><p>如果提示License的问题，第一步查看tb_cfg_licence表是否存在，然后就是有关数据库的链接是不是通的</p></li>
-					</ul>
-				</li>
-				<li>
-					<h4>维护类问题</h4>
-					<p style="color: red;">我们需要了解的一些常识。</p>
-					<p>解码流程都会操作更新到哪些表？<br />
-						<ul>
-							<li>
-								<p>tb_adapter_file_list<br />
-									解码开始阶段，从解码起始路径，符合条件的文件信息，会被插入这张表。且文件对应的状态码为4(路径解析成功)，解码后会将状态码修改为1(解码成功)。<br />
-									<span style="color: red;">重要字段：iexeid, istatstatus, strlogtable, strdesc</span>
-								</p>
-							</li>
-							<li>
-								<p>tb_log_file_xxxx_xx(文件信息表)<br />
-									这个表在解码完成后生成。分两步，第一步清理已有的相同文件的信息；第二步，更新文件信息；第三步，更新文件状态和描述。<br />
-									<span style="color: red;">重要字段: ifileid, strfilename, strmsgtbname, strsampletbname, strsampletbname2, iservicetype, icarriertype, istatstatus</span>
-								</p>
-							</li>
-							<li>
-								<p>tb_log_event_predeal<br />
-									解码后会将文件对应的测试类型、项目类型、以及关联的表名放入其中、并将状态改为0。<br />
-									<span style="color: red;">重要字段: ifileid，istatus</span>
-								</p>
-							</li>
-							<li>
-								<p>tb_dtnr_tdd_sample_200401: 解码后，将生成的回放采样点信息填在这里。</p>
-							</li>
-							<li>
-								<p>tb_dtnr_tdd_msg_200401: 解码后，将层三信令填在这个表里。</p>
-							</li>
-							<li>
-								<p>tb_log_file_time: 在生成log_file表的时候，将log_file表的信息填入其中。</p>
-							</li>
-							<li>
-								<p>RTP 信令表: 存储的是VOLTE RTP信令。</p>
-							</li>
-							
-						</ul>
-					</p>
-				</li>
-				<li>
-					<h4>总结</h4>
-					<img src="../img/decoder/jmzj.png">
+					<h4>敬请期待...</h4>
 				</li>
 			</ul>
 			<div style="margin-top: 100px; text-align: center; border-top: 1px solid black;">
-				<img src="../img/decoder/ganxieyu.png">
+				<img src="../../img/decoder/ganxieyu.png">
 			</div>
 		</main>
 		<nav class="left-nav">
-			<div class="nav-ul-bar">
-				<ol class="nav-ul-bar-style">
-					<li><a href="#main-introduction">程序简介</a></li>
-					<li><a href="#main-pro-func">解码功能</a></li>
-					<li><a href="#main-work-principle">工作原理</a></li>
-					<li><a href="#main-pro-maintain">开发维护</a></li>
-				</ol>
-				<div class="splitline">内部解码分析</div>
-				<ul class="nav-ul-bar-style">
-					<li><a href="./ms/HiSiliconV3.html">海思芯片</a></li>
-					<li><a href="./ms/Qualcomm.html">高通芯片</a></li>
-				</ul>
-			</div>
+			<ul class="nav-ul-bar">
+				<li><a href="#main-introduction">前言</a></li>
+			</ul>
 		</nav>
 		<aside class="right-aside">
 			<ul class="aside-ul-bar">
-				<li><a href="../UploadAssistant/uploadAssistant.html">上传助手</a></li>
-				<li><a href="../decoder/decoder.html">解码程序</a></li>
-				<li><a href="../4gkpistat/4gkpistat.html">4G-KPI统计</a></li>
-				<li><a href="../5gkpistat/5gkpistat.html">5G-KPI统计</a></li>
-				<li><a href="#">区域统计</a></li>
-				<li><a href="#">服务后台</a></li>
-				<li><a href="#">设备调度</a></li>
+				<li><a href="../decoder.html">返回上级</a></li>
+				<li><a href="./HiSiliconV3.html">海思芯片</a></li>
+				<li><a href="#">高通芯片</a></li>
 			</ul>
 		</aside>
 	</div>
-	<footer><h3 style="font-family: KaiTi">蓝天的精灵工作室<br />谢谢查阅 Thank You For Your Visit</h3></footer>
+	<footer>
+		<br />
+		<span style="color: #0099CC;">择一城终老，遇一人白首
+		-------------------------------------------------------------------------------------------
+		</span><a href="../decoder.html">返回上一级</a><br />
+		<span>更新日期 &nbsp; &nbsp; &nbsp; 2021年10月15日 星期五 下午 14:28</span><br />
+		<span>欢迎访问官网 <a href="#">www.fy2000.com</a> &#128151 蓝天的精灵工作室</span>
+		<p></p>
+	</footer>
 </body>
 </html>
