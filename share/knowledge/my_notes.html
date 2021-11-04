@@ -44,6 +44,35 @@
 		border-bottom: 1px solid #999999;
 	}
 	
+	/* 表格 */
+	#tb-decodability {
+		font-family: Arial, Helvetica, sans-serif;
+		border-collapse: collapse;
+		margin-left: 2em;
+	}
+	#tb-decodability th, #tb-decodability td {
+		border: 1px solid #AAAAAA;
+	}
+	#tb-decodability tr:nth-child(even) {
+		background-color: #f2f2f2;
+	}
+	#tb-decodability tr:hover {
+		background-color: #ddd;
+	}
+	#tb-decodability th {
+		padding-top: 8px;
+		padding-bottom: 8px;
+		text-align: left;
+		background-color: #4CAF50;
+		color: white;
+	}
+	
+	.CSS-font-table{
+		width: 95%;
+	}
+	.CSS-font-table tr td{
+		padding-left: 5px;
+	}
 	footer {
 		order: 4;
 		width: 1000px;
@@ -67,7 +96,7 @@
 	<div class="section">
 		<ul>
 			<li>
-				<h3>打开系统自带的IE浏览器的另类方法</h3>
+				<h3>打开系统自带的IE浏览器的 另类 方法</h3>
 				<p>在运行中输入iexplore，即可打开系统自带的IE浏览器。</p>
 			</li>
 			<li>
@@ -78,6 +107,40 @@
 					<li>将visual studio软件的快捷方式拷贝到文件夹中。</li>
 					<li>WIN+R打开运行命令窗口，输入快捷方式名称，按下回车即可打开软件。</li>
 				</ol>
+			</li>
+			<li>
+				<h3>主流 浏览器 及其 内核</h3>
+				<table id="tb-decodability" style="width: 50%">
+					<tr><th>浏览器</th><th>内核</th></tr>
+					<tr><td style="padding-left: 5px;">IE(Internet Explorer)</td><td>Trident</td></tr>
+					<tr><td style="padding-left: 5px;">FireFox</td><td>Gecko</td></tr>
+					<tr><td style="padding-left: 5px;">Opera</td><td>Presto / Webkit / Blink</td></tr>
+					<tr><td style="padding-left: 5px;">Safari</td><td>Webkit</td></tr>
+					<tr><td style="padding-left: 5px;">Google Chrome</td><td>Webkit / blink</td></tr>
+				</table>
+			</li>
+			<li>
+				<h3>CSS 权重</h3>
+				<table id="tb-decodability" style="width: 50%">
+					<tr><th style="width: 50%;">选择器</th><th>权值</th></tr>
+					<tr><td style="padding-left: 5px;">!important</td><td>+&#8734;</td></tr>
+					<tr><td style="padding-left: 5px;">行间样式</td><td>1000</td></tr>
+					<tr><td style="padding-left: 5px;">id</td><td>100</td></tr>
+					<tr><td style="padding-left: 5px;">Class | 属性 | 伪类</td><td>10</td></tr>
+					<tr><td style="padding-left: 5px;">标签 | 伪元素</td><td>1</td></tr>
+					<tr><td style="padding-left: 5px;">通配符</td><td>0</td></tr>
+				</table>
+			</li>
+			<li>
+				<h3>CSS 字体名称</h3>
+				<table id="tb-decodability" class="CSS-font-table">
+					<tr><th>字体名称</th><th>表示符号</th><th>字体名称</th><th>表示符号</th><th>字体名称</th><th>表示符号</th><th>字体名称</th><th>表示符号</th></tr>
+					<tr><td>黑体</td><td>SimHei</td><td>华文细黑</td><td>STXihei</td><td>华文仿宋</td><td>STFangsong</td><td>华文彩云</td><td>STCaiyun</td></tr>
+					<tr><td>宋体</td><td>SimSun</td><td>华文中宋</td><td>STZhongsong</td><td>华文隶书</td><td>STLiti</td><td>方正舒体</td><td>FZShuTi</td></tr>
+					<tr><td>楷体</td><td>KaiTi</td><td>华文琥珀</td><td>STHupo</td><td>华文行楷</td><td>STXingkai</td><td>方正姚体</td><td>FZYaoti</td></tr>
+					<tr><td>隶书</td><td>LiSu</td><td>华文楷体</td><td>STKaiti</td><td>华文新魏</td><td>STXinwei</td><td>仿宋</td><td>FangSong</td></tr>
+					<tr><td>幼圆</td><td>YouYuan</td><td>华文宋体</td><td>STSong</td><td>华文黑体</td><td>STHeiti</td><td>新宋体</td><td>NSimSun</td></tr>
+				</table>
 			</li>
 			<li>
 				<h3>敬请期待...</h3>	
@@ -96,7 +159,7 @@
 		</span>
 		[<a href="#htmlheader">返回顶部</a>]
 		[<a href="../index.html">返回主页</a>]<br />
-		<span>更新日期 &nbsp; &nbsp; &nbsp; 2021年10月25日 星期一 下午 15:59</span><br />
+		<span>更新日期 &nbsp; &nbsp; &nbsp; 2021年11月4日 星期四 上午 11:25</span><br />
 		<span>欢迎访问官网 <a href="#">www.fy2000.com</a> &#128151 蓝天的精灵工作室</span>
 		<p></p>
 	</footer>
