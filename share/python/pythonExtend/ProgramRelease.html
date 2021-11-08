@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="icon" href="../../img/fy2000_tb.png">
+<title>Python程序打包</title>
+<style type="text/css">
+	body{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		min-width: 1000px;
+		background-color: rgb(253, 252, 248);
+	}
+	.chinese-indent{
+		text-indent: 2em;
+	}
+	h3{
+		color: #009966;
+	}
+	header{
+		order: 1;
+		width: 1000px;
+		height: 100px;
+		text-align: center;
+		color: #E0FFFF;
+		background-color: #009933;
+	}
+	header img{
+		float: left;
+	}
+	header:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+	
+	.head-nav{
+		order: 2;
+		width: 1000px;
+		height: 53px;
+		text-align: right;
+		margin-top: 5px;
+		background-color: #C1C1FF;
+		border-radius: 5px;
+	}
+	
+	.section{
+		order: 3;
+		width: 1000px;
+		border-bottom: 1px solid #999999;
+	}
+	
+	.section .code-area{
+		width: 100%;
+		height: 50px;
+		text-align: left;
+		border: 1px solid #DDDDDD;
+		border-radius: 10px;
+		background-color: #F8F8FF;
+	}
+	
+	.section .div-indent2em{
+		padding-left: 2em;
+	}
+	
+	/* 表格 */
+	#tb-decodability {
+		font-family: Arial, Helvetica, sans-serif;
+		border-collapse: collapse;
+	}
+	#tb-decodability th, #tb-decodability td {
+		border: 1px solid #AAAAAA;
+	}
+	#tb-decodability tr:nth-child(even) {
+		background-color: #f2f2f2;
+	}
+	#tb-decodability tr:hover {
+		background-color: #ddd;
+	}
+	#tb-decodability th {
+		padding-top: 8px;
+		padding-bottom: 8px;
+		text-align: left;
+		background-color: #4CAF50;
+		color: white;
+	}
+	
+	footer {
+		order: 4;
+		width: 1000px;
+	}
+	footer span {
+		font-size: 18px;
+		color: #0066CC;
+	}
+</style>
+</head>
+
+<body>
+	<header name="htmlheader" id="htmlheader" class="headbox">
+		<img src="./img/python_pic.png" >
+		<h1>Python 程序打包</h1>
+	</header>
+	
+	<div class="head-nav">
+		<ul style="float: left; list-style-type: none; margin: 0; padding: 5px; text-align: left;">
+			<li>上一篇：<a href="../pythonBase/pythonBasics.html">python基础</a></li>
+			<li>下一篇：<a href="#">敬请期待...</a></li>
+		</ul>
+		<ul style="float: right; list-style-type: none; margin: 0; padding: 5px;">
+			<li>[<a href="#htmlfooter">跳到底部</a>]</li>
+			<li>[<a href="../../index.html">返回主页</a>]</li>
+		</ul>
+	</div>
+	
+	<div class="section">
+		<ul>
+			<li>
+				<h3>什么情况需要python打包程序？</h3>
+				<p class="chinese-indent">Python 程序的运行是需要python解释器的，如果没有安装python解释器，是无法运行python程序的。</p>
+				<p class="chinese-indent">为了解决中情况，python程序的打包就很重要了，打包后的程序中集成了python运行环境，这样在没有安装python解释器的服务器上也就可以运行python程序了。</p>
+			</li>
+			<li>
+				<h3>Python 程序文件的打包方式</h3>
+				<ol>
+					<li>使用 <b>pyinstaller</b> 工具进行打包。</li>
+					<li>使用 <b>py2exe</b> 工具进行打包。</li>
+				</ol>
+			</li>
+			<li>
+				<h3>pyinstaller</h3>
+				<div>
+					<ul>
+						<li>
+							<h4>安装 pyinstaller 模块</h4>
+							<p>运行下面命令</p>
+							<div class="code-area">
+								<pre><code>  pip install pyinstaller</code></pre>
+							</div>
+							<a href="./img/install_pyinstaller.png" target="_blank">
+								<img src="./img/install_pyinstaller.png" style="width: 90%; margin-top: 5px;">
+							</a>
+							<p>如上，显示 Successfully installed 就是安装成功了。</p>
+						</li>
+						<li>
+							<h4>pyinstaller 打包单个简单 python 文件</h4>
+							<p>打包使用的命令为</p>
+							<div class="code-area">
+								<pre><code>  pyinstaller -F python文件名</code></pre>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<h3>结束语</h3>
+				<p>你有一个思想，我有一个思想，彼此交换，每个人有两个思想。</p>
+			</li>
+		</ul>
+	</div>
+	
+	<footer name="htmlfooter" id="htmlfooter" >
+		<br />
+		<span style="color: #0099CC;">落霞与孤鹜齐飞，秋水共长天一色
+		------------------------------------------------------------------------
+		</span>
+		[<a href="#htmlheader">返回顶部</a>]
+		[<a href="../../index.html">返回主页</a>]<br />
+		<span>更新日期 &nbsp; &nbsp; &nbsp; 2021年10月23日 星期六 下午 17:00</span><br />
+		<span>欢迎访问官网 <a href="#">www.fy2000.com</a> &#128151 蓝天的精灵工作室</span>
+		<p></p>
+	</footer>
+</body>
+</html>
