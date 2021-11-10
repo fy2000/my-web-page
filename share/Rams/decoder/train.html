@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="icon" href="../../img/fy2000_tb.png">
+<title>解码后台培训</title>
+<style type="text/css">
+	body{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		min-width: 1000px;
+		background-color: rgb(253, 252, 248);
+	}
+	.chinese-indent{
+		text-indent: 2em;
+	}
+	h3{
+		color: #009966;
+	}
+	header{
+		order: 1;
+		width: 1000px;
+		height: 100px;
+		text-align: center;
+		color: #E0FFFF;
+		background-color: #009933;
+	}
+	header img{
+		float: left;
+	}
+	header:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+	
+	.head-nav{
+		order: 2;
+		width: 1000px;
+		height: 53px;
+		text-align: right;
+		margin-top: 5px;
+		background-color: #CCDDFF;
+		border-radius: 5px;
+	}
+	
+	.section{
+		order: 3;
+		width: 1000px;
+		border-bottom: 1px solid #999999;
+	}
+	
+	.section .code-area{
+		width: 100%;
+		height: 50px;
+		text-align: left;
+		border: 1px solid #DDDDDD;
+		border-radius: 10px;
+		background-color: #F8F8FF;
+	}
+	
+	.section .div-indent2em{
+		padding-left: 2em;
+	}
+	
+	/* 表格 */
+	#tb-decodability {
+		font-family: Arial, Helvetica, sans-serif;
+		border-collapse: collapse;
+	}
+	#tb-decodability th, #tb-decodability td {
+		border: 1px solid #AAAAAA;
+	}
+	#tb-decodability tr:nth-child(even) {
+		background-color: #f2f2f2;
+	}
+	#tb-decodability tr:hover {
+		background-color: #ddd;
+	}
+	#tb-decodability th {
+		padding-top: 8px;
+		padding-bottom: 8px;
+		text-align: left;
+		background-color: #4CAF50;
+		color: white;
+	}
+	
+	footer {
+		order: 4;
+		width: 1000px;
+	}
+	footer span {
+		font-size: 18px;
+		color: #0066CC;
+	}
+</style>
+</head>
+
+<body>
+	<header name="htmlheader" id="htmlheader">
+		<img src="../img/decoder/train/decode_train.png" >
+		<h1>解码后台培训</h1>
+	</header>
+	
+	<div class="head-nav">
+		<ul style="float: left; list-style-type: none; margin: 0; padding: 5px; text-align: left;">
+			<li>上一篇：<a href="../pythonBase/pythonBasics.html">上传助手培训</a></li>
+			<li>下一篇：<a href="../4gkpistat/train.html">4G-KPI统计程序培训</a></li>
+		</ul>
+		<ul style="float: right; list-style-type: none; margin: 0; padding: 5px;">
+			<li>[<a href="#htmlfooter">跳到底部</a>]</li>
+			<li>[<a href="../Rams_index.html">返回主页</a>]</li>
+		</ul>
+	</div>
+	
+	<div class="section">
+		<ul>
+			<li>
+				<h3>认识界面</h3>
+				<img src="../img/decoder/train/dtdrvserver_interface.png" >
+				<p>说明：</p>
+				<ul>
+					<li>
+						<h4>菜单栏</h4>
+						<p>菜单栏总共只有两项：任务和帮助。任务菜单项基本没用。帮助菜单项用来查看软件版本。这个在追溯版本时很有用。</p>
+					</li>
+					<li>
+						<h4>解析文件列表</h4>
+						<p>当有文件在解码时，正在解码和待解码的文件会列举在这里，已经解析进度的显示。</p>
+					</li>
+					<li>
+						<h4>日志区域</h4>
+						<p>显示解析过程中输出的日志信息。</p>
+					</li>
+					<li>
+						<h4>解析按钮</h4>
+						<p>按钮包括：设置日志、立即解析、立即搬移、清理MT文件、退出 五个按钮。</p>
+						<ol>
+							<li>设置日志：在弹出的设置对话框中可以设置日志行号区域的显示宽度，颜色等等。就解码而言，无用功能</li>
+							<li>立即搬移：点击后程序会将文件从 ftp 目录搬移到 work 目录下。</li>
+							<li>立即解析：相当于是 立即搬移 + 立即解码。如果为空闲状态，程序会跳过等待，立刻进行解码流程。</li>
+							<li>清理MT文件：一键删除解码程序在 work 目录生成的名通中间文件。基本没用。</li>
+							<li>退出：退出程序。</li>
+						</ol>
+					</li>
+					<li>
+						<h4>状态栏</h4>
+						<p>状态栏显示程序的启动时间，已处理的文件数，剩余文件数，路径解析成功和失败的文件数，以及实时内存占用情况。</p>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<h3>解码程序部署最重要的点</h3>
+				<p><b><span style="color: red;">部署路径一定不能出现中文路径名！！！</span></b></p>
+			</li>
+			<li>
+				<h3>程序包含的文件</h3>
+				<img src="../img/decoder/train/decoder_train_files.png" >
+				<p class="chinese-indent">说这一点是想要地市维护的同事，对解码的目录定期进行清理，保持干净。有些地市路网通后台的程序路径中，
+				堆满了很多无用的历史文件，导致每次替换文件的时候都很难查找，比较乱。</p>
+			</li>
+			<li>
+				<h3>解码程序的配置文件</h3>
+				<p>配置文件名为：<b>DtDrvServer.ini</b>，路径为程序目录的 <b>ini</b> 文件夹中,，内容如下：</p>
+				<img src="../img/decoder/train/dtdrvserver_ini.png" >
+				<p>配置项很多，但是日常维护的就几个而已。一下为需要掌握的配置项</p>
+				<ul>
+					<li>
+						<h4>[COMMON]</h4>
+						<ol>
+							<li>ExeId：程序ID，当启动多个解码时，此值需要互斥，即不重复。</li>
+							<li>DataPath：解码中间数据存放路径，即临时生成的一些采样点、信令的bcp文件存放在这里。</li>
+							<li>FtpPath：解码起始路径，即测试文件最开始存放的路径。程序会从此路径获取文件进行解码。</li>
+							<li>WorkPath：程序解析文件时，文件存放的路径，在次路径下进行文件的拆包，压缩，解码。</li>
+							<li>StatPath：存放统计采样点 sam 文件的路径</li>
+							<li>TranPath：有写文件不能直接解码，需要转换为別的格式才能解码，次路径为这些文件存放路径，待转换完毕后，搬回FTP重新开始解码。</li>
+							<li>SavePath：文件解码完成后的存放路径。</li>
+						</ol>
+					</li>
+					<li>
+						<h4>[DBSETTING]</h4>
+						<ol>
+							<li>dbname：主数据库名字</li>
+							<li>dbpassword：主数据库密码</li>
+							<li>dbserver：主数据库IP</li>
+							<li>dbuser：主数据库用户名</li>
+						</ol>
+						<p>这里主库指的是存放各地市库配置信息的数据库。</p>
+					</li>
+					<li>
+						<h4>[DEAL]</h4>
+						<ol>
+							<li>TryRatio：试解码过程的解析占比。默认30%，但有些文件很特殊，需要调整这个值方能正确解析。比如测试不均匀的文件。</li>
+							<li>TrySize：试解码过程解析字节数。默认350M，但有些很大的文件，解码无法获取文件大小，会按这个大小进行试解码。</li>
+						</ol>
+					</li>
+					<li>
+						<h4>[REENTRY]</h4>
+						<p>这个功能是防重入功能，即同一个数据库中符合条件的文件只能被入库一次，后续再入库，会被直接搬走，不解析。</p>
+						<ol>
+							<li>Enable：功能开关</li>
+							<li>ProjectType：指定项目类型</li>
+							<li>RetryPath：重复的文件被搬移到此目录。</li>
+						</ol>
+					</li>
+					<li>
+						<h4>[SHUNTBOX]</h4>
+						<p>解码程序分流设置</p>
+						<ol>
+							<li>ReceivedExeIdSet：接受分流解码程序列表，用逗号隔开</li>
+							<li>ShuntType：解码分流类型，0：独立解码，1：主解码，2：接收分流解码</li>
+						</ol>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<h3>常见问题</h3>
+				<ol>
+					<li>
+						<h4>文件一直在FTP目录不解码</h4>
+						<p>原因可能有：</p>
+						<ol>
+							<li>路径解析失败。可以在日志文件 fetchnew.log 中查找文件名看。</li>
+							<li>文件大小接近或超过了 2G 。解析文件最佳为不超过 800M</li>
+							<li>文件为.tmp、.apm、.gen这三类文件不解析</li>
+							<li>文件一直被其它程序占用，解码这边没有获得操作权限。</li>
+							<li>属于路网通中间临时文件。</li>
+						</ol>
+						<p>路径解析失败的，找丁婷芳大佬解决。其它几种，直接将文件删掉，或者备份走即可。对于文件太大的，优先测试上传的人员是否可以切割。</p>
+					</li>
+					<li>
+						<h4>文件一直在work目录不解码</h4>
+						<p>原因可能有：</p>
+						<ol>
+							<li>新手机型号。日志会有提示。</li>
+							<li>未能解析出有效的测试端口。</li>
+							<li>未适配过的文件格式。</li>
+							<li>个别文件将解码卡死了。</li>
+							<li>文件太大，解析很慢，造成的错觉。</li>
+							<li>文件大小 1K。</li>
+							<li>更新解码后，忘记将文件重新搬回到ftp目录了。</li>
+						</ol>
+						<p>以上这些是需要一些经验的，比如留意一些路网通无法解析的文件格式，会查看日志。没有经验的话就要找我了。</p>
+					</li>
+					<li>
+						<h4>程序闪退</h4>
+						<p>这种情况一般是，解码程序在解析到某个文件的时候突然退出。导致剩下文件无法解码。</p>
+						<p>如果出现这种情况，直接查看日志文件 decoder.log ，看最后一条记录的文件名是什么，将此文件找到，移除 work 目录，然后启动解码看情况，如果正常解码了，
+						那就是这一个文件的问题，如果还会闪退，就继续查找闪退的文件。然后吧闪退的文件发给研发定位。</p>
+					</li>
+					<li>
+						<h4>运营商解析异常</h4>
+						<p>我们目前的解析规则优先级是 5G-PLMN &gt; 4G-PLMN &gt; 5G-EARFCN &gt; 4G-EARFCN; 可以用客户端回放查看。搞不定提供数据找研发。</p>
+					</li>
+					<li>
+						<h4>业务类型解析异常</h4>
+						<p>有经验的情况下，像一些文件名是语音的，解析为了空闲，文件名是数据的解析为了空闲，这种情况，直接回放查看信令列表是否有上传下载信令和语音信令就可以了。</p>
+					</li>
+					<li>
+						<h4>文件已经解码入库了，但是在客户端查不到。</h4>
+						<p>这种情况一般是，文件名字写的日期和真正内容的日期是不一样的。导致文件不符合设置的查询条件。</p>
+					</li>
+					<li>
+						<h4>文件已经解析成功，但是在对应的数据库中查不到。</h4>
+						<p>这种情况一般是，同一个文件入库了两次，且命名了不同的名字。路网通的同一个库的 log_file 表中，同一个文件ID只有一条记录，如果重复入库，前面的记录会被后面的记录覆盖。
+						这种情况就会导致，文件可以解码成功，但是只能查到最后一个入库的记录。这时可以在 tb_adapter_file_list 表中查找文件入库的次数时间信息。</p>
+					</li>
+				</ol>
+			</li>
+			<li>
+				<h3>结束语</h3>
+				<p>禽兽之变诈几何哉？止增笑耳。</p>
+			</li>
+		</ul>
+	</div>
+	
+	<footer name="htmlfooter" id="htmlfooter" >
+		<br />
+		<span style="color: #0099CC;">人面不知何处去，桃花依旧笑春风
+		------------------------------------------------------------------------
+		</span>
+		[<a href="#htmlheader">返回顶部</a>]
+		[<a href="../Rams_index.html">返回主页</a>]<br />
+		<span>更新日期 &nbsp; &nbsp; &nbsp; 2021年11月10日 星期三 上午 9:02</span><br />
+		<span>欢迎访问官网 <a href="#">www.fy2000.com</a> &#128151 蓝天的精灵工作室</span>
+		<p></p>
+	</footer>
+</body>
+</html>
