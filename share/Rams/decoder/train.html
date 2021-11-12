@@ -18,6 +18,10 @@
 	h3{
 		color: #009966;
 	}
+	
+	h4{
+		color: #770000;
+	}
 	header{
 		order: 1;
 		width: 1000px;
@@ -51,39 +55,37 @@
 		border-bottom: 1px solid #999999;
 	}
 	
-	.section .code-area{
+	.img-group{
+		width: 907px;
+		border: 1px solid #EEEEEE;
+		text-align: center;
+		margin-top: 5px;
+	}
+	
+	.img-pic-group{
 		width: 100%;
-		height: 50px;
-		text-align: left;
-		border: 1px solid #DDDDDD;
-		border-radius: 10px;
-		background-color: #F8F8FF;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
 	}
 	
-	.section .div-indent2em{
-		padding-left: 2em;
+	.img-pic-item{
+		height: 280px;
+		width: 300PX;
+		text-align: center;
 	}
 	
-	/* 表格 */
-	#tb-decodability {
-		font-family: Arial, Helvetica, sans-serif;
-		border-collapse: collapse;
+	.img-pic-item .item-img{
+		height: 240px;
+		width: 240px;
+		border: 1px solid #BBBBBB;
 	}
-	#tb-decodability th, #tb-decodability td {
-		border: 1px solid #AAAAAA;
-	}
-	#tb-decodability tr:nth-child(even) {
-		background-color: #f2f2f2;
-	}
-	#tb-decodability tr:hover {
-		background-color: #ddd;
-	}
-	#tb-decodability th {
-		padding-top: 8px;
-		padding-bottom: 8px;
-		text-align: left;
-		background-color: #4CAF50;
-		color: white;
+	
+	.img-pic-item .item-desc{
+		display: inline-block;
+		height: 20px;
+		width: 240px;
+		color: #FF0000;
 	}
 	
 	footer {
@@ -163,8 +165,14 @@
 			<li>
 				<h3>解码程序的配置文件</h3>
 				<p>配置文件名为：<b>DtDrvServer.ini</b>，路径为程序目录的 <b>ini</b> 文件夹中,，内容如下：</p>
-				<img src="../img/decoder/train/dtdrvserver_ini.png" >
-				<p>配置项很多，但是日常维护的就几个而已。一下为需要掌握的配置项</p>
+				<a href="../img/decoder/train/dtdrvserver_ini.png" target="_blank">
+					<div style="background-image: url(../img/decoder/train/dtdrvserver_ini.png); 
+								background-repeat: no-repeat; 
+								height: 500px;
+								width: 741px;">
+					</div>
+				</a>
+				<p>配置项很多，但是日常维护的就几个而已。以下为需要掌握的配置项</p>
 				<ul>
 					<li>
 						<h4>[COMMON]</h4>
@@ -227,7 +235,7 @@
 							<li>文件一直被其它程序占用，解码这边没有获得操作权限。</li>
 							<li>属于路网通中间临时文件。</li>
 						</ol>
-						<p>路径解析失败的，找丁婷芳大佬解决。其它几种，直接将文件删掉，或者备份走即可。对于文件太大的，优先测试上传的人员是否可以切割。</p>
+						<p class="chinese-indent">路径解析失败的，找丁婷芳大佬解决。其它几种，直接将文件删掉，或者备份走即可。对于文件太大的，优先测试上传的人员是否可以切割。</p>
 					</li>
 					<li>
 						<h4>文件一直在work目录不解码</h4>
@@ -241,48 +249,107 @@
 							<li>文件大小 1K。</li>
 							<li>更新解码后，忘记将文件重新搬回到ftp目录了。</li>
 						</ol>
-						<p>以上这些是需要一些经验的，比如留意一些路网通无法解析的文件格式，会查看日志。没有经验的话就要找我了。</p>
+						<p class="chinese-indent">以上这些是需要一些经验的，比如留意一些路网通无法解析的文件格式，会查看日志。没有经验的话就要找我了。</p>
 					</li>
 					<li>
 						<h4>程序闪退</h4>
-						<p>这种情况一般是，解码程序在解析到某个文件的时候突然退出。导致剩下文件无法解码。</p>
-						<p>如果出现这种情况，直接查看日志文件 decoder.log ，看最后一条记录的文件名是什么，将此文件找到，移除 work 目录，然后启动解码看情况，如果正常解码了，
+						<p class="chinese-indent">这种情况一般是，解码程序在解析到某个文件的时候突然退出。导致剩下文件无法解码。</p>
+						<p class="chinese-indent">如果出现这种情况，直接查看日志文件 decoder.log ，看最后一条记录的文件名是什么，将此文件找到，移除 work 目录，然后启动解码看情况，如果正常解码了，
 						那就是这一个文件的问题，如果还会闪退，就继续查找闪退的文件。然后吧闪退的文件发给研发定位。</p>
 					</li>
 					<li>
+						<h4>程序卡死</h4>
+						<p class="chinese-indent">程序只是卡死，没有退出。这种情况，可以看下服务器的内存占用情况。内存占用很高的情况下 ，就可以通过重启内存占用极高的程序来解决</p>
+					</li>
+					<li>
 						<h4>运营商解析异常</h4>
-						<p>我们目前的解析规则优先级是 5G-PLMN &gt; 4G-PLMN &gt; 5G-EARFCN &gt; 4G-EARFCN; 可以用客户端回放查看。搞不定提供数据找研发。</p>
+						<p class="chinese-indent">我们目前的解析规则优先级是 5G-PLMN &gt; 4G-PLMN &gt; 5G-EARFCN &gt; 4G-EARFCN; 可以用客户端回放查看。搞不定提供数据找研发。</p>
 					</li>
 					<li>
 						<h4>业务类型解析异常</h4>
-						<p>有经验的情况下，像一些文件名是语音的，解析为了空闲，文件名是数据的解析为了空闲，这种情况，直接回放查看信令列表是否有上传下载信令和语音信令就可以了。</p>
+						<p class="chinese-indent">有经验的情况下，像一些文件名是语音的，解析为了空闲，文件名是数据的解析为了空闲，这种情况，直接回放查看信令列表是否有上传下载信令和语音信令就可以了。</p>
 					</li>
 					<li>
 						<h4>文件已经解码入库了，但是在客户端查不到。</h4>
-						<p>这种情况一般是，文件名字写的日期和真正内容的日期是不一样的。导致文件不符合设置的查询条件。</p>
+						<p class="chinese-indent">这种情况一般是，文件名字写的日期和真正内容的日期是不一样的。导致文件不符合设置的查询条件。</p>
 					</li>
 					<li>
 						<h4>文件已经解析成功，但是在对应的数据库中查不到。</h4>
-						<p>这种情况一般是，同一个文件入库了两次，且命名了不同的名字。路网通的同一个库的 log_file 表中，同一个文件ID只有一条记录，如果重复入库，前面的记录会被后面的记录覆盖。
+						<p class="chinese-indent">这种情况一般是，同一个文件入库了两次，且命名了不同的名字。路网通的同一个库的 log_file 表中，同一个文件ID只有一条记录，如果重复入库，前面的记录会被后面的记录覆盖。
 						这种情况就会导致，文件可以解码成功，但是只能查到最后一个入库的记录。这时可以在 tb_adapter_file_list 表中查找文件入库的次数时间信息。</p>
+					</li>
+					<li>
+						<h4>文件状态和描述查询</h4>
+						<p>文件正常解码入库后，在 tb_log_file_xxxx_xx 表中的文件状态为 1。</p>
+						<p>文件解码异常的时候，可以在 tb_adapter_file_list 表中查看文件错误的描述，可以提高反馈准确度。</p>
 					</li>
 				</ol>
 			</li>
 			<li>
+				<h3>几种常见的异常文件</h3>
+				<p>文件异常，即文件内容格式和实际的文件后缀所代表的格式不一样。这种文件会导致解码识别出现错误，导致无法解码。</p>
+				<div class="img-group">
+					<h4>RCU 文件</h4>
+					<div class="img-pic-group">
+						<div class="img-pic-item">
+							<a href="../img/decoder/train/rcu_normal.png" target="_blank">
+								<img class="item-img" src="../img/decoder/train/rcu_normal.png" >
+							</a>
+							<div class="item-desc" style="color: #006600;">正常文件</div>
+						</div>
+						<div class="img-pic-item">
+							<a href="../img/decoder/train/rcu_unknown1.png" target="_blank">
+								<img class="item-img" src="../img/decoder/train/rcu_unknown1.png" >
+							</a>
+							<div class="item-desc">异常文件1</div>
+						</div>
+						<div class="img-pic-item">
+							<a href="../img/decoder/train/rcu_unknown2.png" target="_blank">
+								<img class="item-img" src="../img/decoder/train/rcu_unknown2.png" >
+							</a>
+							<div class="item-desc">异常文件2</div>
+						</div>
+					</div>
+				</div>
+				<div class="img-group">
+					<h4>ATU 文件</h4>
+					<div class="img-pic-group">
+						<div class="img-pic-item">
+							<a href="../img/decoder/train/atu_nomal.png" target="_blank">
+								<img class="item-img" src="../img/decoder/train/atu_nomal.png" >
+							</a>
+							<div class="item-desc" style="color: #006600;">正常文件</div>
+						</div>
+						<div class="img-pic-item">
+							<a href="../img/decoder/train/atu_unknown1.png" target="_blank">
+								<img class="item-img" src="../img/decoder/train/atu_unknown1.png" >
+							</a>
+							<div class="item-desc">异常文件1</div>
+						</div>
+						<div class="img-pic-item">
+							<a href="../img/decoder/train/atu_unknown2.png" target="_blank">
+								<img class="item-img" src="../img/decoder/train/atu_unknown2.png" >
+							</a>
+							<div class="item-desc">异常文件2</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
 				<h3>结束语</h3>
-				<p>禽兽之变诈几何哉？止增笑耳。</p>
+				<p>生命因运动而精彩，生活因乐趣而充实，学习因思考而深刻，交友因真诚而持久！</p>
 			</li>
 		</ul>
 	</div>
 	
 	<footer name="htmlfooter" id="htmlfooter" >
 		<br />
-		<span style="color: #0099CC;">人面不知何处去，桃花依旧笑春风
+		<span style="color: #0099CC;">人间四月芳菲尽，山寺桃花始盛开
 		------------------------------------------------------------------------
 		</span>
 		[<a href="#htmlheader">返回顶部</a>]
 		[<a href="../Rams_index.html">返回主页</a>]<br />
-		<span>更新日期 &nbsp; &nbsp; &nbsp; 2021年11月10日 星期三 上午 9:02</span><br />
+		<span>更新日期 &nbsp; &nbsp; &nbsp; 2021年11月11日 星期四 上午 11:41</span><br />
 		<span>欢迎访问官网 <a href="#">www.fy2000.com</a> &#128151 蓝天的精灵工作室</span>
 		<p></p>
 	</footer>

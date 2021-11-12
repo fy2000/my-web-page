@@ -1,9 +1,272 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-	</head>
-	<body>
-	</body>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="icon" href="../../img/fy2000_tb.png">
+<title>4G统计程序培训</title>
+<style type="text/css">
+	body{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		min-width: 1000px;
+		background-color: rgb(253, 252, 248);
+	}
+	.chinese-indent{
+		text-indent: 2em;
+	}
+	h3{
+		color: #009966;
+	}
+	
+	h4{
+		color: #770000;
+	}
+	header{
+		order: 1;
+		width: 1000px;
+		height: 100px;
+		text-align: center;
+		color: #E0FFFF;
+		background-color: #009933;
+	}
+	header img{
+		float: left;
+	}
+	header:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+	
+	.head-nav{
+		order: 2;
+		width: 1000px;
+		height: 53px;
+		text-align: right;
+		margin-top: 5px;
+		background-color: #CCDDFF;
+		border-radius: 5px;
+	}
+	
+	.section{
+		order: 3;
+		width: 1000px;
+		border-bottom: 1px solid #999999;
+	}
+	
+	.img-group{
+		width: 907px;
+		border: 1px solid #EEEEEE;
+		text-align: center;
+		margin-top: 5px;
+	}
+	
+	.img-pic-group{
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+	
+	.img-pic-item{
+		height: 280px;
+		width: 300PX;
+		text-align: center;
+	}
+	
+	.img-pic-item .item-img{
+		height: 240px;
+		width: 240px;
+		border: 1px solid #BBBBBB;
+	}
+	
+	.img-pic-item .item-desc{
+		display: inline-block;
+		height: 20px;
+		width: 240px;
+		color: #FF0000;
+	}
+	
+	/*表格CSS设计*/
+	#tb-decodability {
+		font-family: Arial, Helvetica, sans-serif;
+		border-collapse: collapse;
+	}
+	#tb-decodability th, #tb-decodability td {
+		border: 1px solid #AAAAAA;
+		padding: 8px;
+	}
+	#tb-decodability tr:nth-child(even) {
+		background-color: #f2f2f2;
+	}
+	#tb-decodability tr:hover {
+		background-color: #ddd;
+	}
+	#tb-decodability th {
+		padding-top: 12px;
+		padding-bottom: 12px;
+		text-align: left;
+		background-color: #4CAF50;
+		color: white;
+	}
+	
+	footer {
+		order: 4;
+		width: 1000px;
+	}
+	footer span {
+		font-size: 18px;
+		color: #0066CC;
+	}
+</style>
+</head>
+
+<body>
+	<header name="htmlheader" id="htmlheader">
+		<img src="../img/4gkpistat/train/4G-KPIStat_train.png" >
+		<h1>4G-KPI统计培训</h1>
+	</header>
+	
+	<div class="head-nav">
+		<ul style="float: left; list-style-type: none; margin: 0; padding: 5px; text-align: left;">
+			<li>上一篇：<a href="../decoder/train.html">解码后台培训</a></li>
+			<li>下一篇：<a href="../5gkpistat/train.html">5G-KPI统计程序培训</a></li>
+		</ul>
+		<ul style="float: right; list-style-type: none; margin: 0; padding: 5px;">
+			<li>[<a href="#htmlfooter">跳到底部</a>]</li>
+			<li>[<a href="../Rams_index.html">返回主页</a>]</li>
+		</ul>
+	</div>
+	
+	<div class="section">
+		<ul>
+			<li>
+				<h3>认识界面</h3>
+				<img src="../img/4gkpistat/train/4Gkpistat_train_interface.png" >
+				<p>说明：</p>
+				<ul>
+					<li>
+						<h4>软件信息</h4>
+						<p>由上图可以看到，软件信息包括了：<b>软件路径</b>，<b>是否读取 .sam 文件</b>，<b>栅格大小</b>，三种信息</p>
+					</li>
+					<li>
+						<h4>菜单栏</h4>
+						<p>菜单栏总共有三项：<b style="color: #FF6600;">工具</b>、<b style="color: #FF6600;">帮助</b>和<b style="color: #FF6600;">功能</b>。<br />
+						工具中有三个子项：<b>选项</b>、<b>导出配置信息</b>、<b style="color: #FF6600;">重启</b>。目前<b style="color: #FF0000;">只有重启是有用</b>的，其它功能废除。<br />
+						帮助中有两项：<b>使用帮助</b>、<b>关于</b>。都没有功能。<br />
+						功能中有四项：<b>DES加密</b>、<b>DES解密</b>、<b style="color: #FF6600;">查找统计文件范围</b>、<b style="color: #FF6600;">查看是否存在冲突</b>。其中DES加解密由于使用的key不一样，所以无用。<br />
+						其中<b style="color: #FF6600;">查看是否存在冲突</b>功能可以比对多个软件的配置文件，即 .config 文件，可以检查两个软件配置文件是否配置冲突了。
+						</p>
+						<p>而<b style="color: #FF6600;">查找统计文件范围</b>功能则会输出当前软件配置的统计条件到界面！如下所示：</p>
+						<img src="../img/4gkpistat/train/4G-kpi-stat_cfg_train.png" >
+					</li>
+					<li>
+						<h4>统计条件</h4>
+						<p class="chinese-indent">可以通过对个别文件进行筛选统计。条件包含了<b style="color: #FF6600;">地市</b>，<b style="color: #FF6600;">文件ID</b>两种信息。
+						其它条件继承配置文件的。写好条件后，点击<b>开始查询</b>按钮，如果有查到，那么会显示在文件列表中。
+						此时按钮显示有<b>开始查询</b>变化为<b>开始统计</b>，点击<b>开始统计</b>就可以了。</p>
+					</li>
+					<li>
+						<h4>立即开始</h4>
+						<p>点击<b>立即开始</b>按钮，程序就会<b style="color: #FF0000;">循环</b>每个地市和每个地市网络类型进行查询文件统计。</p>
+					</li>
+					<li>
+						<h4>文件列表、日志区域</h4>
+						<ul>
+							<li>文件列表：显示待统计文件和正在统计文件的基本信息。</li>
+							<li>日志区域：输出统计日志。</li>
+						</ul>
+					</li>
+					<li>
+						<h4>状态栏</h4>
+						<p class="chinese-indent">状态栏显示程序的启动时间，执行次数，已经统计文件的总数量，统计失败的数量，剩余待统计文件的数量，当前处理的地市，以及实时内存占用情况。</p>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<h3>解码程序部署要点</h3>
+				<p class="chinese-indent"><b><span style="color: red;">部署多个的情况下，不用修改软件原始名字，只要软件ID配置不同就可以！另外，每个的统计条件要互斥！！</span></b></p>
+			</li>
+			<li>
+				<h3>配置文件</h3>
+				<p>配置文件名为：<b>GridStat_IMAGE.exe.config</b>，路径为程序目录的文件夹中,，内容如下：</p>
+				<a href="../img/4gkpistat/train/4G-kpi-stat-config.png" target="_blank">
+					<div style="background-image: url(../img/4gkpistat/train/4G-kpi-stat-config.png); 
+								background-repeat: no-repeat; 
+								height: 500px;
+								width: 741px;">
+					</div>
+				</a>
+				<p>配置项很多，以下为需要掌握的配置项</p>
+				<table id="tb-decodability" style="width: 90%">
+					<caption>配置项说明</caption>
+					<tr><th>名称</th><th>说明</th></tr>
+					<tr><td>DBNum</td><td>地市库个数，大部分省份都是有多个地市库的，多地市库的需要配置具体的地市库数量。</td></tr>
+					<tr><td>DTASYSTEMConnectionStringdb</td><td>数据库连接字符串，此配置有30个，根据DBNum个数按顺序填写。</td></tr>
+					<tr><td>DealProjectList</td><td>需要统计的项目类型，多个时用逗号分开，不写默认为全部都统计。</td></tr>
+					<tr><td>NotDealProjectList</td><td>不需要处理的项目类型，多个时用逗号分开，不写默认为没有。</td></tr>
+					<tr><td>DealAreaTypeList</td><td>需要统计的地域类型列表，多个时用逗号分开，不写默认为全部都统计。</td></tr>
+					<tr><td>HandleServiceTypeIds</td><td>需要统计的业务类型列表，多个时用逗号分开，不写默认为全部都统计。</td></tr>
+					<tr><td>SkipServiceTypeIds</td><td>不需要统计的业务类型，多个时用逗号分开，不写默认为没有。</td></tr>
+					<tr><td>GridStat_GSM</td><td rowspan="9">需要统计的网络类型开关，1：打开  0：关闭</td></tr>
+					<tr><td>GridStat_CDMA</td></tr>
+					<tr><td>GridStat_CDMA2000</td></tr>
+					<tr><td>GridStat_TDSCDMA</td></tr>
+					<tr><td>GridStat_WCDMA</td></tr>
+					<tr><td>GridStat_LTE</td></tr>
+					<tr><td>GridStat_LTEFDD</td></tr>
+					<tr><td>GridStat_SCAN</td></tr>
+					<tr><td>GridStat_WLAN</td></tr>
+					<tr><td>DealExeIDList</td><td>解码ID列表，即统计哪个解码解析的文件。多个时用逗号分开，不写默认为全部都统计。</td></tr>
+					<tr><td>ApplicationID</td><td>软件自己的ID，部署多个时，需要与其它统计程序的ID互斥。</td></tr>
+					<tr><td>StatMonthsAppend</td><td>统计的时间范围，即在这个时间范围内的文件才会被统计到。</td></tr>
+					<tr><td>StatType</td><td>统计类型，即文件当前状态在统计类型中的，才会被统计到。</td></tr>
+					<tr><td>TENGRID_30_30</td><td rowspan="2">栅格大小，除这两个外，如果这两个都不打开的话，就是 40 x 40 的栅格。</td></tr>
+					<tr><td>TENGRID_100_100</td></tr>
+					<tr><td>StatMethod_Log</td><td rowspan="4">统计维度开关。文件纬度、小区维度、栅格维度、小区栅格维度。</td></tr>
+					<tr><td>StatMethod_Cell</td></tr>
+					<tr><td>StatMethod_Grid</td></tr>
+					<tr><td>StatMethod_CellGrid</td></tr>
+					<tr><td>SamFilesDir</td><td>sam文件路径，解码程序的 Stat 路径。</td></tr>
+					<tr><td>DealCitys</td><td>需要处理的地市ID列表，多个时用逗号分开，不写默认为全部都统计。</td></tr>					
+				</table>
+			</li>
+			<li>
+				<h3>常见问题</h3>
+				<ol>
+					<li>
+						<h4>统计文件时卡死，不报错</h4>
+						<p>这种原因基本就是内存不够用导致的，即内存被其它程序吃掉了，导致剩余的内存不够分配给统计程序使用。统计程序一直等待分配内存。</p>
+					</li>
+					<li>
+						<h4>手动统计时，查不到文件</h4>
+						<p>原因一般为，要统计的文件和当前使用的统计程序条件不符。</p>
+					</li>
+					<li>
+						<h4>分流配置</h4>
+						<p>在分流的时候，可以根据上述的 项目类型，解码ID，业务类型，等进行设置。</p>
+					</li>
+				</ol>
+			</li>
+			
+			<li>
+				<h3>结束语</h3>
+				<p class="chinese-indent">往事如歌，在人生的旅途中，尽管有过坎坷，有过遗憾，却没有失去青春的美丽。相信自己，希望总是有的，让我们记住那句话：错过了太阳，我不哭泣，否则，我将错过月亮和星辰。</p>
+			</li>
+		</ul>
+	</div>
+	
+	<footer name="htmlfooter" id="htmlfooter" >
+		<br />
+		<span style="color: #0099CC;">沉舟侧半千帆过，病树前头万木春
+		------------------------------------------------------------------------
+		</span>
+		[<a href="#htmlheader">返回顶部</a>]
+		[<a href="../Rams_index.html">返回主页</a>]<br />
+		<span>更新日期 &nbsp; &nbsp; &nbsp; 2021年11月11日 星期四 下午 17:17</span><br />
+		<span>欢迎访问官网 <a href="#">www.fy2000.com</a> &#128151 蓝天的精灵工作室</span>
+		<p></p>
+	</footer>
+</body>
 </html>
