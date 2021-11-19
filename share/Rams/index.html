@@ -62,6 +62,30 @@
 		.model-col-item:hover,.interest-col-item:hover{
 			background-color: #FFEFD5;
 		}
+		
+		.video-col-item{
+			position: relative;
+			display: block;
+			height: 30px;
+			color: #F5FFFA;
+			background-color: #20B2AA;
+		}
+		.video-col-item .video-desc{
+			position: absolute;
+			left: 36px;
+			line-height: 30px;
+		}
+		.video-col-item .video-img{
+			position: absolute;
+			left: 136px;
+			top: 2px;
+		}
+		.video-col-item .video-img img{
+			width: 25px;
+			height: 27px;
+		}
+		
+		
 		.last-word {
 			width: 1000px;
 			margin: auto;
@@ -127,7 +151,7 @@
 		</tr>
 		<tr>
 			<td class="model-col-item"><a href="#"></a></td>
-			<td class="update-col-item"></td>
+			<td class="update-col-item">8.新增<a class="video-tag" href="#">视频学习专区</a>模块</td>
 			<td class="interest-col-item"></td>
 		</tr>
 		<tr>
@@ -138,17 +162,20 @@
 		<tr>
 			<td class="model-col-item"><a href="#"></a></td>
 			<td class="update-col-item"></td>
-			<td class="interest-col-item"></td>
+			<td class="video-col-item">
+				<div class="video-desc">教学视频专区</div>
+				<div class="video-img"><img src="./img/movie.png" ></div>
+			</td>
 		</tr>
 		<tr>
 			<td class="model-col-item"><a href="#"></a></td>
 			<td class="update-col-item"></td>
-			<td class="interest-col-item"></td>
+			<td class="interest-col-item"><a href="./video/city_train_video.html">运维培训视频</a></td>
 		</tr>
 		<tr>
 			<td class="model-col-item"><a href="#"></a></td>
 			<td class="update-col-item"></td>
-			<td class="interest-col-item"></td>
+			<td class="interest-col-item"><a href="./video/rams_train_video.html">内部培训视频</a></td>
 		</tr>
 		<tr>
 			<td class="model-col-item"><a href="#"></a></td>
@@ -165,5 +192,40 @@
 		<span>更新日期 &nbsp; &nbsp; &nbsp; 2021年11月10日 星期三 下午 14:07</span><br />
 		<span>欢迎访问官网 <a href="#">www.fy2000.org</a> &#128151 蓝天的精灵工作室</span>
 	</div>
+	
+	<script type="text/javascript">
+		var videoTd = document.getElementsByClassName('video-col-item')[0];
+		var videoTag = document.getElementsByClassName("video-tag")[0];
+		
+		var org_color = window.getComputedStyle(videoTd, null).backgroundColor;
+		var new_color = "rgb(255, 102, 153)";
+		
+		function shineTagTimer(){
+			var count = 0;
+			var timer1 = setInterval(function(){
+				count++;
+				
+				var videoTd_style = window.getComputedStyle(videoTd, null);
+
+				if (videoTd_style.backgroundColor != org_color)
+				{
+					videoTd.style.backgroundColor = org_color;
+				}else{
+					videoTd.style.backgroundColor = new_color;
+				}
+				
+				if (count == 10){
+					videoTd.style.backgroundColor = org_color;
+					clearInterval(timer1);
+				}
+			}, 100);
+
+			return false;
+		}
+		
+		videoTag.onclick = shineTagTimer;
+
+		
+	</script>
 </body>
 </html>
