@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>路径解析解码分享</title>
+	<link rel="icon" href="../../../img/fy2000_tb.png">
+	<style>
+		.body-style {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			min-height: 1000px;
+			background-color: #FFE4E1;
+		}
+		.div-top-bar {
+			order: 1;
+			width: 1000px;
+			border-bottom: 2px solid #FFAA33;
+		}
+		.chinese-indent{
+			text-indent: 2em;
+		}
+		header {
+			order: 2;
+			width: 1000px;
+			text-align: center;
+		}
+		h3{
+			color: #AA0000;
+		}
+		h4{
+			color: #009933;
+		}
+		b{
+			color: #FF3E96;
+		}
+		
+		.div-content-body {
+			order: 3;
+			display: flex;
+			width: 1000px;
+			border-top: 1px solid black;
+			border-bottom: 1px solid black;
+		}
+		.left-nav {
+			order: 1;
+			flex: 0 0 120px;
+			border-right: 1px solid black;
+		}
+		.right-aside {
+			order: 3;
+			flex: 0 0 120px;
+			border-left: 1px solid black;
+		}
+		.main-content-style {
+			order: 2;
+			width: 700px;
+			padding-left: 30px;
+			padding-right: 30px;
+		}
+		.nav-ul-bar {
+			position: sticky;
+			top: 16px;
+			padding-left: 28px;
+		}
+		.splitline {
+			line-height: 30px;
+			text-align: center;
+			color: #FFFFCC;
+			background-image: url(../../img/decoder/Splitline.png);
+			background-size: 100% 30px;
+			background-repeat: no-repeat;
+		}
+		.nav-ul-bar li {
+			margin-top: 6px;
+			margin-bottom: 6px;
+		}
+		.nav-ul-bar li a {
+			text-decoration: none;
+		}
+		.nav-ul-bar li a:hover {
+			font-weight: bold;
+		}
+		.top-ul-bar {
+			list-style-type: none;
+		}
+		.top-ul-bar li {
+			display: inline;
+		}
+		.top-ul-bar li a {
+			margin: 6px;
+			padding: 2px;
+			font-size: 20px;
+			text-align: center;
+			text-decoration: none;
+		}
+		.top-ul-bar li a:hover {
+			text-shadow: 2px 2px 5px red;
+		}
+		.aside-ul-bar {
+			position: sticky;
+			top: 16px;
+			padding-left: 20px;
+			list-style-type: none;
+		}
+		.aside-ul-bar li {
+			margin-top: 6px;
+			margin-bottom: 6px;
+		}
+		.aside-ul-bar li a {
+			text-align: center;
+			text-decoration: none;
+		}
+		.aside-ul-bar li a:hover {
+			font-weight: bold;
+		}
+		
+		.ul-no-list-style{
+			padding: 0;
+			list-style: none;
+		}
+		
+		/*表格CSS设计*/
+		#tb-decodability {
+			font-family: Arial, Helvetica, sans-serif;
+			border-collapse: collapse;
+		}
+		#tb-decodability th, #tb-decodability td {
+			border: 1px solid #AAAAAA;
+			padding: 8px;
+		}
+		#tb-decodability tr:nth-child(even) {
+			background-color: #f2f2f2;
+		}
+		#tb-decodability tr:hover {
+			background-color: #ddd;
+		}
+		#tb-decodability th {
+			padding-top: 12px;
+			padding-bottom: 12px;
+			text-align: left;
+			background-color: #4CAF50;
+			color: white;
+		}
+		
+		
+		footer {
+			order: 4;
+			width: 1000px;
+		}
+		footer span {
+			font-size: 18px;
+			color: #0066CC;
+		}
+	</style>
+</head>
+<body class="body-style">
+	<div class="div-top-bar">
+		<img src="../../img/MasterCom.gif" style="float: left; width: 150px;">
+		<ul class="top-ul-bar">
+			<li><a href="#">路径解析</a></li>
+			<li><a href="../ms/HiSiliconV3.html">海思芯片</a></li>
+			<li><a href="../ms/Qualcomm.html">高通芯片</a></li>
+		</ul>
+	</div>
+	<header><h1 style="font-family: KaiTi;">路径解析解码分享</h1></header>
+	<div class="div-content-body">
+		<main class="main-content-style">
+			<ul class="ul-no-list-style">
+				<li id="one-flag">
+					<h3>一、序</h3>
+					<p class="chinese-indent">
+						我们知道，解析流程最开始的阶段就是<b>路径解析</b>，而一个文件是否能够进入解码的流程，其首要满足的要素就是路径<b>解析成功</b>。
+						而<b>路径解析</b>作为解码后台的一个部分，理解起来相对是比较难的。再加上涉及的表之多，逻辑较深，所以不是很好理解。
+					</p>
+					<p class="chinese-indent">针对以上三个原因，<b>路径解析</b>的流程需要单独阐明。</p>
+				</li>
+				<li id="two-flag">
+					<h3>二、作用</h3>
+					<p class="chinese-indent">有很多的属性，只通过解析文件是不能获得的，比如项目类型，测试类型等，但是有了路径解析，通过给目录设定属性，
+					就使得在此目录下的文件也继承了这种属性。从而可以为文件绑定各种必要的属性。</p>
+					<p class="chinese-indent">路径解析的作用就是“<b>捆绑属性</b>”，就是将路径上面附着的属性，捆绑到此路径下所有的文件上。
+						例如：路径A上附着的项目类型为【日常优化】，那么只要是上传到A目录下面的文件，正常解码后所属的项目类型就是【日常优化】。
+					</p>
+					<p class="chinese-indent">可附着的属性非常之多，有：文件名、文件路径、当前文件名、原始文件类型、当前文件类型、<b>项目类型</b>、业务类型、<b>测试类型</b>、数据库ID、
+					年、月、<b>地域类型</b>、<b>地域值</b>、运营商、设备型号等，其中红色属性为主要目的。</p>
+				</li>
+				<li id="three-flag">
+					<h3>三、解析原理</h3>
+					<ul>
+						<li>
+							<h4>外层解析流程</h4>
+							<a href="../../img/decoder/dirparser/dirparser_outframe_ybj.png" target="_blank">
+								<img src="../../img/decoder/dirparser/dirparser_outframe.png" width="90%">
+							</a>
+							<p class="chinese-indent">路径解析的外层解析流程，实际上就是文件从 FTP 目录搬移到 work 目录的流程。此流程默认每5分钟执行一次。
+							外边是一个大循环。每次循环都会<b>访问数据库</b>，加载每个数据库的路径解析配置，然后进入到<b>文件检索处理流程</b>。</p>
+							<p class="chinese-indent">在文件检索处理流程中，进行着<b>检索</b>和<b>处理</b>的同步工作。
+							即每当检索到一个文件后，先<b>判定文件有效</b>，然后进行<b>路径解析</b>，之后做<b>插表</b>和<b>错误处理</b>。
+							这些工作都做完后，才能进入下一次的<strong>检索处理流程</strong>。这是一个小循环。当这个循环结束后，即检索的文件都处理后，才能跳出到大循环中。</p>
+						</li>
+						<li>
+							<h4>内部解析流程</h4>
+							<a href="../../img/decoder/dirparser/dirparser_inframe_ybj.png" target="_blank">
+								<img src="../../img/decoder/dirparser/dirparser_inframe.png" width="90%">
+							</a>
+							<p class="chinese-indent"><strong>内部解析流程</strong>为真正的路径解析部分。所谓路径解析的<b>路径</b>，指的就是文件的<b>相对路径名</b>，
+							即绝对路径从<b>Ftp之后</b>开始截取的部分。也就是路径解析配置工具中看到的那部分<b>路径树</b>。</p>
+							<p class="chinese-indent"> 先将<b>相对路径名</b>拆分成一个个的目录文件夹名字。然后结合路径解析的配置，找到对应<b>节点的全部属性</b>，接着存放到属性列表中。
+							然后，<b>拆分文件名</b>，根据<b>文件名命名模板</b>，解析出对应的属性，添加到属性列表中。 此时和文件可能有关联的属性就都在列表中了。最后，
+							将需要的属性全部<b>绑定</b>到文件身上。一个文件路径解析就完成了。最后<strong>跳出循环</strong>。</p>
+						</li>
+					</ul>
+				</li>
+				<li id="four-flag">
+					<h3>四、路径解析表</h3>
+					<p class="chinese-indent">与解码程序路径解析相关的表有如下：</p>
+					<table id="tb-decodability" style="width: 95%;">
+						<caption><h3>路径解析关联表</h3></caption>
+						<tr><th style="width: 40px;">表名</th><th>存放数据说明</th></tr>
+						<tr><td>tb_cfg_static_dbsetting</td><td>存放各个数据库连接信息</td></tr>
+						<tr><td>tb_cfg_dirparser_dir</td><td>存放目录的层级和层级序号</td></tr>
+						<tr><td>tb_cfg_dirparser_file</td><td>存放文件类型和对应的ID</td></tr>
+						<tr><td>tb_cfg_dirparser_path</td><td>存放目录层级关系，目录序号，已经目录对应属性关心</td></tr>
+						<tr><td>tb_cfg_dirparser_part</td><td>存放解析类型信息列表中配置的内容</td></tr>
+						<tr><td>tb_cfg_dirparser_file_part</td><td>存放文件名解析模版表中配置的内容</td></tr>
+						<tr><td>tb_cfg_static_areatype</td><td>存放地域类型信息</td></tr>
+						<tr><td>tb_cfg_static_arealist</td><td>存放地域内的场景列表信息</td></tr>
+						<tr><td>tb_cfg_static_point</td><td>存放CQT地域类型经纬度的信息</td></tr>
+						<tr><td>tb_cfg_static_year</td><td>存放年份和对应数值</td></tr>
+						<tr><td>tb_cfg_static_month</td><td>存放月份和对应数值</td></tr>
+					</table>
+				</li>
+			</ul>
+
+			<div style="margin-top: 100px; text-align: center; border-top: 1px solid black;">
+				<img src="../../img/decoder/ganxieyu.png">
+			</div>
+		</main>
+		<nav class="left-nav">
+			<ul class="nav-ul-bar">
+				<li><a href="#one-flag">序</a></li>
+				<li><a href="#two-flag">作用</a></li>
+				<li><a href="#three-flag">解析原理</a></li>
+				<li><a href="#four-flag">路径解析表</a></li>
+			</ul>
+		</nav>
+		<aside class="right-aside">
+			<ul class="aside-ul-bar">
+				<li><a href="../decoder.html">返回上级</a></li>
+				<li><a href="#">路径解析</a></li>
+				<li><a href="../ms/HiSiliconV3.html">海思芯片</a></li>
+				<li><a href="../ms/Qualcomm.html">高通芯片</a></li>
+			</ul>
+		</aside>
+	</div>
+	<footer>
+		<br />
+		<span style="color: #0099CC;">欲穷千里目，更上一层楼
+		-------------------------------------------------------------------------------------------
+		</span><a href="../decoder.html">返回上一级</a><br />
+		<span>更新日期 &nbsp; &nbsp; &nbsp; 2021年11月24日 星期三 上午 11:31</span><br />
+		<span>欢迎访问官网 <a href="#">www.fy2000.org</a> &#128151 蓝天的精灵工作室</span>
+		<p></p>
+	</footer>
+</body>
+</html>
