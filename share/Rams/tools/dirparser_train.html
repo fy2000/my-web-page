@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="icon" href="../../img/fy2000_tb.png">
-<title>路径设置培训</title>
+<title>路径解析设置培训</title>
 <style type="text/css">
 	body{
 		display: flex;
@@ -89,6 +89,29 @@
 		height: 20px;
 		width: 240px;
 		color: #FF0000;
+	}
+	
+	/*表格CSS设计*/
+	#tb-decodability {
+		font-family: Arial, Helvetica, sans-serif;
+		border-collapse: collapse;
+	}
+	#tb-decodability th, #tb-decodability td {
+		border: 1px solid #AAAAAA;
+		padding: 8px;
+	}
+	#tb-decodability tr:nth-child(even) {
+		background-color: #f2f2f2;
+	}
+	#tb-decodability tr:hover {
+		background-color: #ddd;
+	}
+	#tb-decodability th {
+		padding-top: 12px;
+		padding-bottom: 12px;
+		text-align: left;
+		background-color: #4CAF50;
+		color: white;
 	}
 	
 	.last-word{
@@ -259,6 +282,35 @@
 						<p>方式就是，对于烽火的无后缀名的文件，在配置<b>解析类型</b>的时候，填写后缀名为 <b>noExt</b>，这样解码在路径解析的时候就会知道是无后缀的文件，可以路径解析成功。
 						简化配置复杂度，增加了兼容性。</p>
 					</li>
+					<li>
+						<h4>涉及表说明</h4>
+						<table id="tb-decodability" style="width: 90%">
+							<caption>主要涉及的表</caption>
+							<tr><th>表名称</th><th>说明</th></tr>
+							<tr><td>tb_cfg_dirparser_attribute</td><td>分类类型表</td></tr>
+							<tr><td>tb_cfg_dirparser_dir</td><td>目录配置表</td></tr>
+							<tr><td>tb_cfg_dirparser_file</td><td>文件名</td></tr>
+							<tr><td>tb_cfg_dirparser_file_part</td><td>文件部分属性配置</td></tr>
+							<tr><td>tb_cfg_dirparser_filemodel</td><td>文件模板命名</td></tr>
+							<tr><td>tb_cfg_dirparser_fileparsetype</td><td>文件解析种类</td></tr>
+							<tr><td>tb_cfg_dirparser_part</td><td>文件模板配置</td></tr>
+							<tr><td>tb_cfg_dirparser_path</td><td>目录属性配置</td></tr>
+						</table>						
+					</li>
+					<li>
+						<h4>表字段说明</h4>
+						<table id="tb-decodability" style="width: 90%">
+							<caption>路径解析表字段说明</caption>
+							<tr><th>表名称</th><th>表字段说明</th></tr>
+							<tr><td>tb_cfg_dirparser_dir</td><td><ul><li>type: 目录层次</li><li>id: 层次里的次序</li><li>name: 目录节点名</li></ul></td></tr>
+							<tr><td>tb_cfg_dirparser_file</td><td><ul><li>id: 文件id</li><li>name: 文件名</li></ul></td></tr>
+							<tr><td>tb_cfg_dirparser_file_part</td><td><ul><li>file_id: 文件模板id</li><li>sn: 解析位置</li><li>part_id: 解析位置属性</li></ul></td></tr>
+							<tr><td>tb_cfg_dirparser_filemodel</td><td><ul><li>iid: 文件模板id</li><li>type: 文件模板属性</li><li>name: 文件模板名</li></ul></td></tr>
+							<tr><td>tb_cfg_dirparser_fileparsetype</td><td><ul><li>iid: 文件解析类型id</li><li>name: 文件解析类型名</li>	</ul></td></tr>
+							<tr><td>tb_cfg_dirparser_part</td><td><ul><li>id: 部分id</li><li>begin_index: 起点位置</li><li>reverse_begin: 重点位置</li><li>parse_type: 文件解析类型</li>	<li>dir_type: 分类属性</li><li>category_type: 分类属性里的属性名</li></ul></td></tr>
+							<tr><td>tb_cfg_dirparser_path</td><td><ul><li>parent_id: 父节点id</li><li>is_dir:是否为路径</li><li>dir_type:目录层次</li><li>dir_id:层次里的次序</li><li>file_id:文件名id从"tb_cfg_dirparser_file "来</li><li>id:自节点id</li><li>category_type:分类属性</li><li>category_id:分类属性里的属性名</li></ul></td></tr>
+						</table>						
+					</li>
 				</ol>
 			</li>
 			<li>
@@ -276,7 +328,7 @@
 		</span>
 		[<a href="#htmlheader">返回顶部</a>]
 		[<a href="../index.html">返回主页</a>]<br />
-		<span>更新日期 &nbsp; &nbsp; &nbsp; 2021年11月24日 星期三 晚上 19:26</span><br />
+		<span>更新日期 &nbsp; &nbsp; &nbsp; 2021年11月25日 星期四 晚上 10:08</span><br />
 		<span>欢迎访问官网 <a href="#">www.fy2000.org</a> &#128151 蓝天的精灵工作室</span>
 		<p></p>
 	</footer>
